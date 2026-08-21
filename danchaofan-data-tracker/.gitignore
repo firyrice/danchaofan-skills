@@ -1,0 +1,18 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# 生成物 / 临时文件
+/tmp/
+
+# 各平台创作者后台会话 cookie（私有，切勿入库）
+.douyin_cookie
+.xiaohongshu_cookie
+.bilibili_cookie
+.channels_cookie
+*_raw_*.json

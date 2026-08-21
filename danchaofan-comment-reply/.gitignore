@@ -1,0 +1,15 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# 生成物 / 临时文件
+/tmp/
+
+# 密钥类，双保险
+.env
+*.key
