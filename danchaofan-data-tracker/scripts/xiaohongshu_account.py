@@ -8,11 +8,17 @@
     Chromium，注入创作者后台会话 cookie，打开数据中心页，在页面 response 事件里
     截三个接口的 JSON，解析成 Markdown。
 
-三个关键接口：
+四个关键接口：
     - api/galaxy/v2/creator/datacenter/account/base
         → 账号概览指标，data 下含 seven（近7天）/ thirty（近30天）两段，每段带
           观看/曝光/点赞/收藏/评论/分享/涨粉/净增粉/流失粉/主页访问/完播率/封面点
           击率/人均时长… 以及每项的逐日 *_list 趋势
+        ⚠️ 注意：base 只给「区间涨粉增量」，没有「当前总粉丝量」
+    - api/galaxy/creator/home/personal_info
+        → 账号现状快照：fans_count（当前总粉丝量）/ follow_count（关注数）/
+          faved_count（获赞与收藏）/ grow_info.max_fans_count（历史峰值粉丝）/
+          grow_info.level（创作者等级）。这个接口只在创作者首页 /new/home 触发，
+          所以 scrape 会先访问首页再访问数据中心
     - api/galaxy/v2/creator/datacenter/audience/source/account
         → 流量来源占比（视频推荐/首页推荐/搜索/主页/其他），也分 seven/thirty
     - api/galaxy/user/info
@@ -51,6 +57,7 @@ ACCOUNT_DIR = os.path.join(workspace_root(), "账号数据")  # 回指创作 ski
 OUT_MD = os.path.join(ACCOUNT_DIR, "小红书.md")
 
 URL = "https://creator.xiaohongshu.com/statistics/account/v2"
+HOME_URL = "https://creator.xiaohongshu.com/new/home"  # personal_info（总粉丝量）只在首页触发
 
 # 账号概览指标：英文键 → (中文标签, 类型)  int=计数 pct=百分比(已是百分数) sec=秒
 ACCOUNT_FIELDS = [
@@ -104,6 +111,15 @@ SOURCE_TYPE_LABELS = {
 
 PERIODS = [("seven", "近7天"), ("thirty", "近30天")]
 
+# 账号现状快照：personal_info 里的字段 → (中文标签, 取值路径)  取值路径用点分层
+PERSONAL_FIELDS = [
+    ("当前总粉丝量", "fans_count"),
+    ("获赞与收藏",   "faved_count"),
+    ("关注数",       "follow_count"),
+    ("历史峰值粉丝", "grow_info.max_fans_count"),
+    ("创作者等级",   "grow_info.level"),
+]
+
 
 def _fmt_date(ms):
     """毫秒时间戳 → 'YYYY-MM-DD'。"""
@@ -118,7 +134,7 @@ def scrape(headless=True, wait=13):
     cookies = parse_cookies(raw)
     print(f"[xhs-account] 加载 {len(cookies)} 个 cookie", file=sys.stderr)
 
-    captured = {"base": None, "source": None, "user": None}
+    captured = {"base": None, "source": None, "user": None, "personal": None}
 
     def on_response(resp):
         u = resp.url
@@ -131,6 +147,10 @@ def scrape(headless=True, wait=13):
                 body = resp.json()
                 if body.get("data", {}).get("seven"):
                     captured["source"] = body["data"]
+            elif "creator/home/personal_info" in u:
+                body = resp.json()
+                if body.get("data", {}).get("fans_count") is not None:
+                    captured["personal"] = body["data"]
             elif "galaxy/user/info" in u:
                 body = resp.json()
                 if body.get("data", {}).get("userName"):
@@ -154,6 +174,9 @@ def scrape(headless=True, wait=13):
         pg = ctx.new_page()
         pg.on("response", on_response)
         try:
+            # 先打首页拿 personal_info（当前总粉丝量），再进数据中心拿区间指标
+            pg.goto(HOME_URL, wait_until="domcontentloaded", timeout=45000)
+            pg.wait_for_timeout(6000)
             pg.goto(URL, wait_until="domcontentloaded", timeout=45000)
             pg.wait_for_timeout(wait * 1000)
             pg.evaluate("window.scrollTo(0, document.body.scrollHeight)")
@@ -163,6 +186,8 @@ def scrape(headless=True, wait=13):
 
     if not captured["base"]:
         raise RuntimeError("未抓到 account/base 数据 —— cookie 可能已过期，请重新导出覆盖 .xiaohongshu_cookie")
+    if not captured["personal"]:
+        print("[xhs-account] ⚠️ 未抓到 personal_info（总粉丝量），仅落区间数据；可加大 --wait 重试", file=sys.stderr)
     return captured
 
 
@@ -231,12 +256,37 @@ def _build_trends(out, base):
         out.append("\n")
 
 
+def _dig(obj, path):
+    """按点分路径 'grow_info.level' 从嵌套 dict 取值，缺失返回 None。"""
+    cur = obj
+    for part in path.split("."):
+        if not isinstance(cur, dict):
+            return None
+        cur = cur.get(part)
+    return cur
+
+
+def _build_personal(out, personal):
+    """账号现状快照（当前总粉丝量等），来自 personal_info 接口。"""
+    if not personal:
+        return
+    out.append("## 账号现状（快照）\n\n")
+    out.append("| 指标 | 数值 |\n| --- | --- |\n")
+    for label, path in PERSONAL_FIELDS:
+        v = _dig(personal, path)
+        if v is None:
+            continue
+        out.append(f"| {label} | {fmt(v, 'int') if isinstance(v, (int, float)) else v} |\n")
+    out.append("\n> 说明：账号现状为抓取当刻的累计快照（总粉丝量为绝对值，非区间增量）。\n\n")
+
+
 def build_markdown(data):
     base = data["base"]
     source = data.get("source")
+    personal = data.get("personal")
     user = data.get("user") or {}
-    name = user.get("userName", "")
-    red_id = user.get("redId", "")
+    name = user.get("userName", "") or (personal or {}).get("name", "")
+    red_id = user.get("redId", "") or (personal or {}).get("red_num", "")
     stamp = datetime.now().strftime("%Y-%m-%d %H:%M")
 
     out = []
@@ -245,7 +295,9 @@ def build_markdown(data):
     out.append(f"\n> 最近更新：{stamp}　｜　抓取脚本：scripts/xiaohongshu_account.py（自动抓取，小红书创作者数据中心）\n")
     if red_id:
         out.append(f"> 小红书号：{red_id}\n")
-    out.append("> 数据口径：近7天 / 近30天区间聚合 + 近7天逐日趋势　｜　来源接口：datacenter/account/base\n\n")
+    out.append("> 数据口径：账号现状快照 + 近7天 / 近30天区间聚合 + 近7天逐日趋势　｜　来源接口：creator/home/personal_info、datacenter/account/base\n\n")
+
+    _build_personal(out, personal)
 
     for pk, pl in PERIODS:
         _build_period(out, base, source, pk, pl)
