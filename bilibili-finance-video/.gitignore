@@ -1,0 +1,39 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# 生成物 / 临时文件
+*.png
+!references/**/*.png
+/tmp/
+*_财经视频文案.md
+xq_hot*.json
+cover_*.png
+
+# 本机私有配置（含权限里的绝对路径），不进公共仓库
+.claude/settings.local.json
+
+# 密钥类，双保险
+.env
+*.key
+
+# 抖音创作者后台会话 cookie（私有，切勿入库）
+.douyin_cookie
+douyin_raw_*.json
+
+# B站创作者后台会话 cookie（私有，切勿入库）
+.bilibili_cookie
+bilibili_raw_*.json
+
+# 小红书创作者后台会话 cookie（私有，切勿入库）
+.xiaohongshu_cookie
+xiaohongshu_raw_*.json
+
+# 视频号（Channels）创作者后台会话 cookie（私有，切勿入库）
+.channels_cookie
+channels_raw_*.json
