@@ -291,7 +291,7 @@ def main():
     ap.add_argument("--show", action="store_true", help="显示浏览器窗口（调试）")
     ap.add_argument("--wait", type=int, default=13, help="页面加载后等待秒数（默认 13）")
     ap.add_argument("--dry-run", action="store_true", help="只打印结果，不落盘")
-    ap.add_argument("--save-raw", action="store_true", help="把原始 JSON 存到视频目录 raw/ 下")
+    ap.add_argument("--save-raw", action="store_true", help="把原始 JSON 存到视频目录 数据/数据_raw/ 下")
     args = ap.parse_args()
 
     data = scrape(args.url, headless=not args.show, wait=args.wait)
@@ -319,7 +319,7 @@ def main():
     print(f"已写入：{out_md}")
 
     if args.save_raw:
-        raw_dir = os.path.join(out_dir, "raw")
+        raw_dir = os.path.join(data_dir, "数据_raw")
         os.makedirs(raw_dir, exist_ok=True)
         raw_path = os.path.join(raw_dir, f"xiaohongshu_raw_{data['note_id']}.json")
         with open(raw_path, "w", encoding="utf-8") as f:

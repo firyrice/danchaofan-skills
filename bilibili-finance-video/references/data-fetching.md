@@ -10,7 +10,7 @@
   [ -d "$SKILL_DIR" ] || SKILL_DIR="$HOME/.codex/skills/bilibili-finance-video"
   ```
   下文示例为简洁写成 `scripts/xxx.py`，实际调用替换为 `"$SKILL_DIR/scripts/xxx.py"`。
-- **归档铁律**：阶段一及以后，所有 `--out` 一律指向该视频的 `参考资料/抓取数据/xxx.json`，不写 `/tmp`（唯一例外是阶段零选题发现，那时还没有视频文件夹，才写 `/tmp`）。别覆盖前一轮抓取——同名文件已存在就加后缀（如 `web_search_阶段二.json`），每轮留档。
+- **归档铁律**：阶段一及以后，所有 `--out` 一律指向该视频的 `参考资料/抓取数据/xxx.json`，不写 `/tmp`（唯一例外是阶段零选股，那时还没有视频文件夹，才写 `/tmp`）。别覆盖前一轮抓取——同名文件已存在就加后缀（如 `web_search_阶段二.json`），每轮留档。
 - 脚本报错或拿不到结果时，如实告知用户无法获取该数据，**不要用记忆里的旧数据冒充**。
 
 ---
@@ -210,9 +210,9 @@ python3 scripts/xueqiu_quote.py SZ300750 SH600519 HK03690 BABA --out /tmp/xq_quo
 
 ---
 
-## 5. xueqiu_hot_stocks.py — 全市场热榜（仅阶段零选题发现用）
+## 5. xueqiu_hot_stocks.py — 全市场热榜（仅阶段零选股用）
 
-抓雪球全市场热榜（人气热股/涨幅/跌幅/成交额四榜，每榜 30 只），供阶段零反推"今天全市场哪些票在热/在被套"。用法与在选题发现子 agent 里的调度见 [topic-discovery.md](topic-discovery.md)。
+抓雪球全市场热榜（人气热股/涨幅/跌幅/成交额四榜，每榜 30 只），供阶段零反推"今天全市场哪些票在热/在被套"。用法与在选股子 agent 里的调度见 [stock-discovery.md](stock-discovery.md)。
 
 ```bash
 python3 scripts/xueqiu_hot_stocks.py --top 30 --out /tmp/hot.json          # A股

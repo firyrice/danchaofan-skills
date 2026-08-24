@@ -358,7 +358,7 @@ def main():
         print(f"已写入：{out_md}")
 
         if args.save_raw:
-            raw_dir = os.path.join(out_dir, "raw")
+            raw_dir = os.path.join(data_dir, "数据_raw")
             os.makedirs(raw_dir, exist_ok=True)
             oid = (v.get("objectId") or "").split("/")[-1]
             raw_path = os.path.join(raw_dir, f"channels_raw_{oid}.json")

@@ -209,11 +209,11 @@ Style: mobile-first, gritty texture, oversized bold heavy typography, punchy, ey
 
 ## 十三、调用脚本
 
-生成的封面**用股票名字命名、放在 `cover/` 目录下**：`cover/<股票名>_bilibili.png`、`cover/<股票名>_douyin.png`（如 `cover/五粮液_bilibili.png`），不要用 `cover_bilibili.png` 这类通用名，方便长期归档区分。脚本会自动创建 `cover/` 目录。
+生成的封面**用股票名/标题命名、放进该视频文件夹的 `封面/` 子目录下**：`封面/<标题>_bilibili.png`、`封面/<标题>_douyin.png`（如 `封面/五粮液_bilibili.png`），不要用 `cover_bilibili.png` 这类通用名，方便长期归档区分。脚本 `--output` 带上 `封面/` 前缀即可自动创建目录。**旧的 `cover/` 目录已废弃。**
 
 ```bash
-python3 scripts/generate_cover.py --platform bilibili --prompt "上面的英文提示词" --output cover/五粮液_bilibili.png
-python3 scripts/generate_cover.py --platform douyin  --prompt "上面的英文提示词" --output cover/五粮液_douyin.png
+python3 scripts/generate_cover.py --platform bilibili --prompt "上面的英文提示词" --output "workspace/<创建日期>_<最终标题>/封面/五粮液_bilibili.png"
+python3 scripts/generate_cover.py --platform douyin  --prompt "上面的英文提示词" --output "workspace/<创建日期>_<最终标题>/封面/五粮液_douyin.png"
 ```
 
 `--platform` 自动选画幅（bilibili=1024x768，4:3 横版；douyin=768x1024，3:4 竖版）。

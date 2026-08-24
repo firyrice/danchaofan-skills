@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
 抓取雪球的「全市场热榜」：人气热股榜、当日涨幅榜/跌幅榜、成交额榜，
-清洗成结构化 JSON，供「选题发现」阶段（阶段零）反推"今天全市场哪些票在热/在被讨论"。
+清洗成结构化 JSON，供「选股」阶段（阶段零）反推"今天全市场哪些票在热/在被讨论"。
 
-这是选题发现模块唯一新增的脚本——现有 xueqiu_quote.py / xueqiu_hot_posts.py 都要求
+这是选股模块唯一新增的脚本——现有 xueqiu_quote.py / xueqiu_hot_posts.py 都要求
 先知道股票代码，没有"全市场今天哪些票在热"这一层，本脚本补上这个能力缺口。
 
 用法:
@@ -26,7 +26,7 @@
 
 注意:
     - 仅作个人研究，请控制频率，避免给对方服务器造成压力。
-    - 热榜里的数字是接口当日返回，做选题发现足够；真正写稿时基础行情仍以
+    - 热榜里的数字是接口当日返回，做选股足够；真正写稿时基础行情仍以
       xueqiu_quote.py 对选定个股单独核对为准。
 """
 import argparse
@@ -139,7 +139,7 @@ def ctx_fetch_json(ctx, url):
 #  结构化
 # --------------------------------------------------------------------------- #
 def struct_row(item: dict) -> dict:
-    """把榜单接口返回的一条精简成做选题发现要用的记录。
+    """把榜单接口返回的一条精简成做选股要用的记录。
 
     hot_stock 与 screener 两个接口字段名略有差异，这里做归一（取存在的那个）。
     """
@@ -261,7 +261,7 @@ def scrape(market, boards, top, headless=True):
 
 def main():
     ap = argparse.ArgumentParser(
-        description="抓取雪球全市场热榜(人气热股/涨幅/跌幅/成交额), 供选题发现阶段反推今天哪些票在热")
+        description="抓取雪球全市场热榜(人气热股/涨幅/跌幅/成交额), 供选股阶段反推今天哪些票在热")
     ap.add_argument("--market", default="cn", choices=list(MARKET_CONF.keys()),
                     help="市场: cn 沪深(默认) / hk 港股 / us 美股")
     ap.add_argument("--boards", default="hot,gainers,losers,amount",

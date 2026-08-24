@@ -146,6 +146,7 @@ def main():
         title = "账号数据"
         out_dir = os.path.join(WORKSPACE, "账号数据")
         out_md = os.path.join(out_dir, "抖音.md")
+        raw_dir = os.path.join(out_dir, "raw")           # 账号级仍归档到 账号数据/raw/
     else:
         level = "video"
         title = args.video
@@ -153,6 +154,7 @@ def main():
         data_dir = os.path.join(out_dir, "数据")
         os.makedirs(data_dir, exist_ok=True)
         out_md = os.path.join(data_dir, "抖音_数据.md")
+        raw_dir = os.path.join(data_dir, "数据_raw")      # 稿件级归档到 数据/数据_raw/
 
     md = build_markdown(title, args.xlsx, level)
 

@@ -274,7 +274,7 @@ def main():
     ap.add_argument("--url", required=True, help="稿件数据页 URL（含 BV 号）")
     ap.add_argument("--video", help="视频目录名（workspace 下文件夹名，通常含日期前缀）")
     ap.add_argument("--dry-run", action="store_true", help="只打印结果，不落盘")
-    ap.add_argument("--save-raw", action="store_true", help="把原始 JSON 存到视频目录 raw/ 下")
+    ap.add_argument("--save-raw", action="store_true", help="把原始 JSON 存到视频目录 数据/数据_raw/ 下")
     args = ap.parse_args()
 
     data = scrape(args.url)
@@ -302,7 +302,7 @@ def main():
     print(f"已写入：{out_md}")
 
     if args.save_raw:
-        raw_dir = os.path.join(out_dir, "raw")
+        raw_dir = os.path.join(data_dir, "数据_raw")
         os.makedirs(raw_dir, exist_ok=True)
         raw_path = os.path.join(raw_dir, f"bilibili_raw_{data['bvid']}.json")
         with open(raw_path, "w", encoding="utf-8") as f:
