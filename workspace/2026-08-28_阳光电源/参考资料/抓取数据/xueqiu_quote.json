@@ -1,0 +1,41 @@
+{
+  "fetched_at": "2026-08-28 21:23:36",
+  "count": 1,
+  "quotes": [
+    {
+      "symbol": "SZ300274",
+      "name": "阳光电源",
+      "exchange": "SZ",
+      "currency": "CNY",
+      "market_status": "已收盘",
+      "timestamp": "2026-08-28 15:34:03",
+      "current": 97.69,
+      "percent": -1.16,
+      "chg": -1.15,
+      "last_close": 98.84,
+      "open": 97.0,
+      "high": 98.88,
+      "low": 96.1,
+      "high52w": 208.88,
+      "low52w": 93.44,
+      "amplitude": 2.81,
+      "market_capital": 202532024011.0,
+      "market_capital_yi": 2025.32,
+      "float_market_capital_yi": 1550.85,
+      "total_shares": 2073211424,
+      "float_shares": 1587526674,
+      "pe_ttm": 18.44,
+      "pe_lyr": 15.05,
+      "pe_forecast": 19.26,
+      "pb": 4.04,
+      "ps": null,
+      "dividend_yield": 1.35,
+      "eps": 5.3,
+      "navps": 24.1847,
+      "volume": 61624286,
+      "amount": 6025872209.95,
+      "turnover_rate": 3.88,
+      "volume_ratio": 1.15
+    }
+  ]
+}

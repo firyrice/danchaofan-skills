@@ -1,0 +1,438 @@
+{
+  "fetched_at": "2026-08-28 19:10:02",
+  "market": "cn",
+  "sector": {
+    "symbol": "BK0638",
+    "name": "农业种植",
+    "group": "concept",
+    "current": 2412.86,
+    "percent": 2.12,
+    "amount_yi": 283.09,
+    "market_capital_yi": 6649.47,
+    "turnover_rate": 4.91,
+    "current_year_percent": -0.74,
+    "amplitude": 0.0284,
+    "board_source": "xueqiu_bk_index",
+    "period_percent": 7.74,
+    "period_trading_days": 5,
+    "percent_5d": 7.74,
+    "percent_20d": 12.86,
+    "ind_code": "S1101",
+    "ind_code_match": "fuzzy→种植业",
+    "members_agg": {
+      "member_count": 20,
+      "up_count": 16,
+      "down_count": 4,
+      "flat_count": 0,
+      "limit_up_count": 3,
+      "limit_down_count": 0,
+      "percent_equal": 3.19,
+      "percent_weighted": 2.35,
+      "main_net_inflows_yi": 3.9,
+      "members_market_capital_yi": 1938.53,
+      "pe_ttm_median": 76.33,
+      "leaders_by_cap": [
+        {
+          "name": "万辰集团",
+          "symbol": "SZ300972",
+          "market_capital_yi": 383.58,
+          "percent": 2.85,
+          "pe_ttm": 21.8,
+          "followers": 19721,
+          "main_net_inflows_yi": 0.59
+        },
+        {
+          "name": "海南橡胶",
+          "symbol": "SH601118",
+          "market_capital_yi": 285.44,
+          "percent": 2.77,
+          "pe_ttm": null,
+          "followers": 114952,
+          "main_net_inflows_yi": 0.8
+        },
+        {
+          "name": "北大荒",
+          "symbol": "SH600598",
+          "market_capital_yi": 238.56,
+          "percent": -1.03,
+          "pe_ttm": null,
+          "followers": 138126,
+          "main_net_inflows_yi": 0.15
+        },
+        {
+          "name": "隆平高科",
+          "symbol": "SZ000998",
+          "market_capital_yi": 135.92,
+          "percent": 1.65,
+          "pe_ttm": 238.48,
+          "followers": 142607,
+          "main_net_inflows_yi": 0.76
+        },
+        {
+          "name": "苏垦农发",
+          "symbol": "SH601952",
+          "market_capital_yi": 129.53,
+          "percent": 2.4,
+          "pe_ttm": 27.07,
+          "followers": 48397,
+          "main_net_inflows_yi": 0.1
+        },
+        {
+          "name": "登海种业",
+          "symbol": "SZ002041",
+          "market_capital_yi": 98.56,
+          "percent": -0.27,
+          "pe_ttm": 92.93,
+          "followers": 70728,
+          "main_net_inflows_yi": 0.49
+        },
+        {
+          "name": "农发种业",
+          "symbol": "SH600313",
+          "market_capital_yi": 87.1,
+          "percent": 3.73,
+          "pe_ttm": 119.16,
+          "followers": 101937,
+          "main_net_inflows_yi": -0.13
+        },
+        {
+          "name": "亚盛集团",
+          "symbol": "SH600108",
+          "market_capital_yi": 74.18,
+          "percent": 0.79,
+          "pe_ttm": 137.75,
+          "followers": 84808,
+          "main_net_inflows_yi": -0.54
+        }
+      ],
+      "top_gainers": [
+        {
+          "name": "敦煌种业",
+          "percent": 10.05
+        },
+        {
+          "name": "新赛股份",
+          "percent": 10.02
+        },
+        {
+          "name": "万向德农",
+          "percent": 10.01
+        },
+        {
+          "name": "众兴菌业",
+          "percent": 6.65
+        },
+        {
+          "name": "ST荃银",
+          "percent": 5.32
+        }
+      ],
+      "top_losers": [
+        {
+          "name": "北大荒",
+          "percent": -1.03
+        },
+        {
+          "name": "宏辉果蔬",
+          "percent": -0.31
+        },
+        {
+          "name": "登海种业",
+          "percent": -0.27
+        },
+        {
+          "name": "神农种业",
+          "percent": -0.15
+        },
+        {
+          "name": "博闻科技",
+          "percent": 0.38
+        }
+      ],
+      "members_source": "xueqiu_screener_ind_code",
+      "members_source_note": "成分层按申万行业 S1101 聚合(fuzzy→种植业)，与板块指数成分口径可能不完全一致；percent_equal/percent_weighted 是自算值，报板块涨跌幅请用板块层 percent"
+    },
+    "members": [
+      {
+        "symbol": "SH600354",
+        "name": "敦煌种业",
+        "current": 8.21,
+        "percent": 10.05,
+        "market_capital_yi": 43.33,
+        "pe_ttm": 31.52,
+        "pb": 5.12,
+        "amount_yi": 8.7,
+        "main_net_inflows_yi": 0.48,
+        "turnover_rate": 20.6,
+        "followers": 60111,
+        "current_year_percent": 26.89
+      },
+      {
+        "symbol": "SH600540",
+        "name": "新赛股份",
+        "current": 5.05,
+        "percent": 10.02,
+        "market_capital_yi": 29.36,
+        "pe_ttm": null,
+        "pb": 6.27,
+        "amount_yi": 0.26,
+        "main_net_inflows_yi": -0.07,
+        "turnover_rate": 0.89,
+        "followers": 31734,
+        "current_year_percent": 10.5
+      },
+      {
+        "symbol": "SH600371",
+        "name": "万向德农",
+        "current": 11.54,
+        "percent": 10.01,
+        "market_capital_yi": 33.76,
+        "pe_ttm": null,
+        "pb": 6.49,
+        "amount_yi": 0.57,
+        "main_net_inflows_yi": -0.25,
+        "turnover_rate": 1.68,
+        "followers": 45026,
+        "current_year_percent": 34.03
+      },
+      {
+        "symbol": "SZ002772",
+        "name": "众兴菌业",
+        "current": 11.87,
+        "percent": 6.65,
+        "market_capital_yi": 44.48,
+        "pe_ttm": 9.74,
+        "pb": 1.25,
+        "amount_yi": 3.54,
+        "main_net_inflows_yi": 0.4,
+        "turnover_rate": 8.17,
+        "followers": 46826,
+        "current_year_percent": -16.32
+      },
+      {
+        "symbol": "SZ300087",
+        "name": "ST荃银",
+        "current": 6.14,
+        "percent": 5.32,
+        "market_capital_yi": 58.17,
+        "pe_ttm": null,
+        "pb": 3.43,
+        "amount_yi": 2.0,
+        "main_net_inflows_yi": 0.17,
+        "turnover_rate": 3.72,
+        "followers": 49565,
+        "current_year_percent": -47.43
+      },
+      {
+        "symbol": "SZ000713",
+        "name": "国投丰乐",
+        "current": 6.69,
+        "percent": 3.88,
+        "market_capital_yi": 53.4,
+        "pe_ttm": 84.97,
+        "pb": 1.73,
+        "amount_yi": 2.9,
+        "main_net_inflows_yi": 0.39,
+        "turnover_rate": 7.08,
+        "followers": 73244,
+        "current_year_percent": 1.63
+      },
+      {
+        "symbol": "SH600313",
+        "name": "农发种业",
+        "current": 7.5,
+        "percent": 3.73,
+        "market_capital_yi": 87.1,
+        "pe_ttm": 119.16,
+        "pb": 3.57,
+        "amount_yi": 13.16,
+        "main_net_inflows_yi": -0.13,
+        "turnover_rate": 16.53,
+        "followers": 101937,
+        "current_year_percent": 16.64
+      },
+      {
+        "symbol": "SZ300972",
+        "name": "万辰集团",
+        "current": 194.38,
+        "percent": 2.85,
+        "market_capital_yi": 383.58,
+        "pe_ttm": 21.8,
+        "pb": 18.44,
+        "amount_yi": 6.76,
+        "main_net_inflows_yi": 0.59,
+        "turnover_rate": 1.91,
+        "followers": 19721,
+        "current_year_percent": -2.97
+      },
+      {
+        "symbol": "SH601118",
+        "name": "海南橡胶",
+        "current": 6.67,
+        "percent": 2.77,
+        "market_capital_yi": 285.44,
+        "pe_ttm": null,
+        "pb": 3.0,
+        "amount_yi": 10.98,
+        "main_net_inflows_yi": 0.8,
+        "turnover_rate": 3.86,
+        "followers": 114952,
+        "current_year_percent": 14.02
+      },
+      {
+        "symbol": "SH601952",
+        "name": "苏垦农发",
+        "current": 9.4,
+        "percent": 2.4,
+        "market_capital_yi": 129.53,
+        "pe_ttm": 27.07,
+        "pb": 1.8,
+        "amount_yi": 3.71,
+        "main_net_inflows_yi": 0.1,
+        "turnover_rate": 2.89,
+        "followers": 48397,
+        "current_year_percent": 5.15
+      },
+      {
+        "symbol": "SZ300970",
+        "name": "华绿生物",
+        "current": 20.82,
+        "percent": 2.31,
+        "market_capital_yi": 33.04,
+        "pe_ttm": 15.73,
+        "pb": 2.03,
+        "amount_yi": 7.21,
+        "main_net_inflows_yi": 0.26,
+        "turnover_rate": 28.4,
+        "followers": 6580,
+        "current_year_percent": 33.83
+      },
+      {
+        "symbol": "SZ300511",
+        "name": "雪榕生物",
+        "current": 5.72,
+        "percent": 2.14,
+        "market_capital_yi": 36.66,
+        "pe_ttm": 24.41,
+        "pb": 2.24,
+        "amount_yi": 3.11,
+        "main_net_inflows_yi": 0.13,
+        "turnover_rate": 9.71,
+        "followers": 26283,
+        "current_year_percent": -8.33
+      },
+      {
+        "symbol": "SZ000998",
+        "name": "隆平高科",
+        "current": 9.25,
+        "percent": 1.65,
+        "market_capital_yi": 135.92,
+        "pe_ttm": 238.48,
+        "pb": 2.06,
+        "amount_yi": 6.2,
+        "main_net_inflows_yi": 0.76,
+        "turnover_rate": 5.1,
+        "followers": 142607,
+        "current_year_percent": -0.66
+      },
+      {
+        "symbol": "SH600108",
+        "name": "亚盛集团",
+        "current": 3.81,
+        "percent": 0.79,
+        "market_capital_yi": 74.18,
+        "pe_ttm": 137.75,
+        "pb": 1.71,
+        "amount_yi": 10.73,
+        "main_net_inflows_yi": -0.54,
+        "turnover_rate": 14.55,
+        "followers": 84808,
+        "current_year_percent": 21.08
+      },
+      {
+        "symbol": "SH600359",
+        "name": "新农开发",
+        "current": 7.51,
+        "percent": 0.54,
+        "market_capital_yi": 28.65,
+        "pe_ttm": null,
+        "pb": 4.28,
+        "amount_yi": 4.98,
+        "main_net_inflows_yi": -0.34,
+        "turnover_rate": 17.26,
+        "followers": 53538,
+        "current_year_percent": 5.03
+      },
+      {
+        "symbol": "SH600883",
+        "name": "博闻科技",
+        "current": 8.0,
+        "percent": 0.38,
+        "market_capital_yi": 18.89,
+        "pe_ttm": 76.33,
+        "pb": 1.92,
+        "amount_yi": 0.45,
+        "main_net_inflows_yi": 0.03,
+        "turnover_rate": 2.37,
+        "followers": 8901,
+        "current_year_percent": -0.27
+      },
+      {
+        "symbol": "SZ300189",
+        "name": "神农种业",
+        "current": 6.62,
+        "percent": -0.15,
+        "market_capital_yi": 67.79,
+        "pe_ttm": 62.76,
+        "pb": 9.89,
+        "amount_yi": 24.16,
+        "main_net_inflows_yi": 0.47,
+        "turnover_rate": 40.66,
+        "followers": 43376,
+        "current_year_percent": -11.02
+      },
+      {
+        "symbol": "SZ002041",
+        "name": "登海种业",
+        "current": 11.2,
+        "percent": -0.27,
+        "market_capital_yi": 98.56,
+        "pe_ttm": 92.93,
+        "pb": 2.66,
+        "amount_yi": 11.45,
+        "main_net_inflows_yi": 0.49,
+        "turnover_rate": 11.49,
+        "followers": 70728,
+        "current_year_percent": 17.4
+      },
+      {
+        "symbol": "SH603336",
+        "name": "宏辉果蔬",
+        "current": 9.55,
+        "percent": -0.31,
+        "market_capital_yi": 58.13,
+        "pe_ttm": 362.03,
+        "pb": 4.05,
+        "amount_yi": 1.65,
+        "main_net_inflows_yi": 0.01,
+        "turnover_rate": 2.85,
+        "followers": 35777,
+        "current_year_percent": 11.65
+      },
+      {
+        "symbol": "SH600598",
+        "name": "北大荒",
+        "current": 13.42,
+        "percent": -1.03,
+        "market_capital_yi": 238.56,
+        "pe_ttm": null,
+        "pb": 3.68,
+        "amount_yi": 7.24,
+        "main_net_inflows_yi": 0.15,
+        "turnover_rate": 3.03,
+        "followers": 138126,
+        "current_year_percent": -6.84
+      }
+    ]
+  }
+}

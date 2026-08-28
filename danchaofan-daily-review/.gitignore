@@ -1,0 +1,21 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# 生成物 / 临时文件
+*.png
+/tmp/
+market_snapshot*.json
+cover_*.png
+
+# 本机私有配置
+.claude/settings.local.json
+
+# 密钥类（本 skill 复用 bilibili-finance-video/.env，此处双保险）
+.env
+*.key

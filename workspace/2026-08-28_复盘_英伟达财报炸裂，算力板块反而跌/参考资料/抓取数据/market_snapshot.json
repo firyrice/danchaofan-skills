@@ -1,0 +1,465 @@
+{
+  "fetched_at": "2026-08-28 19:07:41",
+  "trade_date": "2026-08-28",
+  "indices": [
+    {
+      "symbol": "SH000001",
+      "name": "上证指数",
+      "current": 3952.18,
+      "percent": -0.11,
+      "amount_yi": 9703.65,
+      "turnover_rate": 1.11,
+      "timestamp": 1787900400000
+    },
+    {
+      "symbol": "SZ399001",
+      "name": "深证成指",
+      "current": 13953.07,
+      "percent": -0.68,
+      "amount_yi": 11313.5,
+      "turnover_rate": 2.58,
+      "timestamp": 1787900664000
+    },
+    {
+      "symbol": "SZ399006",
+      "name": "创业板指",
+      "current": 3424.4,
+      "percent": -1.41,
+      "amount_yi": 5482.35,
+      "turnover_rate": 3.43,
+      "timestamp": 1787900679000
+    },
+    {
+      "symbol": "SH000688",
+      "name": "科创50",
+      "current": 1662.15,
+      "percent": -1.85,
+      "amount_yi": 851.45,
+      "turnover_rate": 1.14,
+      "timestamp": 1787900400000
+    },
+    {
+      "symbol": "SH000300",
+      "name": "沪深300",
+      "current": 4609.18,
+      "percent": -0.46,
+      "amount_yi": 5498.13,
+      "turnover_rate": 0.54,
+      "timestamp": 1787900400000
+    },
+    {
+      "symbol": "SH000905",
+      "name": "中证500",
+      "current": 7895.45,
+      "percent": -0.64,
+      "amount_yi": 3763.04,
+      "turnover_rate": 1.55,
+      "timestamp": 1787900400000
+    },
+    {
+      "symbol": "SH000852",
+      "name": "中证1000",
+      "current": 7705.03,
+      "percent": -0.36,
+      "amount_yi": 4657.95,
+      "turnover_rate": 2.41,
+      "timestamp": 1787900400000
+    }
+  ],
+  "turnover": {
+    "sh_amount_yi": 9703.65,
+    "sz_amount_yi": 11313.5,
+    "total_amount_yi": 21017.15,
+    "total_wanyi": 2.1
+  },
+  "breadth": {
+    "segments": [
+      {
+        "segment": "sha",
+        "label": "沪市主板",
+        "total": 1699,
+        "up": 1065,
+        "flat": 52,
+        "down": 582,
+        "limit_up": 37,
+        "limit_down": 2,
+        "limit_pct": 10.0,
+        "sampled_stocks": 210
+      },
+      {
+        "segment": "kcb",
+        "label": "科创板",
+        "total": 616,
+        "up": 203,
+        "flat": 8,
+        "down": 405,
+        "limit_up": 2,
+        "limit_down": 0,
+        "limit_pct": 20.0,
+        "sampled_stocks": 210
+      },
+      {
+        "segment": "sza",
+        "label": "深市(含创业板)",
+        "total": 2898,
+        "up": 1528,
+        "flat": 86,
+        "down": 1284,
+        "limit_up": 48,
+        "limit_down": 7,
+        "limit_pct": 10.0,
+        "sampled_stocks": 197
+      }
+    ],
+    "total": 5213,
+    "up": 2796,
+    "flat": 146,
+    "down": 2271,
+    "limit_up": 87,
+    "limit_down": 9,
+    "counts_are_exact": true,
+    "median_percent": 0.13,
+    "median_is_approx": true,
+    "median_sample_size": 617,
+    "median_sign_consistent": true
+  },
+  "sectors": {
+    "count": 806,
+    "industry": {
+      "label": "行业板块",
+      "count": 104,
+      "gainers": [
+        {
+          "symbol": "BK0001",
+          "name": "种植业与林业",
+          "group": "industry",
+          "percent": 2.97,
+          "current": 4393.27,
+          "amount_yi": 157.51
+        },
+        {
+          "symbol": "BK0100",
+          "name": "农化制品",
+          "group": "industry",
+          "percent": 2.74,
+          "current": 2619.88,
+          "amount_yi": 214.22
+        },
+        {
+          "symbol": "BK0008",
+          "name": "化学原料",
+          "group": "industry",
+          "percent": 2.56,
+          "current": 3717.91,
+          "amount_yi": 219.94
+        },
+        {
+          "symbol": "BK0080",
+          "name": "石油加工贸易",
+          "group": "industry",
+          "percent": 2.48,
+          "current": 1272.83,
+          "amount_yi": 80.98
+        },
+        {
+          "symbol": "BK0059",
+          "name": "贸易",
+          "group": "industry",
+          "percent": 2.2,
+          "current": 2866.99,
+          "amount_yi": 19.78
+        },
+        {
+          "symbol": "BK0003",
+          "name": "农产品加工",
+          "group": "industry",
+          "percent": 2.13,
+          "current": 4086.09,
+          "amount_yi": 112.24
+        },
+        {
+          "symbol": "BK0058",
+          "name": "零售",
+          "group": "industry",
+          "percent": 1.93,
+          "current": 2001.46,
+          "amount_yi": 119.06
+        },
+        {
+          "symbol": "BK0036",
+          "name": "服装家纺",
+          "group": "industry",
+          "percent": 1.81,
+          "current": 3077.64,
+          "amount_yi": 114.17
+        },
+        {
+          "symbol": "BK0060",
+          "name": "旅游及酒店",
+          "group": "industry",
+          "percent": 1.69,
+          "current": 3101.88,
+          "amount_yi": 48.11
+        },
+        {
+          "symbol": "BK0009",
+          "name": "化学制品",
+          "group": "industry",
+          "percent": 1.6,
+          "current": 8428.98,
+          "amount_yi": 505.52
+        }
+      ],
+      "losers": [
+        {
+          "symbol": "BK0075",
+          "name": "医疗服务",
+          "group": "industry",
+          "percent": -2.69,
+          "current": 967.76,
+          "amount_yi": 281.05
+        },
+        {
+          "symbol": "BK0042",
+          "name": "生物制品",
+          "group": "industry",
+          "percent": -2.32,
+          "current": 6906.86,
+          "amount_yi": 160.26
+        },
+        {
+          "symbol": "BK0021",
+          "name": "半导体",
+          "group": "industry",
+          "percent": -1.6,
+          "current": 22452.31,
+          "amount_yi": 2566.69
+        },
+        {
+          "symbol": "BK0072",
+          "name": "电子化学品",
+          "group": "industry",
+          "percent": -1.23,
+          "current": 3670.9,
+          "amount_yi": 428.23
+        },
+        {
+          "symbol": "BK0071",
+          "name": "自动化设备",
+          "group": "industry",
+          "percent": -1.19,
+          "current": 1929.37,
+          "amount_yi": 433.85
+        },
+        {
+          "symbol": "BK0097",
+          "name": "其他电源设备",
+          "group": "industry",
+          "percent": -1.01,
+          "current": 5058.33,
+          "amount_yi": 165.0
+        },
+        {
+          "symbol": "BK0029",
+          "name": "通信设备",
+          "group": "industry",
+          "percent": -0.93,
+          "current": 10603.36,
+          "amount_yi": 1740.41
+        },
+        {
+          "symbol": "BK0095",
+          "name": "风电设备",
+          "group": "industry",
+          "percent": -0.73,
+          "current": 2405.29,
+          "amount_yi": 63.3
+        },
+        {
+          "symbol": "BK0040",
+          "name": "化学制药",
+          "group": "industry",
+          "percent": -0.73,
+          "current": 6904.2,
+          "amount_yi": 436.95
+        },
+        {
+          "symbol": "BK0024",
+          "name": "消费电子",
+          "group": "industry",
+          "percent": -0.71,
+          "current": 16236.76,
+          "amount_yi": 582.81
+        }
+      ]
+    },
+    "concept": {
+      "label": "概念题材",
+      "count": 502,
+      "gainers": [
+        {
+          "symbol": "BK0845",
+          "name": "供销社",
+          "group": "concept",
+          "percent": 3.06,
+          "current": 866.4,
+          "amount_yi": 41.01
+        },
+        {
+          "symbol": "BK0793",
+          "name": "化肥",
+          "group": "concept",
+          "percent": 2.77,
+          "current": 1036.88,
+          "amount_yi": 365.78
+        },
+        {
+          "symbol": "BK0823",
+          "name": "粮食概念",
+          "group": "concept",
+          "percent": 2.76,
+          "current": 842.46,
+          "amount_yi": 224.68
+        },
+        {
+          "symbol": "BK0636",
+          "name": "大豆",
+          "group": "concept",
+          "percent": 2.67,
+          "current": 1765.54,
+          "amount_yi": 45.98
+        },
+        {
+          "symbol": "BK0701",
+          "name": "转基因",
+          "group": "concept",
+          "percent": 2.59,
+          "current": 1575.73,
+          "amount_yi": 100.64
+        },
+        {
+          "symbol": "BK0637",
+          "name": "玉米",
+          "group": "concept",
+          "percent": 2.43,
+          "current": 2154.95,
+          "amount_yi": 151.07
+        },
+        {
+          "symbol": "BK0726",
+          "name": "环氧丙烷",
+          "group": "concept",
+          "percent": 2.4,
+          "current": 1699.86,
+          "amount_yi": 127.36
+        },
+        {
+          "symbol": "BK0548",
+          "name": "深圳国企改革",
+          "group": "concept",
+          "percent": 2.13,
+          "current": 1830.05,
+          "amount_yi": 102.35
+        },
+        {
+          "symbol": "BK0638",
+          "name": "农业种植",
+          "group": "concept",
+          "percent": 2.12,
+          "current": 2412.86,
+          "amount_yi": 283.09
+        },
+        {
+          "symbol": "BK0466",
+          "name": "生态农业",
+          "group": "concept",
+          "percent": 1.93,
+          "current": 1643.84,
+          "amount_yi": 184.77
+        }
+      ],
+      "losers": [
+        {
+          "symbol": "BK0730",
+          "name": "科创次新股",
+          "group": "concept",
+          "percent": -3.67,
+          "current": 1327.27,
+          "amount_yi": 324.51
+        },
+        {
+          "symbol": "BK0753",
+          "name": "CRO概念",
+          "group": "concept",
+          "percent": -2.05,
+          "current": 1057.08,
+          "amount_yi": 327.58
+        },
+        {
+          "symbol": "BK0717",
+          "name": "国家大基金持股",
+          "group": "concept",
+          "percent": -2.03,
+          "current": 3014.82,
+          "amount_yi": 1113.46
+        },
+        {
+          "symbol": "BK0878",
+          "name": "光刻机",
+          "group": "concept",
+          "percent": -1.96,
+          "current": 1161.24,
+          "amount_yi": 477.66
+        },
+        {
+          "symbol": "BK0728",
+          "name": "注册制次新股",
+          "group": "concept",
+          "percent": -1.74,
+          "current": 653.46,
+          "amount_yi": 502.24
+        },
+        {
+          "symbol": "BK0512",
+          "name": "新股与次新股",
+          "group": "concept",
+          "percent": -1.74,
+          "current": 117181.52,
+          "amount_yi": 502.24
+        },
+        {
+          "symbol": "BK0599",
+          "name": "细胞免疫治疗",
+          "group": "concept",
+          "percent": -1.72,
+          "current": 1202.66,
+          "amount_yi": 247.96
+        },
+        {
+          "symbol": "BK0671",
+          "name": "生物疫苗",
+          "group": "concept",
+          "percent": -1.66,
+          "current": 1815.61,
+          "amount_yi": 203.81
+        },
+        {
+          "symbol": "BK0875",
+          "name": "减肥药",
+          "group": "concept",
+          "percent": -1.64,
+          "current": 1005.52,
+          "amount_yi": 259.73
+        },
+        {
+          "symbol": "BK0720",
+          "name": "中芯国际概念",
+          "group": "concept",
+          "percent": -1.57,
+          "current": 4030.56,
+          "amount_yi": 1209.83
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,3230 @@
+{
+  "updated_at": "2026-08-28",
+  "count": 806,
+  "boards": [
+    {
+      "symbol": "BK0001",
+      "name": "种植业与林业"
+    },
+    {
+      "symbol": "BK0002",
+      "name": "养殖业"
+    },
+    {
+      "symbol": "BK0003",
+      "name": "农产品加工"
+    },
+    {
+      "symbol": "BK0004",
+      "name": "农业服务"
+    },
+    {
+      "symbol": "BK0005",
+      "name": "煤炭开采加工"
+    },
+    {
+      "symbol": "BK0006",
+      "name": "石油矿业开采"
+    },
+    {
+      "symbol": "BK0007",
+      "name": "油气开采及服务"
+    },
+    {
+      "symbol": "BK0008",
+      "name": "化学原料"
+    },
+    {
+      "symbol": "BK0009",
+      "name": "化学制品"
+    },
+    {
+      "symbol": "BK0010",
+      "name": "化工合成材料"
+    },
+    {
+      "symbol": "BK0011",
+      "name": "化工新材料"
+    },
+    {
+      "symbol": "BK0012",
+      "name": "钢铁"
+    },
+    {
+      "symbol": "BK0013",
+      "name": "有色冶炼加工"
+    },
+    {
+      "symbol": "BK0014",
+      "name": "金属新材料"
+    },
+    {
+      "symbol": "BK0015",
+      "name": "建筑材料"
+    },
+    {
+      "symbol": "BK0016",
+      "name": "建筑装饰"
+    },
+    {
+      "symbol": "BK0017",
+      "name": "通用设备"
+    },
+    {
+      "symbol": "BK0018",
+      "name": "专用设备"
+    },
+    {
+      "symbol": "BK0019",
+      "name": "仪器仪表"
+    },
+    {
+      "symbol": "BK0020",
+      "name": "电力设备"
+    },
+    {
+      "symbol": "BK0021",
+      "name": "半导体"
+    },
+    {
+      "symbol": "BK0022",
+      "name": "光学光电子"
+    },
+    {
+      "symbol": "BK0023",
+      "name": "其他电子"
+    },
+    {
+      "symbol": "BK0024",
+      "name": "消费电子"
+    },
+    {
+      "symbol": "BK0025",
+      "name": "汽车整车"
+    },
+    {
+      "symbol": "BK0026",
+      "name": "汽车零部件"
+    },
+    {
+      "symbol": "BK0027",
+      "name": "非汽车交运"
+    },
+    {
+      "symbol": "BK0028",
+      "name": "汽车服务及其他"
+    },
+    {
+      "symbol": "BK0029",
+      "name": "通信设备"
+    },
+    {
+      "symbol": "BK0030",
+      "name": "计算机设备"
+    },
+    {
+      "symbol": "BK0031",
+      "name": "白色家电"
+    },
+    {
+      "symbol": "BK0032",
+      "name": "黑色家电"
+    },
+    {
+      "symbol": "BK0033",
+      "name": "饮料制造"
+    },
+    {
+      "symbol": "BK0034",
+      "name": "食品加工制造"
+    },
+    {
+      "symbol": "BK0035",
+      "name": "纺织制造"
+    },
+    {
+      "symbol": "BK0036",
+      "name": "服装家纺"
+    },
+    {
+      "symbol": "BK0037",
+      "name": "造纸"
+    },
+    {
+      "symbol": "BK0038",
+      "name": "包装印刷"
+    },
+    {
+      "symbol": "BK0039",
+      "name": "家居用品"
+    },
+    {
+      "symbol": "BK0040",
+      "name": "化学制药"
+    },
+    {
+      "symbol": "BK0041",
+      "name": "中药"
+    },
+    {
+      "symbol": "BK0042",
+      "name": "生物制品"
+    },
+    {
+      "symbol": "BK0043",
+      "name": "医药商业"
+    },
+    {
+      "symbol": "BK0044",
+      "name": "医疗器械"
+    },
+    {
+      "symbol": "BK0045",
+      "name": "电力"
+    },
+    {
+      "symbol": "BK0046",
+      "name": "燃气"
+    },
+    {
+      "symbol": "BK0047",
+      "name": "环保工程"
+    },
+    {
+      "symbol": "BK0048",
+      "name": "港口航运"
+    },
+    {
+      "symbol": "BK0049",
+      "name": "公路铁路运输"
+    },
+    {
+      "symbol": "BK0050",
+      "name": "公交"
+    },
+    {
+      "symbol": "BK0051",
+      "name": "机场航运"
+    },
+    {
+      "symbol": "BK0052",
+      "name": "物流"
+    },
+    {
+      "symbol": "BK0053",
+      "name": "房地产"
+    },
+    {
+      "symbol": "BK0054",
+      "name": "园区开发"
+    },
+    {
+      "symbol": "BK0055",
+      "name": "银行"
+    },
+    {
+      "symbol": "BK0056",
+      "name": "保险"
+    },
+    {
+      "symbol": "BK0057",
+      "name": "证券"
+    },
+    {
+      "symbol": "BK0058",
+      "name": "零售"
+    },
+    {
+      "symbol": "BK0059",
+      "name": "贸易"
+    },
+    {
+      "symbol": "BK0060",
+      "name": "旅游及酒店"
+    },
+    {
+      "symbol": "BK0061",
+      "name": "酒店及餐饮"
+    },
+    {
+      "symbol": "BK0062",
+      "name": "通信服务"
+    },
+    {
+      "symbol": "BK0063",
+      "name": "计算机应用"
+    },
+    {
+      "symbol": "BK0064",
+      "name": "文化传媒"
+    },
+    {
+      "symbol": "BK0065",
+      "name": "综合"
+    },
+    {
+      "symbol": "BK0066",
+      "name": "军工装备"
+    },
+    {
+      "symbol": "BK0067",
+      "name": "非金属材料"
+    },
+    {
+      "symbol": "BK0068",
+      "name": "工业金属"
+    },
+    {
+      "symbol": "BK0069",
+      "name": "贵金属"
+    },
+    {
+      "symbol": "BK0070",
+      "name": "小金属"
+    },
+    {
+      "symbol": "BK0071",
+      "name": "自动化设备"
+    },
+    {
+      "symbol": "BK0072",
+      "name": "电子化学品"
+    },
+    {
+      "symbol": "BK0073",
+      "name": "小家电"
+    },
+    {
+      "symbol": "BK0074",
+      "name": "厨卫电器"
+    },
+    {
+      "symbol": "BK0075",
+      "name": "医疗服务"
+    },
+    {
+      "symbol": "BK0076",
+      "name": "房地产服务"
+    },
+    {
+      "symbol": "BK0077",
+      "name": "互联网电商"
+    },
+    {
+      "symbol": "BK0078",
+      "name": "教育"
+    },
+    {
+      "symbol": "BK0079",
+      "name": "其他社会服务"
+    },
+    {
+      "symbol": "BK0080",
+      "name": "石油加工贸易"
+    },
+    {
+      "symbol": "BK0081",
+      "name": "环境治理"
+    },
+    {
+      "symbol": "BK0082",
+      "name": "美容护理"
+    },
+    {
+      "symbol": "BK0083",
+      "name": "工程机械"
+    },
+    {
+      "symbol": "BK0084",
+      "name": "轨交设备"
+    },
+    {
+      "symbol": "BK0085",
+      "name": "元件"
+    },
+    {
+      "symbol": "BK0086",
+      "name": "IT服务"
+    },
+    {
+      "symbol": "BK0087",
+      "name": "软件开发"
+    },
+    {
+      "symbol": "BK0088",
+      "name": "白酒"
+    },
+    {
+      "symbol": "BK0089",
+      "name": "影视院线"
+    },
+    {
+      "symbol": "BK0090",
+      "name": "游戏"
+    },
+    {
+      "symbol": "BK0091",
+      "name": "军工电子"
+    },
+    {
+      "symbol": "BK0092",
+      "name": "电机"
+    },
+    {
+      "symbol": "BK0093",
+      "name": "电网设备"
+    },
+    {
+      "symbol": "BK0094",
+      "name": "光伏设备"
+    },
+    {
+      "symbol": "BK0095",
+      "name": "风电设备"
+    },
+    {
+      "symbol": "BK0096",
+      "name": "电池"
+    },
+    {
+      "symbol": "BK0097",
+      "name": "其他电源设备"
+    },
+    {
+      "symbol": "BK0098",
+      "name": "多元金融"
+    },
+    {
+      "symbol": "BK0099",
+      "name": "环保设备"
+    },
+    {
+      "symbol": "BK0100",
+      "name": "农化制品"
+    },
+    {
+      "symbol": "BK0101",
+      "name": "化学纤维"
+    },
+    {
+      "symbol": "BK0102",
+      "name": "塑料制品"
+    },
+    {
+      "symbol": "BK0103",
+      "name": "橡胶制品"
+    },
+    {
+      "symbol": "BK0104",
+      "name": "能源金属"
+    },
+    {
+      "symbol": "BK0400",
+      "name": "ST板块"
+    },
+    {
+      "symbol": "BK0402",
+      "name": "稀缺资源"
+    },
+    {
+      "symbol": "BK0405",
+      "name": "生物质能"
+    },
+    {
+      "symbol": "BK0406",
+      "name": "智能电网"
+    },
+    {
+      "symbol": "BK0407",
+      "name": "物联网"
+    },
+    {
+      "symbol": "BK0408",
+      "name": "移动支付"
+    },
+    {
+      "symbol": "BK0409",
+      "name": "融资融券"
+    },
+    {
+      "symbol": "BK0410",
+      "name": "稀土永磁"
+    },
+    {
+      "symbol": "BK0411",
+      "name": "新疆振兴"
+    },
+    {
+      "symbol": "BK0413",
+      "name": "石墨烯"
+    },
+    {
+      "symbol": "BK0414",
+      "name": "云计算"
+    },
+    {
+      "symbol": "BK0416",
+      "name": "页岩气"
+    },
+    {
+      "symbol": "BK0417",
+      "name": "苹果概念"
+    },
+    {
+      "symbol": "BK0418",
+      "name": "智慧城市"
+    },
+    {
+      "symbol": "BK0419",
+      "name": "美丽中国"
+    },
+    {
+      "symbol": "BK0425",
+      "name": "煤化工概念"
+    },
+    {
+      "symbol": "BK0426",
+      "name": "智能医疗"
+    },
+    {
+      "symbol": "BK0427",
+      "name": "生物医药"
+    },
+    {
+      "symbol": "BK0428",
+      "name": "食品安全"
+    },
+    {
+      "symbol": "BK0429",
+      "name": "固废处理"
+    },
+    {
+      "symbol": "BK0430",
+      "name": "污水处理"
+    },
+    {
+      "symbol": "BK0431",
+      "name": "创投"
+    },
+    {
+      "symbol": "BK0432",
+      "name": "文化传媒概念"
+    },
+    {
+      "symbol": "BK0433",
+      "name": "脱硫脱硝"
+    },
+    {
+      "symbol": "BK0434",
+      "name": "电子商务"
+    },
+    {
+      "symbol": "BK0435",
+      "name": "安防"
+    },
+    {
+      "symbol": "BK0436",
+      "name": "特高压"
+    },
+    {
+      "symbol": "BK0437",
+      "name": "海工装备"
+    },
+    {
+      "symbol": "BK0438",
+      "name": "高端装备"
+    },
+    {
+      "symbol": "BK0439",
+      "name": "特钢概念"
+    },
+    {
+      "symbol": "BK0440",
+      "name": "天然气"
+    },
+    {
+      "symbol": "BK0441",
+      "name": "新能源汽车"
+    },
+    {
+      "symbol": "BK0442",
+      "name": "节能照明"
+    },
+    {
+      "symbol": "BK0443",
+      "name": "土地流转"
+    },
+    {
+      "symbol": "BK0444",
+      "name": "大数据"
+    },
+    {
+      "symbol": "BK0445",
+      "name": "智能穿戴"
+    },
+    {
+      "symbol": "BK0446",
+      "name": "互联网金融"
+    },
+    {
+      "symbol": "BK0447",
+      "name": "手机游戏"
+    },
+    {
+      "symbol": "BK0448",
+      "name": "网络安全"
+    },
+    {
+      "symbol": "BK0449",
+      "name": "充电桩"
+    },
+    {
+      "symbol": "BK0450",
+      "name": "乳业"
+    },
+    {
+      "symbol": "BK0451",
+      "name": "特斯拉概念"
+    },
+    {
+      "symbol": "BK0452",
+      "name": "上海自贸区"
+    },
+    {
+      "symbol": "BK0453",
+      "name": "智能家居"
+    },
+    {
+      "symbol": "BK0454",
+      "name": "在线教育"
+    },
+    {
+      "symbol": "BK0455",
+      "name": "电子发票"
+    },
+    {
+      "symbol": "BK0456",
+      "name": "参股民营银行"
+    },
+    {
+      "symbol": "BK0457",
+      "name": "天津自贸区"
+    },
+    {
+      "symbol": "BK0458",
+      "name": "民营医院"
+    },
+    {
+      "symbol": "BK0459",
+      "name": "上海国企改革"
+    },
+    {
+      "symbol": "BK0460",
+      "name": "一带一路"
+    },
+    {
+      "symbol": "BK0461",
+      "name": "油品改革"
+    },
+    {
+      "symbol": "BK0462",
+      "name": "旅游概念"
+    },
+    {
+      "symbol": "BK0463",
+      "name": "通用航空"
+    },
+    {
+      "symbol": "BK0464",
+      "name": "冷链物流"
+    },
+    {
+      "symbol": "BK0465",
+      "name": "蓝宝石"
+    },
+    {
+      "symbol": "BK0466",
+      "name": "生态农业"
+    },
+    {
+      "symbol": "BK0467",
+      "name": "禽流感"
+    },
+    {
+      "symbol": "BK0468",
+      "name": "尾气治理"
+    },
+    {
+      "symbol": "BK0469",
+      "name": "京津冀一体化"
+    },
+    {
+      "symbol": "BK0471",
+      "name": "机器人概念"
+    },
+    {
+      "symbol": "BK0472",
+      "name": "沪股通"
+    },
+    {
+      "symbol": "BK0473",
+      "name": "粤港澳大湾区"
+    },
+    {
+      "symbol": "BK0474",
+      "name": "养老概念"
+    },
+    {
+      "symbol": "BK0475",
+      "name": "白酒概念"
+    },
+    {
+      "symbol": "BK0477",
+      "name": "黄金概念"
+    },
+    {
+      "symbol": "BK0478",
+      "name": "光伏概念"
+    },
+    {
+      "symbol": "BK0479",
+      "name": "3D打印"
+    },
+    {
+      "symbol": "BK0480",
+      "name": "医疗器械概念"
+    },
+    {
+      "symbol": "BK0481",
+      "name": "三胎概念"
+    },
+    {
+      "symbol": "BK0482",
+      "name": "家用电器"
+    },
+    {
+      "symbol": "BK0483",
+      "name": "新材料概念"
+    },
+    {
+      "symbol": "BK0484",
+      "name": "汽车电子"
+    },
+    {
+      "symbol": "BK0485",
+      "name": "氟化工概念"
+    },
+    {
+      "symbol": "BK0486",
+      "name": "小金属概念"
+    },
+    {
+      "symbol": "BK0487",
+      "name": "金融IC"
+    },
+    {
+      "symbol": "BK0488",
+      "name": "PM2.5"
+    },
+    {
+      "symbol": "BK0489",
+      "name": "5G"
+    },
+    {
+      "symbol": "BK0490",
+      "name": "超导"
+    },
+    {
+      "symbol": "BK0491",
+      "name": "金改"
+    },
+    {
+      "symbol": "BK0493",
+      "name": "高铁"
+    },
+    {
+      "symbol": "BK0494",
+      "name": "节能环保"
+    },
+    {
+      "symbol": "BK0495",
+      "name": "无人机"
+    },
+    {
+      "symbol": "BK0497",
+      "name": "大飞机"
+    },
+    {
+      "symbol": "BK0498",
+      "name": "国产软件"
+    },
+    {
+      "symbol": "BK0500",
+      "name": "期货概念"
+    },
+    {
+      "symbol": "BK0501",
+      "name": "核电"
+    },
+    {
+      "symbol": "BK0502",
+      "name": "水利"
+    },
+    {
+      "symbol": "BK0503",
+      "name": "猪肉"
+    },
+    {
+      "symbol": "BK0504",
+      "name": "卫星导航"
+    },
+    {
+      "symbol": "BK0505",
+      "name": "基因测序"
+    },
+    {
+      "symbol": "BK0506",
+      "name": "足球概念"
+    },
+    {
+      "symbol": "BK0507",
+      "name": "职业教育"
+    },
+    {
+      "symbol": "BK0508",
+      "name": "举牌"
+    },
+    {
+      "symbol": "BK0509",
+      "name": "电力改革"
+    },
+    {
+      "symbol": "BK0510",
+      "name": "中韩自贸区"
+    },
+    {
+      "symbol": "BK0511",
+      "name": "央企国企改革"
+    },
+    {
+      "symbol": "BK0512",
+      "name": "新股与次新股"
+    },
+    {
+      "symbol": "BK0513",
+      "name": "网络游戏"
+    },
+    {
+      "symbol": "BK0515",
+      "name": "阿里巴巴概念"
+    },
+    {
+      "symbol": "BK0516",
+      "name": "体育产业"
+    },
+    {
+      "symbol": "BK0517",
+      "name": "迪士尼"
+    },
+    {
+      "symbol": "BK0518",
+      "name": "福建自贸区"
+    },
+    {
+      "symbol": "BK0519",
+      "name": "工业4.0"
+    },
+    {
+      "symbol": "BK0520",
+      "name": "参股券商"
+    },
+    {
+      "symbol": "BK0521",
+      "name": "参股保险"
+    },
+    {
+      "symbol": "BK0522",
+      "name": "西安自贸区"
+    },
+    {
+      "symbol": "BK0523",
+      "name": "农村电商"
+    },
+    {
+      "symbol": "BK0524",
+      "name": "染料"
+    },
+    {
+      "symbol": "BK0525",
+      "name": "高送转"
+    },
+    {
+      "symbol": "BK0526",
+      "name": "草甘膦"
+    },
+    {
+      "symbol": "BK0527",
+      "name": "风电"
+    },
+    {
+      "symbol": "BK0528",
+      "name": "跨境电商"
+    },
+    {
+      "symbol": "BK0529",
+      "name": "互联网彩票"
+    },
+    {
+      "symbol": "BK0530",
+      "name": "物流电商平台"
+    },
+    {
+      "symbol": "BK0531",
+      "name": "碳纤维"
+    },
+    {
+      "symbol": "BK0532",
+      "name": "两桶油改革"
+    },
+    {
+      "symbol": "BK0533",
+      "name": "钛白粉概念"
+    },
+    {
+      "symbol": "BK0534",
+      "name": "供应链金融"
+    },
+    {
+      "symbol": "BK0536",
+      "name": "医药电商"
+    },
+    {
+      "symbol": "BK0537",
+      "name": "证金持股"
+    },
+    {
+      "symbol": "BK0539",
+      "name": "集成电路概念"
+    },
+    {
+      "symbol": "BK0540",
+      "name": "能源互联网"
+    },
+    {
+      "symbol": "BK0541",
+      "name": "车联网(车路协同)"
+    },
+    {
+      "symbol": "BK0543",
+      "name": "高校"
+    },
+    {
+      "symbol": "BK0544",
+      "name": "PPP概念"
+    },
+    {
+      "symbol": "BK0545",
+      "name": "地下管网"
+    },
+    {
+      "symbol": "BK0547",
+      "name": "深股通"
+    },
+    {
+      "symbol": "BK0548",
+      "name": "深圳国企改革"
+    },
+    {
+      "symbol": "BK0549",
+      "name": "军工"
+    },
+    {
+      "symbol": "BK0550",
+      "name": "杭州亚运会"
+    },
+    {
+      "symbol": "BK0551",
+      "name": "健康中国"
+    },
+    {
+      "symbol": "BK0552",
+      "name": "东盟自贸区"
+    },
+    {
+      "symbol": "BK0553",
+      "name": "乡村振兴"
+    },
+    {
+      "symbol": "BK0554",
+      "name": "农机"
+    },
+    {
+      "symbol": "BK0556",
+      "name": "虚拟现实"
+    },
+    {
+      "symbol": "BK0557",
+      "name": "锂电池概念"
+    },
+    {
+      "symbol": "BK0558",
+      "name": "互联网+"
+    },
+    {
+      "symbol": "BK0559",
+      "name": "人工智能"
+    },
+    {
+      "symbol": "BK0560",
+      "name": "参股新三板"
+    },
+    {
+      "symbol": "BK0561",
+      "name": "量子科技"
+    },
+    {
+      "symbol": "BK0563",
+      "name": "航运概念"
+    },
+    {
+      "symbol": "BK0564",
+      "name": "广东自贸区"
+    },
+    {
+      "symbol": "BK0565",
+      "name": "二维码识别"
+    },
+    {
+      "symbol": "BK0566",
+      "name": "无人驾驶"
+    },
+    {
+      "symbol": "BK0567",
+      "name": "电子竞技"
+    },
+    {
+      "symbol": "BK0568",
+      "name": "OLED"
+    },
+    {
+      "symbol": "BK0569",
+      "name": "股权转让(并购重组)"
+    },
+    {
+      "symbol": "BK0570",
+      "name": "化债概念(AMC概念)"
+    },
+    {
+      "symbol": "BK0571",
+      "name": "中字头股票"
+    },
+    {
+      "symbol": "BK0572",
+      "name": "摘帽"
+    },
+    {
+      "symbol": "BK0573",
+      "name": "军民融合"
+    },
+    {
+      "symbol": "BK0574",
+      "name": "雄安新区"
+    },
+    {
+      "symbol": "BK0575",
+      "name": "MSCI概念"
+    },
+    {
+      "symbol": "BK0576",
+      "name": "消费金融"
+    },
+    {
+      "symbol": "BK0577",
+      "name": "共享单车"
+    },
+    {
+      "symbol": "BK0578",
+      "name": "可燃冰"
+    },
+    {
+      "symbol": "BK0579",
+      "name": "蚂蚁集团概念"
+    },
+    {
+      "symbol": "BK0580",
+      "name": "特色小镇"
+    },
+    {
+      "symbol": "BK0581",
+      "name": "参股万达商业"
+    },
+    {
+      "symbol": "BK0583",
+      "name": "网约车"
+    },
+    {
+      "symbol": "BK0584",
+      "name": "微信小程序"
+    },
+    {
+      "symbol": "BK0586",
+      "name": "芯片概念"
+    },
+    {
+      "symbol": "BK0587",
+      "name": "区块链"
+    },
+    {
+      "symbol": "BK0588",
+      "name": "租售同权"
+    },
+    {
+      "symbol": "BK0589",
+      "name": "人脸识别"
+    },
+    {
+      "symbol": "BK0590",
+      "name": "装配式建筑"
+    },
+    {
+      "symbol": "BK0591",
+      "name": "超级品牌"
+    },
+    {
+      "symbol": "BK0593",
+      "name": "白马股"
+    },
+    {
+      "symbol": "BK0594",
+      "name": "自由贸易港"
+    },
+    {
+      "symbol": "BK0595",
+      "name": "互联网医疗"
+    },
+    {
+      "symbol": "BK0596",
+      "name": "智能交通"
+    },
+    {
+      "symbol": "BK0597",
+      "name": "互联网保险"
+    },
+    {
+      "symbol": "BK0598",
+      "name": "无人零售"
+    },
+    {
+      "symbol": "BK0599",
+      "name": "细胞免疫治疗"
+    },
+    {
+      "symbol": "BK0600",
+      "name": "智能物流"
+    },
+    {
+      "symbol": "BK0601",
+      "name": "智能音箱"
+    },
+    {
+      "symbol": "BK0602",
+      "name": "语音技术"
+    },
+    {
+      "symbol": "BK0603",
+      "name": "无线充电"
+    },
+    {
+      "symbol": "BK0604",
+      "name": "燃料电池"
+    },
+    {
+      "symbol": "BK0605",
+      "name": "腾讯概念"
+    },
+    {
+      "symbol": "BK0606",
+      "name": "啤酒概念"
+    },
+    {
+      "symbol": "BK0607",
+      "name": "石墨电极"
+    },
+    {
+      "symbol": "BK0608",
+      "name": "水泥概念"
+    },
+    {
+      "symbol": "BK0609",
+      "name": "工业互联网"
+    },
+    {
+      "symbol": "BK0610",
+      "name": "新零售"
+    },
+    {
+      "symbol": "BK0611",
+      "name": "小米概念"
+    },
+    {
+      "symbol": "BK0612",
+      "name": "富士康概念"
+    },
+    {
+      "symbol": "BK0613",
+      "name": "独角兽概念"
+    },
+    {
+      "symbol": "BK0614",
+      "name": "网络直播"
+    },
+    {
+      "symbol": "BK0615",
+      "name": "宁德时代概念"
+    },
+    {
+      "symbol": "BK0616",
+      "name": "边缘计算"
+    },
+    {
+      "symbol": "BK0617",
+      "name": "知识产权保护"
+    },
+    {
+      "symbol": "BK0618",
+      "name": "赛马概念"
+    },
+    {
+      "symbol": "BK0619",
+      "name": "数字中国"
+    },
+    {
+      "symbol": "BK0620",
+      "name": "空铁WIFI"
+    },
+    {
+      "symbol": "BK0621",
+      "name": "国产航母"
+    },
+    {
+      "symbol": "BK0622",
+      "name": "送转填权"
+    },
+    {
+      "symbol": "BK0623",
+      "name": "百度概念"
+    },
+    {
+      "symbol": "BK0624",
+      "name": "燃料乙醇"
+    },
+    {
+      "symbol": "BK0625",
+      "name": "北汽新能源"
+    },
+    {
+      "symbol": "BK0626",
+      "name": "消费电子概念"
+    },
+    {
+      "symbol": "BK0627",
+      "name": "国资驰援"
+    },
+    {
+      "symbol": "BK0628",
+      "name": "壳资源"
+    },
+    {
+      "symbol": "BK0629",
+      "name": "高送转预期"
+    },
+    {
+      "symbol": "BK0631",
+      "name": "芬太尼"
+    },
+    {
+      "symbol": "BK0632",
+      "name": "华为概念"
+    },
+    {
+      "symbol": "BK0633",
+      "name": "年报预增"
+    },
+    {
+      "symbol": "BK0634",
+      "name": "养鸡"
+    },
+    {
+      "symbol": "BK0635",
+      "name": "柔性屏(折叠屏)"
+    },
+    {
+      "symbol": "BK0636",
+      "name": "大豆"
+    },
+    {
+      "symbol": "BK0637",
+      "name": "玉米"
+    },
+    {
+      "symbol": "BK0638",
+      "name": "农业种植"
+    },
+    {
+      "symbol": "BK0639",
+      "name": "商誉减值"
+    },
+    {
+      "symbol": "BK0640",
+      "name": "信托概念"
+    },
+    {
+      "symbol": "BK0641",
+      "name": "MSCI预期"
+    },
+    {
+      "symbol": "BK0642",
+      "name": "超清视频"
+    },
+    {
+      "symbol": "BK0644",
+      "name": "工业大麻"
+    },
+    {
+      "symbol": "BK0645",
+      "name": "数字孪生"
+    },
+    {
+      "symbol": "BK0646",
+      "name": "电力物联网"
+    },
+    {
+      "symbol": "BK0647",
+      "name": "网络切片"
+    },
+    {
+      "symbol": "BK0648",
+      "name": "太空互联网"
+    },
+    {
+      "symbol": "BK0649",
+      "name": "氢能源"
+    },
+    {
+      "symbol": "BK0651",
+      "name": "冰雪产业"
+    },
+    {
+      "symbol": "BK0652",
+      "name": "外资券商影子股"
+    },
+    {
+      "symbol": "BK0653",
+      "name": "横琴新区"
+    },
+    {
+      "symbol": "BK0654",
+      "name": "融媒体"
+    },
+    {
+      "symbol": "BK0655",
+      "name": "丙烯酸"
+    },
+    {
+      "symbol": "BK0656",
+      "name": "透明工厂"
+    },
+    {
+      "symbol": "BK0657",
+      "name": "超级真菌"
+    },
+    {
+      "symbol": "BK0658",
+      "name": "长三角一体化"
+    },
+    {
+      "symbol": "BK0659",
+      "name": "黑洞概念"
+    },
+    {
+      "symbol": "BK0660",
+      "name": "华为汽车"
+    },
+    {
+      "symbol": "BK0661",
+      "name": "参股银行"
+    },
+    {
+      "symbol": "BK0662",
+      "name": "台湾概念股"
+    },
+    {
+      "symbol": "BK0663",
+      "name": "郭台铭概念"
+    },
+    {
+      "symbol": "BK0664",
+      "name": "眼科医疗"
+    },
+    {
+      "symbol": "BK0665",
+      "name": "人造肉"
+    },
+    {
+      "symbol": "BK0666",
+      "name": "人民币贬值受益"
+    },
+    {
+      "symbol": "BK0667",
+      "name": "草地贪夜蛾防治"
+    },
+    {
+      "symbol": "BK0668",
+      "name": "数字乡村"
+    },
+    {
+      "symbol": "BK0669",
+      "name": "华为海思概念股"
+    },
+    {
+      "symbol": "BK0670",
+      "name": "国产操作系统"
+    },
+    {
+      "symbol": "BK0671",
+      "name": "生物疫苗"
+    },
+    {
+      "symbol": "BK0672",
+      "name": "动物疫苗"
+    },
+    {
+      "symbol": "BK0673",
+      "name": "富时罗素概念股"
+    },
+    {
+      "symbol": "BK0674",
+      "name": "黑龙江自贸区"
+    },
+    {
+      "symbol": "BK0675",
+      "name": "烟草"
+    },
+    {
+      "symbol": "BK0676",
+      "name": "青蒿素"
+    },
+    {
+      "symbol": "BK0677",
+      "name": "沪伦通概念"
+    },
+    {
+      "symbol": "BK0678",
+      "name": "垃圾分类"
+    },
+    {
+      "symbol": "BK0679",
+      "name": "创业板重组松绑"
+    },
+    {
+      "symbol": "BK0680",
+      "name": "仿制药一致性评价"
+    },
+    {
+      "symbol": "BK0681",
+      "name": "半年报预增"
+    },
+    {
+      "symbol": "BK0684",
+      "name": "中船系"
+    },
+    {
+      "symbol": "BK0685",
+      "name": "ETC"
+    },
+    {
+      "symbol": "BK0686",
+      "name": "氢氟酸"
+    },
+    {
+      "symbol": "BK0687",
+      "name": "磷化工"
+    },
+    {
+      "symbol": "BK0688",
+      "name": "光刻胶"
+    },
+    {
+      "symbol": "BK0689",
+      "name": "金属钴"
+    },
+    {
+      "symbol": "BK0690",
+      "name": "数字货币"
+    },
+    {
+      "symbol": "BK0691",
+      "name": "标普道琼斯A股"
+    },
+    {
+      "symbol": "BK0692",
+      "name": "无线耳机"
+    },
+    {
+      "symbol": "BK0693",
+      "name": "半年报预增"
+    },
+    {
+      "symbol": "BK0694",
+      "name": "非科创次新股"
+    },
+    {
+      "symbol": "BK0695",
+      "name": "胎压监测"
+    },
+    {
+      "symbol": "BK0696",
+      "name": "云游戏"
+    },
+    {
+      "symbol": "BK0697",
+      "name": "澳交所概念"
+    },
+    {
+      "symbol": "BK0698",
+      "name": "分拆上市意愿"
+    },
+    {
+      "symbol": "BK0699",
+      "name": "MiniLED"
+    },
+    {
+      "symbol": "BK0700",
+      "name": "网红经济"
+    },
+    {
+      "symbol": "BK0701",
+      "name": "转基因"
+    },
+    {
+      "symbol": "BK0702",
+      "name": "HJT电池"
+    },
+    {
+      "symbol": "BK0703",
+      "name": "流感"
+    },
+    {
+      "symbol": "BK0704",
+      "name": "口罩"
+    },
+    {
+      "symbol": "BK0705",
+      "name": "云办公"
+    },
+    {
+      "symbol": "BK0706",
+      "name": "消毒剂"
+    },
+    {
+      "symbol": "BK0707",
+      "name": "医疗废物处理"
+    },
+    {
+      "symbol": "BK0708",
+      "name": "航空发动机"
+    },
+    {
+      "symbol": "BK0709",
+      "name": "氮化镓"
+    },
+    {
+      "symbol": "BK0710",
+      "name": "超级电容"
+    },
+    {
+      "symbol": "BK0711",
+      "name": "数据中心(AIDC)"
+    },
+    {
+      "symbol": "BK0712",
+      "name": "C2M概念"
+    },
+    {
+      "symbol": "BK0713",
+      "name": "富媒体"
+    },
+    {
+      "symbol": "BK0714",
+      "name": "抖音概念(字节概念)"
+    },
+    {
+      "symbol": "BK0715",
+      "name": "新三板精选层概念"
+    },
+    {
+      "symbol": "BK0716",
+      "name": "REITs"
+    },
+    {
+      "symbol": "BK0717",
+      "name": "国家大基金持股"
+    },
+    {
+      "symbol": "BK0718",
+      "name": "海南自贸区"
+    },
+    {
+      "symbol": "BK0719",
+      "name": "室外经济"
+    },
+    {
+      "symbol": "BK0720",
+      "name": "中芯国际概念"
+    },
+    {
+      "symbol": "BK0721",
+      "name": "免税店"
+    },
+    {
+      "symbol": "BK0722",
+      "name": "新型烟草(电子烟)"
+    },
+    {
+      "symbol": "BK0723",
+      "name": "NMN概念"
+    },
+    {
+      "symbol": "BK0724",
+      "name": "可降解塑料"
+    },
+    {
+      "symbol": "BK0725",
+      "name": "汽车拆解概念"
+    },
+    {
+      "symbol": "BK0726",
+      "name": "环氧丙烷"
+    },
+    {
+      "symbol": "BK0727",
+      "name": "代糖概念"
+    },
+    {
+      "symbol": "BK0728",
+      "name": "注册制次新股"
+    },
+    {
+      "symbol": "BK0729",
+      "name": "核准制次新股"
+    },
+    {
+      "symbol": "BK0730",
+      "name": "科创次新股"
+    },
+    {
+      "symbol": "BK0731",
+      "name": "第三代半导体"
+    },
+    {
+      "symbol": "BK0732",
+      "name": "辅助生殖"
+    },
+    {
+      "symbol": "BK0733",
+      "name": "拼多多概念"
+    },
+    {
+      "symbol": "BK0734",
+      "name": "社区团购"
+    },
+    {
+      "symbol": "BK0735",
+      "name": "有机硅概念"
+    },
+    {
+      "symbol": "BK0736",
+      "name": "医美概念"
+    },
+    {
+      "symbol": "BK0738",
+      "name": "煤炭概念"
+    },
+    {
+      "symbol": "BK0739",
+      "name": "物业管理"
+    },
+    {
+      "symbol": "BK0740",
+      "name": "同花顺漂亮100"
+    },
+    {
+      "symbol": "BK0741",
+      "name": "新冠检测"
+    },
+    {
+      "symbol": "BK0742",
+      "name": "快手概念"
+    },
+    {
+      "symbol": "BK0743",
+      "name": "碳中和"
+    },
+    {
+      "symbol": "BK0744",
+      "name": "光伏建筑一体化"
+    },
+    {
+      "symbol": "BK0745",
+      "name": "高送转"
+    },
+    {
+      "symbol": "BK0746",
+      "name": "华为汽车"
+    },
+    {
+      "symbol": "BK0747",
+      "name": "储能"
+    },
+    {
+      "symbol": "BK0748",
+      "name": "盐湖提锂"
+    },
+    {
+      "symbol": "BK0749",
+      "name": "鸿蒙概念"
+    },
+    {
+      "symbol": "BK0750",
+      "name": "共同富裕示范区"
+    },
+    {
+      "symbol": "BK0751",
+      "name": "MCU芯片"
+    },
+    {
+      "symbol": "BK0752",
+      "name": "牙科医疗"
+    },
+    {
+      "symbol": "BK0753",
+      "name": "CRO概念"
+    },
+    {
+      "symbol": "BK0754",
+      "name": "钠离子电池"
+    },
+    {
+      "symbol": "BK0755",
+      "name": "专精特新"
+    },
+    {
+      "symbol": "BK0756",
+      "name": "工业母机"
+    },
+    {
+      "symbol": "BK0757",
+      "name": "PVDF概念"
+    },
+    {
+      "symbol": "BK0758",
+      "name": "北交所概念"
+    },
+    {
+      "symbol": "BK0759",
+      "name": "NFT概念"
+    },
+    {
+      "symbol": "BK0760",
+      "name": "元宇宙"
+    },
+    {
+      "symbol": "BK0761",
+      "name": "抽水蓄能"
+    },
+    {
+      "symbol": "BK0762",
+      "name": "绿色电力"
+    },
+    {
+      "symbol": "BK0763",
+      "name": "培育钻石"
+    },
+    {
+      "symbol": "BK0764",
+      "name": "换电概念"
+    },
+    {
+      "symbol": "BK0765",
+      "name": "海峡两岸"
+    },
+    {
+      "symbol": "BK0766",
+      "name": "WiFi6"
+    },
+    {
+      "symbol": "BK0767",
+      "name": "智能制造"
+    },
+    {
+      "symbol": "BK0768",
+      "name": "数据安全"
+    },
+    {
+      "symbol": "BK0769",
+      "name": "EDR概念"
+    },
+    {
+      "symbol": "BK0770",
+      "name": "动力电池回收"
+    },
+    {
+      "symbol": "BK0771",
+      "name": "汽车芯片"
+    },
+    {
+      "symbol": "BK0772",
+      "name": "传感器"
+    },
+    {
+      "symbol": "BK0773",
+      "name": "DRG/DIP"
+    },
+    {
+      "symbol": "BK0774",
+      "name": "柔性直流输电"
+    },
+    {
+      "symbol": "BK0775",
+      "name": "冬奥会"
+    },
+    {
+      "symbol": "BK0776",
+      "name": "虚拟数字人"
+    },
+    {
+      "symbol": "BK0777",
+      "name": "预制菜"
+    },
+    {
+      "symbol": "BK0778",
+      "name": "幽门螺杆菌概念"
+    },
+    {
+      "symbol": "BK0779",
+      "name": "电子纸"
+    },
+    {
+      "symbol": "BK0780",
+      "name": "新冠治疗"
+    },
+    {
+      "symbol": "BK0781",
+      "name": "重组蛋白"
+    },
+    {
+      "symbol": "BK0782",
+      "name": "智慧政务"
+    },
+    {
+      "symbol": "BK0783",
+      "name": "东数西算(算力)"
+    },
+    {
+      "symbol": "BK0784",
+      "name": "硅能源"
+    },
+    {
+      "symbol": "BK0785",
+      "name": "PCB概念"
+    },
+    {
+      "symbol": "BK0786",
+      "name": "民爆概念"
+    },
+    {
+      "symbol": "BK0787",
+      "name": "净水概念"
+    },
+    {
+      "symbol": "BK0788",
+      "name": "土壤修复"
+    },
+    {
+      "symbol": "BK0789",
+      "name": "智慧灯杆"
+    },
+    {
+      "symbol": "BK0790",
+      "name": "俄乌冲突概念"
+    },
+    {
+      "symbol": "BK0791",
+      "name": "中俄贸易概念"
+    },
+    {
+      "symbol": "BK0792",
+      "name": "跨境支付(CIPS)"
+    },
+    {
+      "symbol": "BK0793",
+      "name": "化肥"
+    },
+    {
+      "symbol": "BK0794",
+      "name": "托育服务"
+    },
+    {
+      "symbol": "BK0795",
+      "name": "金属镍"
+    },
+    {
+      "symbol": "BK0796",
+      "name": "金属锌"
+    },
+    {
+      "symbol": "BK0797",
+      "name": "金属铅"
+    },
+    {
+      "symbol": "BK0798",
+      "name": "金属回收"
+    },
+    {
+      "symbol": "BK0799",
+      "name": "金属铜"
+    },
+    {
+      "symbol": "BK0800",
+      "name": "两轮车"
+    },
+    {
+      "symbol": "BK0801",
+      "name": "电子身份证"
+    },
+    {
+      "symbol": "BK0802",
+      "name": "数字经济"
+    },
+    {
+      "symbol": "BK0803",
+      "name": "国资云"
+    },
+    {
+      "symbol": "BK0804",
+      "name": "建筑节能"
+    },
+    {
+      "symbol": "BK0805",
+      "name": "低辐射玻璃(Low-E)"
+    },
+    {
+      "symbol": "BK0806",
+      "name": "华为鲲鹏"
+    },
+    {
+      "symbol": "BK0807",
+      "name": "家庭医生"
+    },
+    {
+      "symbol": "BK0808",
+      "name": "华为欧拉"
+    },
+    {
+      "symbol": "BK0809",
+      "name": "疫情监测"
+    },
+    {
+      "symbol": "BK0810",
+      "name": "恒大概念"
+    },
+    {
+      "symbol": "BK0811",
+      "name": "毛发医疗"
+    },
+    {
+      "symbol": "BK0812",
+      "name": "碳交易"
+    },
+    {
+      "symbol": "BK0813",
+      "name": "MicroLED概念"
+    },
+    {
+      "symbol": "BK0814",
+      "name": "高送转"
+    },
+    {
+      "symbol": "BK0815",
+      "name": "REITs概念"
+    },
+    {
+      "symbol": "BK0816",
+      "name": "统一大市场"
+    },
+    {
+      "symbol": "BK0817",
+      "name": "肝炎概念"
+    },
+    {
+      "symbol": "BK0818",
+      "name": "露营经济"
+    },
+    {
+      "symbol": "BK0819",
+      "name": "新型城镇化"
+    },
+    {
+      "symbol": "BK0820",
+      "name": "噪声防治"
+    },
+    {
+      "symbol": "BK0821",
+      "name": "方舱医院"
+    },
+    {
+      "symbol": "BK0822",
+      "name": "猴痘概念"
+    },
+    {
+      "symbol": "BK0823",
+      "name": "粮食概念"
+    },
+    {
+      "symbol": "BK0824",
+      "name": "超超临界发电"
+    },
+    {
+      "symbol": "BK0825",
+      "name": "比亚迪概念"
+    },
+    {
+      "symbol": "BK0826",
+      "name": "F5G概念"
+    },
+    {
+      "symbol": "BK0827",
+      "name": "汽车热管理"
+    },
+    {
+      "symbol": "BK0828",
+      "name": "小红书概念"
+    },
+    {
+      "symbol": "BK0829",
+      "name": "云计算"
+    },
+    {
+      "symbol": "BK0830",
+      "name": "一体化压铸"
+    },
+    {
+      "symbol": "BK0831",
+      "name": "高压快充"
+    },
+    {
+      "symbol": "BK0832",
+      "name": "机器视觉"
+    },
+    {
+      "symbol": "BK0833",
+      "name": "钒电池"
+    },
+    {
+      "symbol": "BK0834",
+      "name": "虚拟电厂"
+    },
+    {
+      "symbol": "BK0835",
+      "name": "生物质能发电"
+    },
+    {
+      "symbol": "BK0836",
+      "name": "钙钛矿电池"
+    },
+    {
+      "symbol": "BK0837",
+      "name": "TOPCON电池"
+    },
+    {
+      "symbol": "BK0838",
+      "name": "减速器"
+    },
+    {
+      "symbol": "BK0839",
+      "name": "先进封装"
+    },
+    {
+      "symbol": "BK0840",
+      "name": "空气能热泵"
+    },
+    {
+      "symbol": "BK0841",
+      "name": "光热发电"
+    },
+    {
+      "symbol": "BK0842",
+      "name": "宠物经济"
+    },
+    {
+      "symbol": "BK0843",
+      "name": "信创"
+    },
+    {
+      "symbol": "BK0844",
+      "name": "创新药"
+    },
+    {
+      "symbol": "BK0845",
+      "name": "供销社"
+    },
+    {
+      "symbol": "BK0846",
+      "name": "Web3.0"
+    },
+    {
+      "symbol": "BK0847",
+      "name": "高压氧舱"
+    },
+    {
+      "symbol": "BK0848",
+      "name": "AIGC概念"
+    },
+    {
+      "symbol": "BK0849",
+      "name": "PET铜箔"
+    },
+    {
+      "symbol": "BK0850",
+      "name": "国企改革"
+    },
+    {
+      "symbol": "BK0851",
+      "name": "数据确权"
+    },
+    {
+      "symbol": "BK0852",
+      "name": "POE胶膜"
+    },
+    {
+      "symbol": "BK0853",
+      "name": "血氧仪"
+    },
+    {
+      "symbol": "BK0854",
+      "name": "成飞概念"
+    },
+    {
+      "symbol": "BK0855",
+      "name": "ChatGPT概念"
+    },
+    {
+      "symbol": "BK0856",
+      "name": "固态电池"
+    },
+    {
+      "symbol": "BK0857",
+      "name": "共封装光学(CPO)"
+    },
+    {
+      "symbol": "BK0858",
+      "name": "数字水印"
+    },
+    {
+      "symbol": "BK0859",
+      "name": "毫米波雷达"
+    },
+    {
+      "symbol": "BK0860",
+      "name": "时空大数据"
+    },
+    {
+      "symbol": "BK0861",
+      "name": "6G概念"
+    },
+    {
+      "symbol": "BK0862",
+      "name": "超导概念"
+    },
+    {
+      "symbol": "BK0863",
+      "name": "ERP概念"
+    },
+    {
+      "symbol": "BK0864",
+      "name": "MLOps概念"
+    },
+    {
+      "symbol": "BK0865",
+      "name": "数据要素"
+    },
+    {
+      "symbol": "BK0866",
+      "name": "存储芯片"
+    },
+    {
+      "symbol": "BK0867",
+      "name": "太赫兹"
+    },
+    {
+      "symbol": "BK0868",
+      "name": "液冷服务器"
+    },
+    {
+      "symbol": "BK0869",
+      "name": "同花顺中特估100"
+    },
+    {
+      "symbol": "BK0870",
+      "name": "MR(混合现实)"
+    },
+    {
+      "symbol": "BK0871",
+      "name": "脑机接口"
+    },
+    {
+      "symbol": "BK0872",
+      "name": "英伟达概念"
+    },
+    {
+      "symbol": "BK0873",
+      "name": "空间计算"
+    },
+    {
+      "symbol": "BK0874",
+      "name": "算力租赁"
+    },
+    {
+      "symbol": "BK0875",
+      "name": "减肥药"
+    },
+    {
+      "symbol": "BK0876",
+      "name": "核污染防治"
+    },
+    {
+      "symbol": "BK0877",
+      "name": "BC电池"
+    },
+    {
+      "symbol": "BK0878",
+      "name": "光刻机"
+    },
+    {
+      "symbol": "BK0879",
+      "name": "星闪概念"
+    },
+    {
+      "symbol": "BK0880",
+      "name": "阿尔茨海默概念"
+    },
+    {
+      "symbol": "BK0881",
+      "name": "新型工业化"
+    },
+    {
+      "symbol": "BK0882",
+      "name": "华为昇腾"
+    },
+    {
+      "symbol": "BK0883",
+      "name": "智能座舱"
+    },
+    {
+      "symbol": "BK0884",
+      "name": "短剧游戏"
+    },
+    {
+      "symbol": "BK0885",
+      "name": "长安汽车概念"
+    },
+    {
+      "symbol": "BK0886",
+      "name": "多模态AI"
+    },
+    {
+      "symbol": "BK0887",
+      "name": "PEEK材料"
+    },
+    {
+      "symbol": "BK0888",
+      "name": "小米汽车"
+    },
+    {
+      "symbol": "BK0889",
+      "name": "可控核聚变"
+    },
+    {
+      "symbol": "BK0890",
+      "name": "飞行汽车(eVTOL)"
+    },
+    {
+      "symbol": "BK0891",
+      "name": "低空经济"
+    },
+    {
+      "symbol": "BK0892",
+      "name": "AI视频"
+    },
+    {
+      "symbol": "BK0893",
+      "name": "人形机器人"
+    },
+    {
+      "symbol": "BK0894",
+      "name": "AI手机"
+    },
+    {
+      "symbol": "BK0895",
+      "name": "AI PC"
+    },
+    {
+      "symbol": "BK0896",
+      "name": "高股息精选"
+    },
+    {
+      "symbol": "BK0897",
+      "name": "铜缆高速连接"
+    },
+    {
+      "symbol": "BK0898",
+      "name": "AI语料"
+    },
+    {
+      "symbol": "BK0899",
+      "name": "同花顺出海50"
+    },
+    {
+      "symbol": "BK0900",
+      "name": "安徽"
+    },
+    {
+      "symbol": "BK0901",
+      "name": "北京"
+    },
+    {
+      "symbol": "BK0902",
+      "name": "重庆"
+    },
+    {
+      "symbol": "BK0903",
+      "name": "黑龙江"
+    },
+    {
+      "symbol": "BK0904",
+      "name": "福建"
+    },
+    {
+      "symbol": "BK0905",
+      "name": "甘肃"
+    },
+    {
+      "symbol": "BK0906",
+      "name": "深圳"
+    },
+    {
+      "symbol": "BK0907",
+      "name": "广东(除深圳)"
+    },
+    {
+      "symbol": "BK0908",
+      "name": "广西"
+    },
+    {
+      "symbol": "BK0909",
+      "name": "贵州"
+    },
+    {
+      "symbol": "BK0910",
+      "name": "海南"
+    },
+    {
+      "symbol": "BK0911",
+      "name": "河北"
+    },
+    {
+      "symbol": "BK0912",
+      "name": "河南"
+    },
+    {
+      "symbol": "BK0913",
+      "name": "湖北"
+    },
+    {
+      "symbol": "BK0914",
+      "name": "湖南"
+    },
+    {
+      "symbol": "BK0915",
+      "name": "吉林"
+    },
+    {
+      "symbol": "BK0916",
+      "name": "江苏"
+    },
+    {
+      "symbol": "BK0917",
+      "name": "江西"
+    },
+    {
+      "symbol": "BK0918",
+      "name": "辽宁"
+    },
+    {
+      "symbol": "BK0919",
+      "name": "内蒙古"
+    },
+    {
+      "symbol": "BK0920",
+      "name": "宁夏"
+    },
+    {
+      "symbol": "BK0921",
+      "name": "青海"
+    },
+    {
+      "symbol": "BK0922",
+      "name": "山东"
+    },
+    {
+      "symbol": "BK0923",
+      "name": "山西"
+    },
+    {
+      "symbol": "BK0924",
+      "name": "陕西"
+    },
+    {
+      "symbol": "BK0925",
+      "name": "浦东"
+    },
+    {
+      "symbol": "BK0926",
+      "name": "上海(除浦东)"
+    },
+    {
+      "symbol": "BK0927",
+      "name": "四川"
+    },
+    {
+      "symbol": "BK0928",
+      "name": "天津"
+    },
+    {
+      "symbol": "BK0929",
+      "name": "西藏"
+    },
+    {
+      "symbol": "BK0930",
+      "name": "新疆"
+    },
+    {
+      "symbol": "BK0931",
+      "name": "云南"
+    },
+    {
+      "symbol": "BK0932",
+      "name": "浙江"
+    },
+    {
+      "symbol": "BK1001",
+      "name": "能源设备与服务"
+    },
+    {
+      "symbol": "BK1002",
+      "name": "石油与天然气"
+    },
+    {
+      "symbol": "BK1003",
+      "name": "化学制品"
+    },
+    {
+      "symbol": "BK1004",
+      "name": "建筑材料"
+    },
+    {
+      "symbol": "BK1005",
+      "name": "包装容器"
+    },
+    {
+      "symbol": "BK1006",
+      "name": "有色金属"
+    },
+    {
+      "symbol": "BK1007",
+      "name": "造纸与林业"
+    },
+    {
+      "symbol": "BK1008",
+      "name": "军工装备"
+    },
+    {
+      "symbol": "BK1009",
+      "name": "建筑产品Ⅲ"
+    },
+    {
+      "symbol": "BK1010",
+      "name": "建筑装饰"
+    },
+    {
+      "symbol": "BK1011",
+      "name": "电气设备"
+    },
+    {
+      "symbol": "BK1012",
+      "name": "工业综合Ⅲ"
+    },
+    {
+      "symbol": "BK1013",
+      "name": "机械设备Ⅲ"
+    },
+    {
+      "symbol": "BK1014",
+      "name": "工业经销与贸易Ⅲ"
+    },
+    {
+      "symbol": "BK1015",
+      "name": "商业服务"
+    },
+    {
+      "symbol": "BK1016",
+      "name": "专业服务"
+    },
+    {
+      "symbol": "BK1017",
+      "name": "物流Ⅲ"
+    },
+    {
+      "symbol": "BK1018",
+      "name": "机场航运"
+    },
+    {
+      "symbol": "BK1019",
+      "name": "港口航运"
+    },
+    {
+      "symbol": "BK1020",
+      "name": "公路铁路运输"
+    },
+    {
+      "symbol": "BK1021",
+      "name": "交通基本设施"
+    },
+    {
+      "symbol": "BK1022",
+      "name": "汽车零部件Ⅲ"
+    },
+    {
+      "symbol": "BK1023",
+      "name": "汽车"
+    },
+    {
+      "symbol": "BK1024",
+      "name": "家庭耐用品"
+    },
+    {
+      "symbol": "BK1025",
+      "name": "休闲用品"
+    },
+    {
+      "symbol": "BK1026",
+      "name": "纺织服饰"
+    },
+    {
+      "symbol": "BK1027",
+      "name": "休闲服务与设施"
+    },
+    {
+      "symbol": "BK1028",
+      "name": "综合消费者服务"
+    },
+    {
+      "symbol": "BK1029",
+      "name": "可选消费经销Ⅲ"
+    },
+    {
+      "symbol": "BK1030",
+      "name": "互联网与直销零售Ⅲ"
+    },
+    {
+      "symbol": "BK1031",
+      "name": "多品类零售Ⅲ"
+    },
+    {
+      "symbol": "BK1032",
+      "name": "专业零售"
+    },
+    {
+      "symbol": "BK1033",
+      "name": "日常消费经销与零售Ⅲ"
+    },
+    {
+      "symbol": "BK1034",
+      "name": "饮料制造"
+    },
+    {
+      "symbol": "BK1035",
+      "name": "食品加工制造"
+    },
+    {
+      "symbol": "BK1036",
+      "name": "烟草与大麻"
+    },
+    {
+      "symbol": "BK1037",
+      "name": "居家用品Ⅲ"
+    },
+    {
+      "symbol": "BK1038",
+      "name": "个护用品Ⅲ"
+    },
+    {
+      "symbol": "BK1039",
+      "name": "医疗器械"
+    },
+    {
+      "symbol": "BK1040",
+      "name": "医疗服务"
+    },
+    {
+      "symbol": "BK1041",
+      "name": "医疗保健技术Ⅲ"
+    },
+    {
+      "symbol": "BK1042",
+      "name": "生物科技Ⅲ"
+    },
+    {
+      "symbol": "BK1043",
+      "name": "化学制药"
+    },
+    {
+      "symbol": "BK1044",
+      "name": "生命科学工具Ⅲ"
+    },
+    {
+      "symbol": "BK1045",
+      "name": "银行Ⅲ"
+    },
+    {
+      "symbol": "BK1046",
+      "name": "互助储蓄银行Ⅲ"
+    },
+    {
+      "symbol": "BK1047",
+      "name": "金融服务"
+    },
+    {
+      "symbol": "BK1048",
+      "name": "消费信贷Ⅲ"
+    },
+    {
+      "symbol": "BK1049",
+      "name": "资本市场"
+    },
+    {
+      "symbol": "BK1050",
+      "name": "抵押房地产投资信托Ⅲ"
+    },
+    {
+      "symbol": "BK1051",
+      "name": "保险"
+    },
+    {
+      "symbol": "BK1052",
+      "name": "IT服务"
+    },
+    {
+      "symbol": "BK1053",
+      "name": "软件开发"
+    },
+    {
+      "symbol": "BK1054",
+      "name": "通信设备Ⅲ"
+    },
+    {
+      "symbol": "BK1055",
+      "name": "计算机设备"
+    },
+    {
+      "symbol": "BK1056",
+      "name": "电子设备和元件"
+    },
+    {
+      "symbol": "BK1057",
+      "name": "半导体"
+    },
+    {
+      "symbol": "BK1058",
+      "name": "电信服务"
+    },
+    {
+      "symbol": "BK1059",
+      "name": "无线电信业务Ⅲ"
+    },
+    {
+      "symbol": "BK1060",
+      "name": "媒体"
+    },
+    {
+      "symbol": "BK1061",
+      "name": "娱乐"
+    },
+    {
+      "symbol": "BK1062",
+      "name": "互动媒体与服务Ⅲ"
+    },
+    {
+      "symbol": "BK1063",
+      "name": "电力"
+    },
+    {
+      "symbol": "BK1064",
+      "name": "燃气Ⅲ"
+    },
+    {
+      "symbol": "BK1065",
+      "name": "复合型公用事业Ⅲ"
+    },
+    {
+      "symbol": "BK1066",
+      "name": "水务Ⅲ"
+    },
+    {
+      "symbol": "BK1067",
+      "name": "电力与燃气贸易Ⅲ"
+    },
+    {
+      "symbol": "BK1068",
+      "name": "多元化REIT Ⅲ"
+    },
+    {
+      "symbol": "BK1069",
+      "name": "房地产管理和开发"
+    },
+    {
+      "symbol": "BK1070",
+      "name": "能源"
+    },
+    {
+      "symbol": "BK1071",
+      "name": "材料"
+    },
+    {
+      "symbol": "BK1072",
+      "name": "工业"
+    },
+    {
+      "symbol": "BK1073",
+      "name": "可选消费"
+    },
+    {
+      "symbol": "BK1074",
+      "name": "日常消费"
+    },
+    {
+      "symbol": "BK1075",
+      "name": "医疗保健"
+    },
+    {
+      "symbol": "BK1076",
+      "name": "金融"
+    },
+    {
+      "symbol": "BK1077",
+      "name": "科技"
+    },
+    {
+      "symbol": "BK1078",
+      "name": "通讯"
+    },
+    {
+      "symbol": "BK1079",
+      "name": "公用事业Ⅰ"
+    },
+    {
+      "symbol": "BK1080",
+      "name": "房地产"
+    },
+    {
+      "symbol": "BK1081",
+      "name": "能源Ⅱ"
+    },
+    {
+      "symbol": "BK1082",
+      "name": "原材料Ⅱ"
+    },
+    {
+      "symbol": "BK1083",
+      "name": "资本品"
+    },
+    {
+      "symbol": "BK1084",
+      "name": "商业和专业服务"
+    },
+    {
+      "symbol": "BK1085",
+      "name": "交通运输"
+    },
+    {
+      "symbol": "BK1086",
+      "name": "汽车及零部件"
+    },
+    {
+      "symbol": "BK1087",
+      "name": "耐用消费品"
+    },
+    {
+      "symbol": "BK1088",
+      "name": "消费者服务"
+    },
+    {
+      "symbol": "BK1089",
+      "name": "可选消费零售"
+    },
+    {
+      "symbol": "BK1090",
+      "name": "日常消费经销与零售Ⅱ"
+    },
+    {
+      "symbol": "BK1091",
+      "name": "食品饮料"
+    },
+    {
+      "symbol": "BK1092",
+      "name": "居家与个人用品"
+    },
+    {
+      "symbol": "BK1093",
+      "name": "医疗器械与服务"
+    },
+    {
+      "symbol": "BK1094",
+      "name": "药品"
+    },
+    {
+      "symbol": "BK1095",
+      "name": "银行Ⅱ"
+    },
+    {
+      "symbol": "BK1096",
+      "name": "非银金融"
+    },
+    {
+      "symbol": "BK1097",
+      "name": "保险Ⅱ"
+    },
+    {
+      "symbol": "BK1098",
+      "name": "计算机"
+    },
+    {
+      "symbol": "BK1099",
+      "name": "技术硬件与设备"
+    },
+    {
+      "symbol": "BK1100",
+      "name": "电子"
+    },
+    {
+      "symbol": "BK1101",
+      "name": "通信"
+    },
+    {
+      "symbol": "BK1102",
+      "name": "传媒"
+    },
+    {
+      "symbol": "BK1103",
+      "name": "公用事业Ⅱ"
+    },
+    {
+      "symbol": "BK1104",
+      "name": "房地产投资信托"
+    },
+    {
+      "symbol": "BK1105",
+      "name": "石油与天然气钻井"
+    },
+    {
+      "symbol": "BK1106",
+      "name": "油气设备与服务"
+    },
+    {
+      "symbol": "BK1107",
+      "name": "油气综合Ⅳ"
+    },
+    {
+      "symbol": "BK1108",
+      "name": "油气开采"
+    },
+    {
+      "symbol": "BK1109",
+      "name": "石油与天然气的炼制和营销"
+    },
+    {
+      "symbol": "BK1110",
+      "name": "石油与天然气的储存和运输"
+    },
+    {
+      "symbol": "BK1111",
+      "name": "煤炭开采"
+    },
+    {
+      "symbol": "BK1112",
+      "name": "商品化工"
+    },
+    {
+      "symbol": "BK1113",
+      "name": "多种化学品Ⅳ"
+    },
+    {
+      "symbol": "BK1114",
+      "name": "农用化学品"
+    },
+    {
+      "symbol": "BK1115",
+      "name": "工业气体"
+    },
+    {
+      "symbol": "BK1116",
+      "name": "特种化学制品"
+    },
+    {
+      "symbol": "BK1117",
+      "name": "建筑材料Ⅳ"
+    },
+    {
+      "symbol": "BK1118",
+      "name": "金属包装"
+    },
+    {
+      "symbol": "BK1119",
+      "name": "纸包装"
+    },
+    {
+      "symbol": "BK1120",
+      "name": "铝"
+    },
+    {
+      "symbol": "BK1121",
+      "name": "多种金属与采矿"
+    },
+    {
+      "symbol": "BK1122",
+      "name": "铜"
+    },
+    {
+      "symbol": "BK1123",
+      "name": "黄金"
+    },
+    {
+      "symbol": "BK1124",
+      "name": "贵重金属与矿石"
+    },
+    {
+      "symbol": "BK1125",
+      "name": "钢铁"
+    },
+    {
+      "symbol": "BK1126",
+      "name": "林业"
+    },
+    {
+      "symbol": "BK1127",
+      "name": "造纸"
+    },
+    {
+      "symbol": "BK1128",
+      "name": "航空航天与国防Ⅳ"
+    },
+    {
+      "symbol": "BK1129",
+      "name": "建筑产品Ⅳ"
+    },
+    {
+      "symbol": "BK1130",
+      "name": "建筑与工程Ⅳ"
+    },
+    {
+      "symbol": "BK1131",
+      "name": "电气部件与设备"
+    },
+    {
+      "symbol": "BK1132",
+      "name": "重型电气设备"
+    },
+    {
+      "symbol": "BK1133",
+      "name": "工业综合Ⅳ"
+    },
+    {
+      "symbol": "BK1134",
+      "name": "建筑机械和重型运输设备"
+    },
+    {
+      "symbol": "BK1135",
+      "name": "农用机械"
+    },
+    {
+      "symbol": "BK1136",
+      "name": "工业机械和用品及零部件"
+    },
+    {
+      "symbol": "BK1137",
+      "name": "工业经销与贸易Ⅳ"
+    },
+    {
+      "symbol": "BK1138",
+      "name": "印刷"
+    },
+    {
+      "symbol": "BK1139",
+      "name": "环境与设施服务"
+    },
+    {
+      "symbol": "BK1140",
+      "name": "办公服务与用品"
+    },
+    {
+      "symbol": "BK1141",
+      "name": "综合支持服务"
+    },
+    {
+      "symbol": "BK1142",
+      "name": "安全和报警服务"
+    },
+    {
+      "symbol": "BK1143",
+      "name": "人力资源服务"
+    },
+    {
+      "symbol": "BK1144",
+      "name": "调查和咨询服务"
+    },
+    {
+      "symbol": "BK1145",
+      "name": "物流Ⅳ"
+    },
+    {
+      "symbol": "BK1146",
+      "name": "航空客运"
+    },
+    {
+      "symbol": "BK1147",
+      "name": "航运"
+    },
+    {
+      "symbol": "BK1148",
+      "name": "铁路运输"
+    },
+    {
+      "symbol": "BK1149",
+      "name": "陆运"
+    },
+    {
+      "symbol": "BK1150",
+      "name": "机场"
+    },
+    {
+      "symbol": "BK1151",
+      "name": "公路与铁路"
+    },
+    {
+      "symbol": "BK1152",
+      "name": "汽车零部件Ⅳ"
+    },
+    {
+      "symbol": "BK1153",
+      "name": "轮胎与橡胶"
+    },
+    {
+      "symbol": "BK1154",
+      "name": "汽车制造"
+    },
+    {
+      "symbol": "BK1155",
+      "name": "摩托车制造"
+    },
+    {
+      "symbol": "BK1156",
+      "name": "消费电子产品"
+    },
+    {
+      "symbol": "BK1157",
+      "name": "家庭装饰品"
+    },
+    {
+      "symbol": "BK1158",
+      "name": "住宅建筑"
+    },
+    {
+      "symbol": "BK1159",
+      "name": "家用电器"
+    },
+    {
+      "symbol": "BK1160",
+      "name": "家用器具"
+    },
+    {
+      "symbol": "BK1161",
+      "name": "休闲用品Ⅳ"
+    },
+    {
+      "symbol": "BK1162",
+      "name": "服装"
+    },
+    {
+      "symbol": "BK1163",
+      "name": "鞋类"
+    },
+    {
+      "symbol": "BK1164",
+      "name": "纺织制造"
+    },
+    {
+      "symbol": "BK1165",
+      "name": "博彩"
+    },
+    {
+      "symbol": "BK1166",
+      "name": "酒店"
+    },
+    {
+      "symbol": "BK1167",
+      "name": "休闲设施"
+    },
+    {
+      "symbol": "BK1168",
+      "name": "餐饮"
+    },
+    {
+      "symbol": "BK1169",
+      "name": "教育"
+    },
+    {
+      "symbol": "BK1170",
+      "name": "特殊消费者服务"
+    },
+    {
+      "symbol": "BK1171",
+      "name": "可选消费经销Ⅳ"
+    },
+    {
+      "symbol": "BK1172",
+      "name": "互联网与直销零售Ⅳ"
+    },
+    {
+      "symbol": "BK1173",
+      "name": "百货商店"
+    },
+    {
+      "symbol": "BK1174",
+      "name": "综合货品商店"
+    },
+    {
+      "symbol": "BK1175",
+      "name": "服装零售"
+    },
+    {
+      "symbol": "BK1176",
+      "name": "电脑与电子产品零售"
+    },
+    {
+      "symbol": "BK1177",
+      "name": "家庭装潢零售"
+    },
+    {
+      "symbol": "BK1178",
+      "name": "其他专业零售"
+    },
+    {
+      "symbol": "BK1179",
+      "name": "汽车零售"
+    },
+    {
+      "symbol": "BK1180",
+      "name": "家庭装饰零售"
+    },
+    {
+      "symbol": "BK1181",
+      "name": "药店"
+    },
+    {
+      "symbol": "BK1182",
+      "name": "食品经销"
+    },
+    {
+      "symbol": "BK1183",
+      "name": "食品零售"
+    },
+    {
+      "symbol": "BK1184",
+      "name": "日常消费品零售"
+    },
+    {
+      "symbol": "BK1185",
+      "name": "啤酒"
+    },
+    {
+      "symbol": "BK1186",
+      "name": "其他酒类"
+    },
+    {
+      "symbol": "BK1187",
+      "name": "软饮料"
+    },
+    {
+      "symbol": "BK1188",
+      "name": "农产品与服务"
+    },
+    {
+      "symbol": "BK1189",
+      "name": "包装食品与肉类"
+    },
+    {
+      "symbol": "BK1190",
+      "name": "烟草"
+    },
+    {
+      "symbol": "BK1191",
+      "name": "居家用品Ⅳ"
+    },
+    {
+      "symbol": "BK1192",
+      "name": "个护用品Ⅳ"
+    },
+    {
+      "symbol": "BK1193",
+      "name": "医疗设备"
+    },
+    {
+      "symbol": "BK1194",
+      "name": "医疗耗材"
+    },
+    {
+      "symbol": "BK1195",
+      "name": "医药流通"
+    },
+    {
+      "symbol": "BK1196",
+      "name": "其他医疗服务"
+    },
+    {
+      "symbol": "BK1197",
+      "name": "医院"
+    },
+    {
+      "symbol": "BK1198",
+      "name": "管理型保健护理"
+    },
+    {
+      "symbol": "BK1199",
+      "name": "医疗保健技术Ⅳ"
+    },
+    {
+      "symbol": "BK1200",
+      "name": "生物科技Ⅳ"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "fetched_at": "2026-08-28 19:04:34",
+  "count": 1,
+  "quotes": [
+    {
+      "symbol": "SZ300308",
+      "name": "中际旭创",
+      "exchange": "SZ",
+      "currency": "CNY",
+      "market_status": "已收盘",
+      "timestamp": "2026-08-28 15:34:45",
+      "current": 858.35,
+      "percent": -0.9,
+      "chg": -7.77,
+      "last_close": 866.12,
+      "open": 863.99,
+      "high": 915.88,
+      "low": 856.63,
+      "high52w": 1416.88,
+      "low52w": 321.74,
+      "amplitude": 6.84,
+      "market_capital": 1004041729102.0,
+      "market_capital_yi": 10040.42,
+      "float_market_capital_yi": 9527.16,
+      "total_shares": 1169734641,
+      "float_shares": 1109938278,
+      "pe_ttm": 49.09,
+      "pe_lyr": 92.99,
+      "pe_forecast": 36.77,
+      "pb": 24.02,
+      "ps": null,
+      "dividend_yield": 0.25,
+      "eps": 17.49,
+      "navps": 35.7406,
+      "volume": 31719580,
+      "amount": 28048631280.57,
+      "turnover_rate": 2.86,
+      "volume_ratio": 1.09
+    }
+  ]
+}
