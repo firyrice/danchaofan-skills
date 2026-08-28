@@ -16,18 +16,24 @@ description: 「蛋炒饭财经」评论区回复助手。视频发布后，用�
 
 ## 定位账号 Memory 与视频文件夹（开工前先做）
 
-本技能是「蛋炒饭财经」自媒体工作台的一部分，人设和视频产出都在 **bilibili-finance-video** 技能目录下，不在本技能目录里。开工前先解析出工作台根目录：
+本技能是「蛋炒饭财经」自媒体工作台的一部分。人设和视频产出都在**账号级共享工作台 `workspace/`**（在 danchaofan-skills 仓库根，被创作/数据/评论多个 skill 共读写，不在本技能目录、也不在创作 skill 目录内）。开工前先解析出工作台路径：
 
 ```bash
-DESK="$HOME/.claude/skills/bilibili-finance-video"
+SKILL_DIR="$HOME/.claude/skills/danchaofan-comment-reply"
+[ -d "$SKILL_DIR" ] || SKILL_DIR="$HOME/.codex/skills/danchaofan-comment-reply"
+# 穿透 symlink 取本 skill 真实父目录（= 仓库根），再拼 workspace；环境变量 DANCHAOFAN_WORKSPACE 优先
+REPO="$(dirname "$(cd "$SKILL_DIR" && pwd -P)")"
+WORKSPACE="${DANCHAOFAN_WORKSPACE:-$REPO/workspace}"
+# 账号人设： $WORKSPACE/huasheng.md    视频文件夹： $WORKSPACE/<视频标题>/
+# 创作 skill 目录（banned-words.md 等参考文件在这里，不在 workspace）：优先仓库内，退回已安装目录
+DESK="$REPO/bilibili-finance-video"
+[ -d "$DESK" ] || DESK="$HOME/.claude/skills/bilibili-finance-video"
 [ -d "$DESK" ] || DESK="$HOME/.codex/skills/bilibili-finance-video"
-# 账号人设： $DESK/workspace/huasheng.md
-# 视频文件夹：$DESK/workspace/<视频标题>/
 ```
 
-**第一步永远是读 `$DESK/workspace/huasheng.md`**——对齐人设（第二节）、目标画像（第三节）、固定话术（第五节）、合规红线（第七节）。评论回复的语气基因全部来自这里，不要凭印象写。
+**第一步永远是读 `$WORKSPACE/huasheng.md`**——对齐人设（第二节）、目标画像（第三节）、固定话术（第五节）、合规红线（第七节）。评论回复的语气基因全部来自这里，不要凭印象写。
 
-**第二步定位是哪支视频**：用户会说股票名或标题关键词（如"迈瑞那条""狗都不看的迈瑞"）。用它去 `$DESK/workspace/` 下模糊匹配文件夹名：
+**第二步定位是哪支视频**：用户会说股票名或标题关键词（如"迈瑞那条""狗都不看的迈瑞"）。用它去 `$WORKSPACE/` 下模糊匹配文件夹名：
 - 精确/唯一匹配到一个文件夹 → 就用它。
 - 匹配到多个（同股票多选题）或匹配不到 → **停下来问用户是哪一个**，列出候选文件夹名，不要猜。
 - 定位到文件夹后，**读一眼该文件夹的 `视频基础信息.md`**（至少读口播稿的核心观点和选定选题方向）——回复要和这支视频里"我"给过的判断一致，不能评论区说涨、正片说跌。
@@ -61,7 +67,7 @@ DESK="$HOME/.claude/skills/bilibili-finance-video"
 每处理完一轮评论，把「评论 + 回复」**按时间累积**追加写进该视频文件夹下的独立文件（`<视频文件夹>` = 第二步定位到的那个文件夹，名字含日期前缀，如 `2026-08-14_狗都不看的迈瑞…`）：
 
 ```
-$DESK/workspace/<视频文件夹>/评论回复.md
+$WORKSPACE/<视频文件夹>/评论回复.md
 ```
 
 - 这是**独立文件**，和 `视频基础信息.md`、`数据/` 文件夹平级，不要写进 `视频基础信息.md`。
@@ -98,6 +104,6 @@ $DESK/workspace/<视频文件夹>/评论回复.md
 ## 快速参考
 
 - `references/reply-playbook.md` — 评论回复方法论（八条手感 + 反套路黑名单 + 学手感不学立场 + 六类分型 + 荐股红线），附猫哥真实范例，动手前必读
-- `$DESK/workspace/huasheng.md` — 账号人设/画像/固定话术/合规红线（`$DESK` = bilibili-finance-video 技能目录），开工前先读
-- `$DESK/references/banned-words.md` — AI 味词表，回复也要扫
-- `$DESK/workspace/<视频标题>/视频基础信息.md` — 定位视频后读它对齐这支稿子的核心观点
+- `$WORKSPACE/huasheng.md` — 账号人设/画像/固定话术/合规红线（`$WORKSPACE` = 账号级共享工作台，在仓库根），开工前先读
+- `$DESK/references/banned-words.md` — AI 味词表，回复也要扫（`$DESK` = 创作 skill bilibili-finance-video 目录）
+- `$WORKSPACE/<视频标题>/视频基础信息.md` — 定位视频后读它对齐这支稿子的核心观点

@@ -1,0 +1,41 @@
+{
+  "fetched_at": "2026-08-24 17:55:31",
+  "count": 1,
+  "quotes": [
+    {
+      "symbol": "SH603486",
+      "name": "科沃斯",
+      "exchange": "SH",
+      "currency": "CNY",
+      "market_status": "已收盘",
+      "timestamp": "2026-08-24 15:00:00",
+      "current": 55.05,
+      "percent": -9.98,
+      "chg": -6.1,
+      "last_close": 61.15,
+      "open": 59.6,
+      "high": 59.8,
+      "low": 55.04,
+      "high52w": 109.71,
+      "low52w": 47.54,
+      "amplitude": 7.78,
+      "market_capital": 31851836966.0,
+      "market_capital_yi": 318.52,
+      "float_market_capital_yi": 315.63,
+      "total_shares": 578598310,
+      "float_shares": 573352635,
+      "pe_ttm": 15.72,
+      "pe_lyr": 18.11,
+      "pe_forecast": 12.76,
+      "pb": 3.16,
+      "ps": null,
+      "dividend_yield": 1.67,
+      "eps": 3.5,
+      "navps": 17.397,
+      "volume": 10092242,
+      "amount": 564290122.0,
+      "turnover_rate": 1.76,
+      "volume_ratio": 1.52
+    }
+  ]
+}

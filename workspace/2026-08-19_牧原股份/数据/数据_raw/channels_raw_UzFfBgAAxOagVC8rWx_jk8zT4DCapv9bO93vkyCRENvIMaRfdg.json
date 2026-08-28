@@ -1,0 +1,105 @@
+{
+  "commentList": [],
+  "objectId": "export/UzFfBgAAxOagVC8rWx_jk8zT4DCapv9bO93vkyCRENvIMaRfdg",
+  "createTime": 1787145451,
+  "likeCount": 33,
+  "commentCount": 24,
+  "readCount": 45272,
+  "forwardCount": 225,
+  "favCount": 119,
+  "commentClose": 0,
+  "visibleType": 1,
+  "status": 1,
+  "desc": {
+    "media": [
+      {
+        "spec": [],
+        "url": "https://finder.video.qq.com/251/20302/stodownload?encfilekey=nLWUlAoVvywZVAyjUBZZfUvN4qLibRTCCEcBsaIEUYusJCNCFqcNZ1SPZdxxfRyGsTFuuCuVPibiaVFnAdJmiaf9aQ&token=cztXnd9GyrFhU2vFKiaEuHGtYpBD25YDQ7ZAVlT1ankls43aibiameGSObf0iaATtO1GylTEicGXy6hvRicvQGmddK6jGytG2g3nYyYsCdLhlITicFjgB0kB5RUYp1LwSL69fhVO4uAkVdBDIlxZAVZzzXTQv0JzAqTewuXvUibPYt4O2aTbyZKxQWZveQ1dcaGcxm8PHNk4dkpJ9icvtJvR1VTKN5jUyh9eS3hcHNuG467UMYpQ&bizid=1023&dotrans=0&hy=SH&idx=1&m=&uzid=7a1ac&basedata=CAMSA3hWMCKxAQoHCgN4VjAQAAoKCgZ4V1QxMTMQAAoKCgZ4V1IxMTMQAAoKCgZ4V1QxMTIQAQoKCgZ4V1IxMTIQAAoKCgZ4V1QxMTEQAAoKCgZ4V1IxMTEQAAoKCgZ4V1QyNTgQAAoKCgZ4V1QxMjgQAAoKCgZ4V1QxNTgQAAoKCgZ4V1QxNTcQAQoKCgZ4V1QxMjcQAAoKCgZ4V1QxNTYQAAoKCgZ4V1QxMjYQAAoKCgZ4V1QxMDIQADoCCAJCMO0gv9Mc_C5iZqAtf74BwOLt4iG6eT0TI78Cg6aus-VOiWGQ7GJ1Ds8eQNZOW3hXtEiQiK_UBg&sign=CUXe2iq_6Fyv_AdTz37N6gbl9s4INgIIMdbNmvsnG-blf1Hmvf5z2e-neKdOQEkYNbaAT0MVK74Y-H9rRHGP1Q",
+        "thumbUrl": "https://finder.video.qq.com/251/20304/stodownload?encfilekey=Z5VKMueL90XdicvQHlVLRKFYkyTwKs8M3kDTZLDJMLr5ibcnibEu1adlnrib2USFE5A3siaj7bhGjP69icoULygFTAvQ&token=6xykWLEnztKIzBicPuvgFxobtMWoxJx1beqAKXjSHCYQuZqzYcYwEwovjf45gic1Dp5PolgpRsfp2h5QqgYq8FIh8l0hoD8AT43sjtTZk2PO7D8uicfZIbmCWH0wROSNBr0XWwJXQsdptBN5WLTChAQ1qfWaPmLuicJJPh4vsFD8S3VerclcictZEFwg24Miboib1GQPp8icLTr124GvEKQnicNnibiaQ5Scv3Y1rZH&bizid=1023&dotrans=0&hy=SH&idx=1&m=&uzid=1&picformat=200",
+        "mediaType": 4,
+        "videoPlayLen": 597,
+        "width": 1920,
+        "height": 1080,
+        "md5sum": "8631e5578c2bb4a42a62675b2407aa6c",
+        "fileSize": "311411881",
+        "bitrate": 4133888,
+        "coverUrl": "https://finder.video.qq.com/251/20304/stodownload?encfilekey=KGDRibp2wkicLnvdlzhaR3ichnjVf9ASvhxicOqKibkCwaTibd3icyl8S7lR8pu6O0T70cqcjNDgShzcibiacsEazuAUXKQ&token=6xykWLEnztKIzBicPuvgFxnZXNhzl2ArMGHD9lZnG67qG7XlWB6Xfw7upQhvtGJdhEW8lRCksoBticZorZgWUg4WQwxwaCKWt7vo77pw9YdnnYiaVoTmDoTDB9YicUHnIcAG9ia25BSh0uJ9H52AKyS2iakYF1vg9v14gufkkY32LhXAmnfmm8mAhAs60cOuSiaFfIekLCG4KgImUATxMlsQeD2bksutJ1BnrMm&hy=SH&idx=1&m=&scene=2&uzid=1&picformat=200",
+        "fullThumbUrl": "",
+        "fullUrl": "",
+        "fullWidth": 0,
+        "fullHeight": 0,
+        "fullMd5sum": "",
+        "fullFileSize": "0",
+        "fullBitrate": 0,
+        "halfRect": {},
+        "fullCoverUrl": "https://finder.video.qq.com/251/20304/stodownload?encfilekey=KGDRibp2wkicLnvdlzhaR3ichnjVf9ASvhxmibGZth3VhesJsbNiaaAgBChZZpLIPo4jIQWaSX1n2IfzsR0wGjzMJFQ&token=Cvvj5Ix3eeyD0TVgRZ2eE0IgpXa06WtN5yOz4uPY591TYobX6jDBOkyDibkgQK0dMLj1hye8uNXUAmy3mCPL1faNhvgFMotrtEdvcUUvatV0fkRe7QGRiazt0rg8U1VwMhqAx25hagrptVpULYAdAnB612xicmBvR2SzeY9dA4FyfGFyYHcVxroyfPFmYxdMYW2DFytBxWzqM5ETp60okvRziaaicgJNtgyVj&hy=SH&idx=1&m=&scene=2&uzid=1&picformat=200",
+        "cardShowStyle": 0,
+        "shareCoverUrl": "https://finder.video.qq.com/251/20304/stodownload?encfilekey=KGDRibp2wkicI3fAO6l70yyicES7rch4YtVcw2ibxkTOFHdgn7goM7ibavibxr97XW9u0Dv7ylGFLyIJ4ykZdMwvVEng&token=Cvvj5Ix3eeyD0TVgRZ2eEicfVqjSjkgXBEQbnibKiclVVwaW8n2icShd3iaWc2k6eWn3Ria4pYDGicP6oibzakMKnfm3rXFtiauLrib7sUH7oiaUd9jqCkRHlWmubrbQNVibX3k34icnbOZqTKFGYkLRRJp8Ny8Ky9sUVG2YqCmDcW8pjPOPpibUWFLXRW9hgGYE9WV0NIrGhVia2ibL70y0wJvJB5A26icicaafyiaVdufp3TZ&hy=SH&idx=1&m=&scene=2&uzid=1&picformat=200",
+        "shareCoverShowStyle": 0
+      }
+    ],
+    "mentionedMusics": [],
+    "shortTitle": [
+      {
+        "shortTitle": "牧原股份分析"
+      }
+    ],
+    "description": "牧原股份，黎明前最后的黑暗？\n#牧原股份\n",
+    "mediaType": 4,
+    "location": {
+      "longitude": 121.52609252929688,
+      "latitude": 31.259559631347656,
+      "city": "上海市",
+      "poiClassifyId": ""
+    },
+    "extReading": {},
+    "topic": {
+      "collectionId": "event/UzFfAgtgekIEAQAAAAAADxIhICxgMQAAAAstQy6ubaLX4KHWvLEZgBPE9qAEUA55BYyMzNPgMJpLt09H78vbBb04JpCPl9Dv",
+      "collectionName": "2026股票分析"
+    },
+    "feedLocation": {},
+    "event": {
+      "eventTopicId": "",
+      "eventName": "",
+      "eventCreatorNickname": "",
+      "eventAttendCount": 0
+    },
+    "audio": {},
+    "member": {},
+    "finderNewlifeDesc": {},
+    "modFeedInfo": {
+      "history": [],
+      "modifyButtonStatus": 2
+    }
+  },
+  "objectType": 0,
+  "flag": 96,
+  "objectNonce": "190223070055018300",
+  "permissionFlag": 0,
+  "canSetOriginalsoundTitle": true,
+  "fullPlayRate": 0.06590688223341284,
+  "avgPlayTimeSec": 61.68137644668257,
+  "disableInfo": {
+    "isDisabled": false
+  },
+  "showOriginal": true,
+  "exportId": "export/UzFfBgAAxOagVC8rWx_jk8zT4DCapv9bO93vkyCRENvIMaRfdg",
+  "ringsetCount": 0,
+  "snscoverCount": 0,
+  "statusrefCount": 0,
+  "forwardAggregationCount": 225,
+  "originalInfo": {
+    "auditOriginalFlag": 5,
+    "isDeclared": 1,
+    "isOriginalUpgrad": 0
+  },
+  "followCount": 290,
+  "fastFlipRate": 0.36639408017826736,
+  "forwardSnsCount": 2,
+  "forwardAllChatCount": 223,
+  "argsInfo": {
+    "poiCheckSum": "525d9e01e41bc7862d168b9f276412f1"
+  },
+  "yesterdayReadCount": 152,
+  "stickyOpStatus": 1
+}

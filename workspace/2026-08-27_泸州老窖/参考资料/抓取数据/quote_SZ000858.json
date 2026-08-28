@@ -1,0 +1,41 @@
+{
+  "fetched_at": "2026-08-27 19:53:53",
+  "count": 1,
+  "quotes": [
+    {
+      "symbol": "SZ000858",
+      "name": "五粮液",
+      "exchange": "SZ",
+      "currency": "CNY",
+      "market_status": "已收盘",
+      "timestamp": "2026-08-27 15:34:00",
+      "current": 71.12,
+      "percent": -1.08,
+      "chg": -0.78,
+      "last_close": 71.9,
+      "open": 71.81,
+      "high": 71.82,
+      "low": 70.96,
+      "high52w": 124.17,
+      "low52w": 68.14,
+      "amplitude": 1.2,
+      "market_capital": 276059961316.0,
+      "market_capital_yi": 2760.6,
+      "float_market_capital_yi": 2760.53,
+      "total_shares": 3881608005,
+      "float_shares": 3881513391,
+      "pe_ttm": 21.91,
+      "pe_lyr": 30.83,
+      "pe_forecast": 8.56,
+      "pb": 2.16,
+      "ps": null,
+      "dividend_yield": 7.25,
+      "eps": 3.25,
+      "navps": 32.9752,
+      "volume": 32079965,
+      "amount": 2282088195.46,
+      "turnover_rate": 0.83,
+      "volume_ratio": 1.69
+    }
+  ]
+}

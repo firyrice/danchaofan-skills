@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<!--
+  ============================================================================
+  蛋炒饭财经 · 工作流 —— 环节配置页（单文件，可直接部署）
+  ============================================================================
+  返回落地页：finance.html
+  4 个环节：
+    1. 选题 + 写稿          可选，默认开
+    2. 封面与标题制作        可选，默认开
+    3. 花生制作视频          必选（锁定，不可关）
+    4. 多平台数据回收与分析   可选，默认开
+  点「确认配置」→ 展示所选环节摘要
+  ============================================================================
+-->
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>配置你的财经视频工作流｜蛋炒饭财经</title>
+  <meta name="description" content="按需勾选财经视频工作流的环节：选题写稿、封面标题、花生成片、多平台数据回收。花生成片为核心必选，其余可自由取舍。" />
+  <meta name="robots" content="noindex, follow" />
+
+  <style>
+    :root {
+      --ink: #161b2e;
+      --muted: #5a6178;
+      --line: #e6e9f0;
+      --bg: #ffffff;
+      --bg-soft: #f5f7fa;
+      --brand: #e0452b;
+      --brand-deep: #c23a22;
+      --gold: #c9a227;
+      --green: #3a7d44;
+      --radius: 14px;
+      --shadow: 0 10px 30px rgba(22, 27, 46, .08);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB",
+                   "Microsoft YaHei", "Segoe UI", Roboto, sans-serif;
+      color: var(--ink);
+      background: var(--bg-soft);
+      line-height: 1.75;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--brand); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+
+    /* ---------- 顶部导航 ---------- */
+    header.nav {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(255,255,255,.92); backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; max-width: 860px; margin: 0 auto; padding: 0 24px; }
+    .logo { font-weight: 800; font-size: 18px; color: var(--ink); display: flex; align-items: center; gap: 8px; }
+    .logo .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--brand); display: inline-block; }
+    .logo .back { color: var(--muted); font-weight: 600; font-size: 14px; margin-right: 4px; }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+      padding: 12px 22px; border-radius: 999px; font-weight: 700; font-size: 15px;
+      cursor: pointer; border: none; transition: .15s ease; white-space: nowrap;
+    }
+    .btn-primary { background: var(--brand); color: #fff; }
+    .btn-primary:hover { background: var(--brand-deep); text-decoration: none; }
+    .btn-ghost { background: #fff; color: var(--ink); border: 1px solid var(--line); }
+    .btn-ghost:hover { border-color: var(--ink); text-decoration: none; }
+    .btn-lg { padding: 16px 34px; font-size: 17px; }
+    .btn:disabled { opacity: .5; cursor: not-allowed; }
+
+    /* ---------- 页头 ---------- */
+    .page-head { padding: 56px 0 8px; }
+    .eyebrow {
+      display: inline-block; font-size: 13px; letter-spacing: .12em;
+      color: var(--brand); font-weight: 700; text-transform: uppercase; margin-bottom: 12px;
+    }
+    h1 { font-size: clamp(26px, 4vw, 38px); line-height: 1.25; font-weight: 800; letter-spacing: -.01em; }
+    .page-head p { color: var(--muted); font-size: 18px; margin-top: 14px; max-width: 640px; }
+
+    /* ---------- 环节卡片 ---------- */
+    .options { padding: 32px 0 12px; display: grid; gap: 16px; }
+    .opt {
+      display: flex; align-items: flex-start; gap: 18px;
+      background: #fff; border: 2px solid var(--line); border-radius: var(--radius);
+      padding: 24px 26px; cursor: pointer; transition: .15s ease; position: relative;
+    }
+    .opt:hover { border-color: #d7c9b0; }
+    .opt.on { border-color: var(--brand); background: #fffaf9; }
+    .opt.locked { cursor: default; background: #fbf7ef; border-color: var(--gold); }
+    .opt .ico { font-size: 30px; line-height: 1.4; flex-shrink: 0; }
+    .opt .body { flex: 1; }
+    .opt .body h3 { font-size: 18px; font-weight: 800; margin-bottom: 4px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .opt .body p { color: var(--muted); font-size: 14px; }
+    .opt .body .tags { margin-top: 8px; display: flex; gap: 8px; flex-wrap: wrap; }
+    .opt .body .subtag { font-size: 12px; color: var(--muted); background: var(--bg-soft); border-radius: 999px; padding: 3px 10px; }
+
+    .pill {
+      font-size: 11px; font-weight: 800; letter-spacing: .04em; padding: 3px 9px; border-radius: 999px;
+    }
+    .pill-req { background: var(--gold); color: #fff; }
+    .pill-opt { background: var(--bg-soft); color: var(--muted); }
+
+    /* ---------- 勾选框 ---------- */
+    .check {
+      flex-shrink: 0; width: 26px; height: 26px; border-radius: 8px;
+      border: 2px solid var(--line); background: #fff; margin-top: 2px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; color: #fff; transition: .15s ease;
+    }
+    .opt.on .check { background: var(--brand); border-color: var(--brand); }
+    .opt.locked .check { background: var(--gold); border-color: var(--gold); }
+    .opt input { position: absolute; opacity: 0; pointer-events: none; }
+
+    /* ---------- 操作栏 ---------- */
+    .actions { padding: 20px 0 64px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .actions .count { color: var(--muted); font-size: 14px; }
+    .actions .count strong { color: var(--ink); }
+
+    /* ---------- 确认摘要 ---------- */
+    .summary {
+      display: none; margin: 8px 0 64px;
+      background: #fff; border: 1px solid var(--line); border-radius: 18px;
+      padding: 40px; box-shadow: var(--shadow);
+    }
+    .summary.show { display: block; }
+    .summary .ok-badge {
+      display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px;
+      background: #eaf5ec; color: var(--green); border-radius: 999px; font-size: 13px; font-weight: 700; margin-bottom: 16px;
+    }
+    .summary h2 { font-size: 24px; font-weight: 800; margin-bottom: 6px; }
+    .summary .sub { color: var(--muted); margin-bottom: 24px; }
+    .summary ol { list-style: none; counter-reset: pick; display: grid; gap: 12px; }
+    .summary ol li {
+      counter-increment: pick; display: flex; align-items: center; gap: 14px;
+      background: var(--bg-soft); border-radius: 12px; padding: 16px 20px; font-weight: 600;
+    }
+    .summary ol li::before {
+      content: counter(pick); flex-shrink: 0;
+      width: 26px; height: 26px; border-radius: 50%; background: var(--brand); color: #fff;
+      display: inline-flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800;
+    }
+    .summary ol li .em { color: var(--muted); font-weight: 400; font-size: 14px; margin-left: auto; }
+    .summary .foot { margin-top: 28px; display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+    .summary .hint { color: var(--muted); font-size: 13px; margin-top: 16px; }
+
+    footer { border-top: 1px solid var(--line); padding: 32px 0; font-size: 13px; color: var(--muted); background: #fff; }
+
+    @media (max-width: 600px) {
+      .opt { padding: 20px; gap: 14px; }
+      .summary { padding: 28px 22px; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ================= 顶部导航 ================= -->
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="logo" href="finance.html"><span class="back">←</span><span class="dot"></span>返回落地页</a>
+      <a class="btn btn-ghost" href="index.html">商店首页</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ================= 页头 ================= -->
+    <div class="wrap page-head">
+      <span class="eyebrow">配置工作流</span>
+      <h1>选择你需要的环节</h1>
+      <p>不是每个人都要跑完整条流水线。勾选你要用的环节，不需要的直接关掉。「花生制作视频」是核心必选环节，其余可自由取舍。默认四个环节全开。</p>
+    </div>
+
+    <!-- ================= 环节选项 ================= -->
+    <div class="wrap">
+      <form id="cfg">
+        <div class="options">
+          <!-- 1. 选题 + 写稿 -->
+          <label class="opt on" data-name="选题 + 写稿" data-desc="选股反推 + 3 个带钩子选题 + 8-12 分钟口播稿 + 对抗性终审">
+            <input type="checkbox" name="step" value="选题 + 写稿" checked />
+            <span class="check">✓</span>
+            <span class="ico">📝</span>
+            <span class="body">
+              <h3>选题 + 写稿 <span class="pill pill-opt">可选</span></h3>
+              <p>扫全市场反推最容易起量的标的，产出 3 个带钩子的差异化选题，采纳后生成 8-12 分钟完整口播稿并过对抗性终审。</p>
+              <span class="tags"><span class="subtag">选股</span><span class="subtag">选题</span><span class="subtag">口播稿</span><span class="subtag">合规终审</span></span>
+            </span>
+          </label>
+
+          <!-- 2. 封面与标题制作 -->
+          <label class="opt on" data-name="封面与标题制作" data-desc="3 个爆款标题 + B站(4:3)/抖音(3:4) 双版封面">
+            <input type="checkbox" name="step" value="封面与标题制作" checked />
+            <span class="check">✓</span>
+            <span class="ico">🎨</span>
+            <span class="body">
+              <h3>封面与标题制作 <span class="pill pill-opt">可选</span></h3>
+              <p>产出 3 个爆款标题，并生成 B站(4:3) 与抖音(3:4) 两版适配封面，大字对齐标题、封面基因统一。</p>
+              <span class="tags"><span class="subtag">爆款标题</span><span class="subtag">B站封面</span><span class="subtag">抖音封面</span></span>
+            </span>
+          </label>
+
+          <!-- 3. 花生制作视频 · 必选 -->
+          <label class="opt locked" data-name="花生制作视频" data-desc="分镜脚本 + 花生 AI 成片（核心环节）">
+            <input type="checkbox" name="step" value="花生制作视频" checked disabled data-required="1" />
+            <span class="check">✓</span>
+            <span class="ico">🥜</span>
+            <span class="body">
+              <h3>花生制作视频 <span class="pill pill-req">核心 · 必选</span></h3>
+              <p>把口播稿转成分镜脚本，交花生 AI 成片。这是整条工作流的落点，必选、不可关闭。</p>
+              <span class="tags"><span class="subtag">分镜脚本</span><span class="subtag">AI 成片</span></span>
+            </span>
+          </label>
+
+          <!-- 4. 多平台数据回收与分析 -->
+          <label class="opt on" data-name="多平台数据回收与分析" data-desc="抖音/小红书/B站/视频号数据回流 + 评论区回复 + 复盘反哺选题">
+            <input type="checkbox" name="step" value="多平台数据回收与分析" checked />
+            <span class="check">✓</span>
+            <span class="ico">📊</span>
+            <span class="body">
+              <h3>多平台数据回收与分析 <span class="pill pill-opt">可选</span></h3>
+              <p>发布后抓抖音/小红书/B站/视频号后台数据回流，评论区按人设回复并落档，数据反哺下一轮选题。</p>
+              <span class="tags"><span class="subtag">数据回收</span><span class="subtag">评论回复</span><span class="subtag">复盘迭代</span></span>
+            </span>
+          </label>
+        </div>
+
+        <!-- ================= 操作栏 ================= -->
+        <div class="actions">
+          <button class="btn btn-primary btn-lg" type="submit">确认配置</button>
+          <span class="count">已选 <strong id="cnt">4</strong> / 4 个环节</span>
+        </div>
+      </form>
+
+      <!-- ================= 确认摘要 ================= -->
+      <div class="summary" id="summary" aria-live="polite">
+        <span class="ok-badge">✓ 配置已确认</span>
+        <h2>你的工作流已配置好</h2>
+        <p class="sub">按以下环节依次跑起来即可。「花生制作视频」始终包含在内。</p>
+        <ol id="picked"></ol>
+        <div class="foot">
+          <button class="btn btn-ghost" type="button" id="edit">重新配置</button>
+        </div>
+        <p class="hint">提示：环节顺序即工作流执行顺序。如需调整，点「重新配置」重新勾选。</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      © 2026 蛋炒饭财经 · 工作流 · <a href="index.html">返回商店</a> · <a href="finance.html">落地页</a>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var form = document.getElementById('cfg');
+      var opts = Array.prototype.slice.call(document.querySelectorAll('.opt'));
+      var cnt = document.getElementById('cnt');
+      var summary = document.getElementById('summary');
+      var picked = document.getElementById('picked');
+      var editBtn = document.getElementById('edit');
+
+      // 顺序固定为流水线顺序
+      var ORDER = ['选题 + 写稿', '封面与标题制作', '花生制作视频', '多平台数据回收与分析'];
+
+      function syncOne(opt) {
+        var input = opt.querySelector('input');
+        if (input.disabled) return; // 必选项锁定
+        opt.classList.toggle('on', input.checked);
+      }
+
+      function updateCount() {
+        var n = form.querySelectorAll('input[name="step"]:checked').length;
+        cnt.textContent = n;
+      }
+
+      // 点击卡片切换（label 已绑定 input，这里只做样式同步）
+      opts.forEach(function (opt) {
+        var input = opt.querySelector('input');
+        input.addEventListener('change', function () {
+          syncOne(opt);
+          updateCount();
+        });
+      });
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var chosen = [];
+        // 按固定流水线顺序收集
+        ORDER.forEach(function (name) {
+          var input = form.querySelector('input[value="' + name + '"]');
+          if (input && input.checked) {
+            var opt = input.closest('.opt');
+            chosen.push({
+              name: name,
+              desc: opt.getAttribute('data-desc'),
+              required: !!input.getAttribute('data-required')
+            });
+          }
+        });
+
+        picked.innerHTML = '';
+        chosen.forEach(function (c) {
+          var li = document.createElement('li');
+          var label = c.name + (c.required ? '（核心必选）' : '');
+          li.innerHTML = '<span>' + label + '</span><span class="em">' + c.desc + '</span>';
+          picked.appendChild(li);
+        });
+
+        summary.classList.add('show');
+        summary.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+
+      editBtn.addEventListener('click', function () {
+        summary.classList.remove('show');
+        form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+
+      updateCount();
+    })();
+  </script>
+</body>
+</html>

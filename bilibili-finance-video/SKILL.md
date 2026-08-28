@@ -19,9 +19,12 @@ description: 专业的B站财经视频创作助手，用于把一支股票变成
 ```bash
 SKILL_DIR="$HOME/.claude/skills/bilibili-finance-video"
 [ -d "$SKILL_DIR" ] || SKILL_DIR="$HOME/.codex/skills/bilibili-finance-video"
+# 账号级共享工作台 workspace 在仓库根（不在本 skill 内）：穿透 symlink 取 skill 真实父目录再拼 workspace。
+# 环境变量 DANCHAOFAN_WORKSPACE 优先，异常时可手动指定。
+WORKSPACE="${DANCHAOFAN_WORKSPACE:-$(dirname "$(cd "$SKILL_DIR" && pwd -P)")/workspace}"
 ```
 
-下文示例为简洁写成 `scripts/xxx.py`，实际调用替换为 `"$SKILL_DIR/scripts/xxx.py"`。**五个采集脚本（web_search / web_fetch / xueqiu_quote / xueqiu_hot_posts / xueqiu_hot_stocks）的完整用法、参数、JSON 输出结构见 [references/data-fetching.md](references/data-fetching.md)**；**视频发布【之后】的多平台数据抓取（抖音/小红书/B站/视频号 账号级+稿件级）是一条独立工作流，已拆分到 `danchaofan-data-tracker` 技能——见下方「发布后数据抓取」小节。**
+下文示例为简洁写成 `scripts/xxx.py`，实际调用替换为 `"$SKILL_DIR/scripts/xxx.py"`；凡落盘到工作台的路径一律用 `"$WORKSPACE/..."`（`workspace/` 已是账号级共享工作台，独立于本 skill，`danchaofan-data-tracker`、`danchaofan-comment-reply` 也读写它）。**五个采集脚本（web_search / web_fetch / xueqiu_quote / xueqiu_hot_posts / xueqiu_hot_stocks）的完整用法、参数、JSON 输出结构见 [references/data-fetching.md](references/data-fetching.md)**；**视频发布【之后】的多平台数据抓取（抖音/小红书/B站/视频号 账号级+稿件级）是一条独立工作流，已拆分到 `danchaofan-data-tracker` 技能——见下方「发布后数据抓取」小节。**
 
 ## 专业分析框架（贯穿选题与文稿）
 
@@ -74,7 +77,7 @@ SKILL_DIR="$HOME/.claude/skills/bilibili-finance-video"
 ```bash
 D=$(date +%F)                                   # 取当天日期，别凭记忆写
 STOCK="药明康德"                                 # 换成当前股票名
-DIR="$SKILL_DIR/workspace/${D}_${STOCK}"
+DIR="$WORKSPACE/${D}_${STOCK}"
 # 先查重名：目标已存在（别的并行任务或旧版产物）就改带区分度的新名，绝不覆盖
 mkdir -p "$DIR/参考资料/抓取数据"                # 参考资料/ 放精读素材，抓取数据/ 放脚本抓来的原始 JSON
 mkdir -p "$DIR/数据/数据_raw"                    # 数据/ 放发布后各平台稿件数据，数据_raw/ 放稿件原始 JSON/xlsx
@@ -159,18 +162,18 @@ mkdir -p "$DIR/封面"                             # 封面/ 放两版封面成�
 
 封面设计基因已锁定为「严肃财经调查风」（墨黑/炭灰+暖金主色板、极粗黑体、真实物件+颗粒质感），每期只换**文案和主视觉**，配色/字体/材质/构图长期复用以积累识别度——不要每期即兴换审美。写提示词前先定这期的情绪偏移（看涨→暖金加红/看跌→压暗加警示黄/中性→炭灰加金，都在主色板内调温度）和主视觉。**阅读 [references/cover-prompts.md](references/cover-prompts.md) 获取完整方法论与提示词模板**。
 
-调用 `scripts/generate_cover.py` 生成，**输出到该视频在 workspace 下的专属文件夹**：
+调用 `scripts/generate_cover.py` 生成，**输出到该视频在工作台下的专属文件夹**（`$WORKSPACE` 见开头寻址块）：
 
 ```bash
-python3 scripts/generate_cover.py \
+python3 "$SKILL_DIR/scripts/generate_cover.py" \
   --platform bilibili \
   --prompt "封面画面描述（英文效果更稳定，但中文大字标题用中文）" \
-  --output "workspace/<创建日期>_<最终标题>/封面/<最终标题>_bilibili.png"
+  --output "$WORKSPACE/<创建日期>_<最终标题>/封面/<最终标题>_bilibili.png"
 
-python3 scripts/generate_cover.py \
+python3 "$SKILL_DIR/scripts/generate_cover.py" \
   --platform douyin \
   --prompt "..." \
-  --output "workspace/<创建日期>_<最终标题>/封面/<最终标题>_douyin.png"
+  --output "$WORKSPACE/<创建日期>_<最终标题>/封面/<最终标题>_douyin.png"
 ```
 
 封面的几条硬规则（详见 cover-prompts.md）：

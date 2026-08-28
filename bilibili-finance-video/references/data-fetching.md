@@ -8,8 +8,10 @@
   ```bash
   SKILL_DIR="$HOME/.claude/skills/bilibili-finance-video"
   [ -d "$SKILL_DIR" ] || SKILL_DIR="$HOME/.codex/skills/bilibili-finance-video"
+  # 账号级共享工作台在仓库根（不在 skill 内）：穿透 symlink 取 skill 真实父目录再拼 workspace
+  WORKSPACE="${DANCHAOFAN_WORKSPACE:-$(dirname "$(cd "$SKILL_DIR" && pwd -P)")/workspace}"
   ```
-  下文示例为简洁写成 `scripts/xxx.py`，实际调用替换为 `"$SKILL_DIR/scripts/xxx.py"`。
+  下文示例为简洁写成 `scripts/xxx.py`，实际调用替换为 `"$SKILL_DIR/scripts/xxx.py"`；落盘到工作台的路径用 `"$WORKSPACE/..."`。
 - **归档铁律**：阶段一及以后，所有 `--out` 一律指向该视频的 `参考资料/抓取数据/xxx.json`，不写 `/tmp`（唯一例外是阶段零选股，那时还没有视频文件夹，才写 `/tmp`）。别覆盖前一轮抓取——同名文件已存在就加后缀（如 `web_search_阶段二.json`），每轮留档。
 - 脚本报错或拿不到结果时，如实告知用户无法获取该数据，**不要用记忆里的旧数据冒充**。
 
@@ -157,7 +159,7 @@ python3 scripts/xueqiu_quote.py SZ300750 SH600519 HK03690 BABA --out /tmp/xq_quo
 
 原因：5 条热帖全文 + 每条 5 条评论，原始 JSON 仍有上万字，直接读进主上下文会挤占后续写稿空间。用 Task/Agent 工具起一个子 agent（Codex 映射到等价子任务能力），让它跑脚本、读原始 JSON、消化，只回传一份**结构化摘要 + 可引用原声**——原始全文烂在子 agent 上下文里。
 
-**派给「雪球热帖情绪分析子 agent」的任务指令**（照此措辞下发，**并把这支视频的文件夹绝对路径 `<视频文件夹>` 一并给它**，形如 `$SKILL_DIR/workspace/2026-08-20_药明康德`）：
+**派给「雪球热帖情绪分析子 agent」的任务指令**（照此措辞下发，**并把这支视频的文件夹绝对路径 `<视频文件夹>` 一并给它**，形如 `<仓库根>/workspace/2026-08-20_药明康德`）：
 
 > 你是雪球热帖情绪分析助手，让原始 JSON 和消化后的摘要都落到这支视频名下。请：
 > 1. 定位技能目录：`SKILL_DIR="$HOME/.claude/skills/bilibili-finance-video"; [ -d "$SKILL_DIR" ] || SKILL_DIR="$HOME/.codex/skills/bilibili-finance-video"`

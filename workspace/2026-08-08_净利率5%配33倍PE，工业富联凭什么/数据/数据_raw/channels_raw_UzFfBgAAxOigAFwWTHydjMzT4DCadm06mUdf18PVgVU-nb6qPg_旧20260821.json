@@ -1,0 +1,105 @@
+{
+  "commentList": [],
+  "objectId": "export/UzFfBgAAxOigAFwWTHydjMzT4DCadm06mUdf18PVgVU-nb6qPg",
+  "createTime": 1786189578,
+  "likeCount": 103,
+  "commentCount": 22,
+  "readCount": 72364,
+  "forwardCount": 746,
+  "favCount": 255,
+  "commentClose": 0,
+  "visibleType": 1,
+  "status": 1,
+  "desc": {
+    "media": [
+      {
+        "spec": [],
+        "url": "https://finder.video.qq.com/251/20302/stodownload?encfilekey=nLWUlAoVvyyAk0t00tKsibNqPZvqSksYTCQCD0FX4vQsYvsKoQeEFKrAnHBE0ZDGm1zt0txaZ0GKtP7GDG2HZBQ&token=cztXnd9GyrGAvQNGRrtGibSv8fM9gZlwOCfqz9IqFdqW7b0d5yMGh6eSbxEdFS1d9ZZyvw45vefxfnfl0KJWzoeNbm4FB1hQXqHyPicbxtk2VJTCricticqZT1cYukCbsCugXgoG5SApVfZryeQRwS8BVXydKxeSISmRfFzlX1ibyicemLhInGqwc7qOB1KZo1XYHv7WfdsdUOVCP1CafhIRGQu4J3eI4AX4O6B2zZ0LbVvoE&bizid=1023&dotrans=0&hy=SH&idx=1&m=&uzid=7a1ac&basedata=CAMSA3hWMCK9AQoHCgN4VjAQAAoKCgZ4V1QxMTMQAAoKCgZ4V1QxMTIQAQoKCgZ4V1QxMTEQAAoKCgZ4V1QyNTgQAAoKCgZ4V1QxMjgQAAoKCgZ4V1QxNTgQAAoKCgZ4V1QyNjgQAAoKCgZ4V1QxMjcQAAoKCgZ4V1QxNTcQAQoKCgZ4V1QxMjYQAAoKCgZ4V1QxNTYQAAoKCgZ4V1QyNjcQAAoKCgZ4V1QyNjYQAAoKCgZ4V1QxMDIQAAoKCgZ4V1QyNzYQADoCCAJCMC3SsVrtoM9md-h6QLPpOHvl7QKl3dZo9DgcTdNJVfjC7LOTVRQPiLpBgUmlYzN-VEjnnZ_UBg&sign=XtDqZG5235gOIl5_XAhX55gcG6p6OYoeAOE-MWokYJ2zaEvpBUSBBP08LPgnVNjeI6KtukIa5M-jSTqz0v3T6w",
+        "thumbUrl": "https://finder.video.qq.com/251/20304/stodownload?encfilekey=KGDRibp2wkicJBlfqV93oZZxVJRYCQnMFNRUbclE2DsxZqFrrrFZ5wSYibicWzA0ldvWRol4LzGu6q0XKHm5H1D4kw&token=Cvvj5Ix3eeyD0TVgRZ2eExa9u2kXRico7C1KLJEc4sBuV8TRKib7yIVyo0OphskOb7BRUgCAN6HxhZx6axbWvTUSbK0kTnXcJ8dllNUNicgmMic6HxicD0VcnpIvibxicp5hhJUYgDhKvHiatLvSicQz9YNLfibL4cpzSHX41viaMsqMKPPOcCbEcnKicKKaS68QbwDaq3bkicK81QNVgX2kaJc0zYRia6KxUlMiaBibd4YG&bizid=1023&dotrans=0&hy=SH&idx=1&m=&uzid=1&picformat=200",
+        "mediaType": 4,
+        "videoPlayLen": 739,
+        "width": 1920,
+        "height": 1080,
+        "md5sum": "d34a041947079c65045b3682dc974713",
+        "fileSize": "418327282",
+        "bitrate": 4492288,
+        "coverUrl": "https://finder.video.qq.com/251/20304/stodownload?encfilekey=KGDRibp2wkicKVNghajZmiaXYWm4iaD5az6GcKhPbUebgAMh6tWuU7jJbRRJo8jHw10MkENetb52SeEOyCkibzXEfww&token=oA9SZ4icv8IsLdf0W51PLmxmNvBWly8b9UM1Qh8UiaViaCqnhribrCAs22Wibv8sKbs7ozDVTEficdD1tPWrWgnyLtOicofAn7hpc17tVH6nG6zBr4Jc4fy3kvYoYwunpzbiaTB0onME2tWxwsqpUfpSGTXUAGlxADyFf7ynquXaFJVZDce8yWeY3icw6TPCv9ULSHIgjzEjt3O6L7yUxGApJ5UnABA&hy=SH&idx=1&m=&scene=2&uzid=1&picformat=200",
+        "fullThumbUrl": "",
+        "fullUrl": "",
+        "fullWidth": 0,
+        "fullHeight": 0,
+        "fullMd5sum": "",
+        "fullFileSize": "0",
+        "fullBitrate": 0,
+        "halfRect": {},
+        "fullCoverUrl": "https://finder.video.qq.com/251/20304/stodownload?encfilekey=KGDRibp2wkicKVNghajZmiaXYWm4iaD5az6GViaA2kjdYLVfKibqiaRCTYVj9L1w9gDTeCYQtdZCOT7J8CoNEvVzibZ3WA&token=6xykWLEnztKIzBicPuvgFxnj3PRYUn7Lad8HazjCNReW1ADmEenich2rlUhTaTeJ248DoQy4ljWtzQkQ6b8pP9ecdsicHzEqZx7ATXMMxLD0xmFBlicPhEdHddIVIwRJJ4jzasibicXZy3ZRsiaywjGgw0LUt0sb92Yx6JpNfcJMoxKuXPrOGmUPDYCrPuh5v3OvqrvAibvHsPMdJSn4PD5f9wu4EHHOlcg6N3ZW&hy=SH&idx=1&m=&scene=2&uzid=1&picformat=200",
+        "cardShowStyle": 0,
+        "shareCoverUrl": "https://finder.video.qq.com/251/20304/stodownload?encfilekey=KGDRibp2wkicLePtpweicneOc5ORTP92BpKydUiaWsfnNtOHw2cDTsiaVZJt9TWAEOfyXsPpjklZ0l8r6qzxOaibXulA&token=6xykWLEnztKIzBicPuvgFxiaYQxxdZEqkcN3amUXpIGnPDmASGxb0KYfiaNvc39CHJkdBLKmBh7zSpucl0ZjBQLWY4cC0TbUU0W7JueoZ0Shpd76oPOHNuYuP4e8XfmeGeibtAfNuw6jeufenyV22Bicsxv70icpwUVZpnGCp5WsVrIDFrwnibqiatV2170jwvq0SIZSgIicbLTVdmkeqJEZ3P731icOMaPzJs7K1R&hy=SH&idx=1&m=&scene=2&uzid=1&picformat=200",
+        "shareCoverShowStyle": 0
+      }
+    ],
+    "mentionedMusics": [],
+    "shortTitle": [
+      {
+        "shortTitle": "工业富联凭什么？"
+      }
+    ],
+    "description": "净利率5%配33倍PE，工业富联凭什么？#工业富联\n\n",
+    "mediaType": 4,
+    "location": {
+      "longitude": 121.42394256591797,
+      "latitude": 31.220239639282227,
+      "city": "上海市",
+      "poiClassifyId": ""
+    },
+    "extReading": {},
+    "topic": {
+      "collectionId": "event/UzFfAgtgekIEAQAAAAAADxIhICxgMQAAAAstQy6ubaLX4KHWvLEZgBPE9qAEUA55BYyMzNPgMJpLt09H78vbBb04JpCPl9Dv",
+      "collectionName": "2026股票分析"
+    },
+    "feedLocation": {},
+    "event": {
+      "eventTopicId": "",
+      "eventName": "",
+      "eventCreatorNickname": "",
+      "eventAttendCount": 0
+    },
+    "audio": {},
+    "member": {},
+    "finderNewlifeDesc": {},
+    "modFeedInfo": {
+      "history": [],
+      "modifyButtonStatus": 2
+    }
+  },
+  "objectType": 0,
+  "flag": 96,
+  "objectNonce": "2838190867005291863",
+  "permissionFlag": 0,
+  "canSetOriginalsoundTitle": true,
+  "fullPlayRate": 0.08405636916275214,
+  "avgPlayTimeSec": 86.33992815694944,
+  "disableInfo": {
+    "isDisabled": false
+  },
+  "showOriginal": true,
+  "exportId": "export/UzFfBgAAxOigAFwWTHydjMzT4DCadm06mUdf18PVgVU-nb6qPg",
+  "ringsetCount": 0,
+  "snscoverCount": 1,
+  "statusrefCount": 2,
+  "forwardAggregationCount": 749,
+  "originalInfo": {
+    "auditOriginalFlag": 5,
+    "isDeclared": 1,
+    "isOriginalUpgrad": 0
+  },
+  "followCount": 1093,
+  "fastFlipRate": 0.3474566300184331,
+  "forwardSnsCount": 3,
+  "forwardAllChatCount": 743,
+  "argsInfo": {
+    "poiCheckSum": "f1d3f477457366d0ef14cfd9c8647398"
+  },
+  "yesterdayReadCount": 113,
+  "stickyOpStatus": 1
+}

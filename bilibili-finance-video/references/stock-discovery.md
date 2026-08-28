@@ -102,12 +102,12 @@
 **派给「选股子 agent」的任务指令**（照此措辞下发）：
 
 > 你是「蛋炒饭财经」的选股助手，任务是扫全市场反推该做哪只票，只回传一份两栏推荐清单。
-> 1. 定位技能目录：`SKILL_DIR="$HOME/.claude/skills/bilibili-finance-video"; [ -d "$SKILL_DIR" ] || SKILL_DIR="$HOME/.codex/skills/bilibili-finance-video"`
+> 1. 定位技能目录 + 账号级共享工作台（workspace 在仓库根，不在 skill 内）：`SKILL_DIR="$HOME/.claude/skills/bilibili-finance-video"; [ -d "$SKILL_DIR" ] || SKILL_DIR="$HOME/.codex/skills/bilibili-finance-video"; WORKSPACE="${DANCHAOFAN_WORKSPACE:-$(dirname "$(cd "$SKILL_DIR" && pwd -P)")/workspace}"`
 > 2. **先读全 `$SKILL_DIR/references/stock-discovery.md`**——它是完整判断逻辑（四信号打分模型 / 账号适配去重轮换 / 数据硬门槛 + 合规红线 + 两栏输出格式），严格照它打分和产出。
 > 3. **并行抓数据**：
 >    - 跑 `python3 "$SKILL_DIR/scripts/xueqiu_hot_stocks.py" --top 30 --out /tmp/hot.json` 拿全市场热榜（人气热股/涨幅/跌幅/成交额四榜；港股/美股加 `--market hk|us`）。跌幅榜是"套牢盘厚、持仓焦虑浓"的富矿，人气榜是"正在被讨论"的信号。单个榜失败会优雅降级；四榜全失败或拿不到 token 时，退回 `web_search.py` 搜 `"今日涨停板 龙虎榜 热门板块 最新"` 兜底，别卡住。
 >    - 跑 `python3 "$SKILL_DIR/scripts/web_search.py"` 搜当日催化：`"今日涨停板 概念板块"`、`"龙虎榜 机构 最新"`、`"财报季 业绩 最新"`、`"A股 重大政策 行业 最新"` 等，补榜单给不出的事件维度。
->    - 读 `$SKILL_DIR/workspace/`：列已有视频文件夹名和发布日期做**去重**（做过的票不永久拉黑——间隔月级别以上 + 股票有较大变化两条都满足才作为"老票新故事"重推；只满足一条就跳过）+ 看板块分布做**轮换** + 读 `workspace/huasheng.md` 第八节对齐流量规律 + 扫已做视频的 `评论回复.md` 有没有高频追问可当续集选题。
+>    - 读 `$WORKSPACE/`：列已有视频文件夹名和发布日期做**去重**（做过的票不永久拉黑——间隔月级别以上 + 股票有较大变化两条都满足才作为"老票新故事"重推；只满足一条就跳过）+ 看板块分布做**轮换** + 读 `$WORKSPACE/huasheng.md` 第八节对齐流量规律 + 扫已做视频的 `评论回复.md` 有没有高频追问可当续集选题。
 > 4. **收敛出 shortlist（一次几只）后，跑 `python3 "$SKILL_DIR/scripts/xueqiu_hot_posts.py" <雪球代码>`（默认热帖近30天前5条、每帖5条评论）坐实持仓焦虑深度**：判断"评论区是不是在吵要不要割/还能不能拿"。必要时对 shortlist 跑 `xueqiu_quote.py` 核对距 52 周高点跌幅、PE、市值。这些原始 JSON 自己消化，别回传。
 > 5. **按本文打分 → 只回传两栏输出**（🎯 持仓焦虑流量榜 / 🔥 热度破圈榜，各 3-5 只，每只带：为什么适合本账号+关键数字、命中动机、建议选题方向、流量预判、开场钩子雏形、状态标注），末尾附一句邀请用户挑一只的话。**回传总量控制在 3000 字以内，别把榜单原始数据、搜索全文、热帖 JSON 带回来。** 数据抓不到就如实注明"XX 未获取到"，别用记忆里的旧数据冒充。
 

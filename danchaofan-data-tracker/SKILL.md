@@ -7,11 +7,11 @@ description: 「蛋炒饭财经」自媒体多平台发布后数据抓取助手�
 
 视频发布**之后**追踪四平台（抖音 / 小红书 / B站 / 视频号）后台数据的一条独立工作流。和创作流程（选题→口播稿→封面→分镜，走 `bilibili-finance-video` 技能）是两件事——这里只管"已经发出去的视频/账号现在数据怎么样"。
 
-## 与创作 skill 的关系（务必先懂）
+## 与共享工作台的关系（务必先懂）
 
 - **脚本住在本技能** `scripts/` 下，**cookie 也在本技能根目录**（`.douyin_cookie` / `.xiaohongshu_cookie` / `.bilibili_cookie` / `.channels_cookie`，已 gitignore）。
-- **但数据产出写回创作 skill `bilibili-finance-video` 的 `workspace/`**——视频文件夹、`账号数据/`、`reports/` 都归创作 skill 所有，是那条"记录作品→追踪数据→复盘→反哺创作"闭环的落脚点。脚本内部用 `scripts/_paths.py` 自动定位创作 skill 的 workspace/（解析顺序：环境变量 `BILIBILI_FINANCE_SKILL_DIR` > `~/.claude/skills/bilibili-finance-video` > `~/.codex/...` > 同级目录），**无需手动传路径**。
-- 若两个 skill 不在同一 `skills/` 目录下、自动定位失败，设一次环境变量即可：`export BILIBILI_FINANCE_SKILL_DIR=/abs/path/to/bilibili-finance-video`。
+- **但数据产出写回账号级共享工作台 `workspace/`**——它在 danchaofan-skills 仓库根，是多个 skill（创作 `bilibili-finance-video`、本数据 skill、评论 `danchaofan-comment-reply`）共同读写的账号级数据，不再从属任何单个 skill；视频文件夹、`账号数据/`、`reports/`、`huasheng.md` 都在这里，是"记录作品→追踪数据→复盘→反哺创作"闭环的落脚点。脚本内部用 `scripts/_paths.py` 自动定位（解析顺序：环境变量 `DANCHAOFAN_WORKSPACE` > 穿透 symlink 回到仓库根的 `workspace/`），**无需手动传路径**。
+- 只有当本 skill 不是从 danchaofan-skills 仓库软链接安装（拿不到仓库根）时才需手动指定：`export DANCHAOFAN_WORKSPACE=/abs/path/to/workspace`。
 
 ## 脚本路径
 
