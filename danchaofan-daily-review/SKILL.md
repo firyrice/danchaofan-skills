@@ -181,9 +181,9 @@ python3 "$DESK/scripts/generate_cover.py" \
   --output "$WORKSPACE/<日期>_复盘_<最终标题>/封面/<最终标题>_bilibili.png"
 ```
 
-复盘子栏目沿用账号的**严肃财经调查风**主色板（墨黑/炭灰+暖金、极粗黑体、真实物件+颗粒质感），但有**自己的固定模板**：固定位置的**日期条** + 当日最硬的那个**数字锤**。日更靠这套固定排布攒系列识别度，别每期即兴换审美。完整模板与提示词方法论见 [references/review-titles-covers.md](references/review-titles-covers.md)。
+复盘子栏目沿用账号的**严肃财经调查风**主色板（墨黑/炭灰+暖金、极粗黑体、真实物件+颗粒质感），但有**自己的固定模板**：固定位置的**日期条** + 当日最锋利的那句**主锤判断**。日更靠这套固定排布攒系列识别度，别每期即兴换审美。完整模板与提示词方法论见 [references/review-titles-covers.md](references/review-titles-covers.md)。
 
-硬规则（继承账号封面基因，横评数据实锤）：**封面实锤必须是具体数字，不是抽象意象**（账号唯一崩掉的封面就是用抽象意象替代数字锤）。定封面时问一句："观众 0.5 秒能读到一个具体数字吗？"
+硬规则（继承账号封面基因）：**封面主锤必须是具体实锤，不是抽象意象**（账号唯一崩掉的封面就是用"拧酒瓶挤水分"这种抽象意象）。定封面时问一句："观众 0.5 秒能读到一个具体的东西吗？"
 
 没设 `LLM_GATEWAY_API_KEY` 就提醒用户，别卡住流程——可先把提示词写好交付。
 
@@ -249,7 +249,8 @@ python3 "$DESK/scripts/generate_cover.py" \
 - 采用标题 / 封面提示词 / 成图路径
 
 ## 七、分镜规划（花生 AI）
-- 分镜规划书：storyboard_plan.md（<场景数>场景 / <分镜数>分镜 / 总 MG 占比 <X%>）
+- 分镜规划书：storyboard_plan.md（<场景数>场景 / <分镜数>分镜 / form 分布 raw:<x> · mg-compose:<y> · mg-pure:<z>）
+- 可视化编辑版：storyboard_plan.html（md 落盘后跑 `python3 <仓库根>/tools/storyboard_html.py <md 路径>` 生成）
 ```
 
 ## 工作台归档规范
@@ -263,6 +264,7 @@ workspace/
 └── <交易日>_复盘_<最终标题>/
     ├── 视频基础信息.md
     ├── storyboard_plan.md
+    ├── storyboard_plan.html          # 分镜可视化编辑版（tools/storyboard_html.py 生成）
     ├── 参考资料/
     │   ├── 参考资料.md               # 用户丢进来的素材
     │   ├── 雪球热帖-摘要.md           # 子 agent 消化后的摘要

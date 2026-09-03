@@ -179,8 +179,7 @@ python3 "$SKILL_DIR/scripts/generate_cover.py" \
 封面的几条硬规则（详见 cover-prompts.md）：
 
 - **按视频归档，成图统一进 `封面/` 子目录，文件名用标题**：两版封面都放进 `workspace/<创建日期>_<最终标题>/封面/`，文件名用标题部分即可（如 `五粮液..._douyin.png`）。脚本 `--output` 带上 `封面/` 前缀即可，会自动创建目录。**旧的把 png 直接堆在视频文件夹根下、或写进 `cover/`、`docs/` 的做法已废弃。**
-- **画面是物证，不是背景板**：定主体先想画面里的"物证"（视觉双关最佳），把这条视频的核心判断压成一个能成像的具体意象，别随手放一根通用 K 线。自检一句："这张图换一只股票还成立吗？"成立就重做。
-- **实锤必须是具体数字，不是抽象意象**（横评硬结论）：茅台封面点击率 4.90% 是全账号唯一崩掉的——教训是用了"拧酒瓶挤水分"的抽象意象，没把"十年首降"这个最实的数字做成视觉锤。点击率高的封面全是数字锤。定封面时问一句："观众 0.5 秒能读到一个具体数字吗？"读不到就重做。
+- **画面是物证，不是背景板（也别用抽象意象）**：定主体先想画面里的"物证"（视觉双关最佳），把这条视频的核心判断压成一个能成像的具体意象，别随手放一根通用 K 线。茅台封面点击率 4.90% 全账号唯一崩掉，就是用了"拧酒瓶挤水分"的抽象意象——观众 0.5 秒读不到任何具体信息。自检一句："观众 0.5 秒能读到一个具体的东西吗？这张图换一只股票还成立吗？"读不到就重做。
 - **封面大字与标题立场一致，但不逐字照搬**：两块独立广告位，合起来信息量要大于任何一块单独。立场必须一致（标题看空，封面不能显得看多），但可各说各的钩子。
 - **两版都必须在图上清晰显示公司的具体中文名字**（如"兆易创新""贵州茅台"），写进提示词、清晰可读不被遮挡；生成后检查名字是否出现且写对，缺失或糊掉就重生成。
 - **公司名字固定统一位置**（B站版固定顶部、抖音版固定压最顶部），每期同一套排布做出系列感。
@@ -189,13 +188,13 @@ python3 "$SKILL_DIR/scripts/generate_cover.py" \
 
 ## 阶段四：分镜规划（花生 AI，封面定稿后自动跑）
 
-封面两版成图出来后，把定稿口播稿翻译成花生 AI 能直接吃的分镜规划书 `storyboard_plan.md`，交花生自动成片。财经解说恒定走花生的**方案 B「素材混合 MG 动画」**，本账号无本地素材库、所有分镜走云端素材。
+封面两版成图出来后，把定稿口播稿翻译成花生 AI 能直接吃的分镜规划书 `storyboard_plan.md`，交花生自动成片。分镜方法论是**知识类视频通用框架**（核心模型「素材类型 × 组织形式」），本次可用素材类型在派单时指定。
 
-**这一步派子 agent 去做**（重推理、长输出，隔离在子 agent 里保护主线程）。方法论、输出模板、**派给「花生分镜规划子 agent」的完整任务指令**都在 [references/storyboard-plan.md](references/storyboard-plan.md)，子 agent 自己去读。铁律：分镜只能从口播稿原文「切」，绝不能改、增、删一个字或标点（花生逐字照念）。用户声明本片有真人出镜（露脸拍/A Roll）时，子 agent 再附加读 [references/storyboard-plan-aroll.md](references/storyboard-plan-aroll.md)。
+**这一步派子 agent 去做**（重推理、长输出，隔离在子 agent 里保护主线程）。方法论、输出模板、**派给「分镜规划子 agent」的完整任务指令**都在 [references/storyboard-plan.md](references/storyboard-plan.md)，子 agent 自己去读。铁律：分镜只能从口播稿原文「切」，绝不能改、增、删一个字或标点（花生逐字照念）。真人出镜（A Roll）是素材类型之一（`a-roll`），本次要露脸就把它加进可用素材类型清单，不再单设附加方法论。
 
 **独立入口（外来稿直接做视频）**：用户不走前三阶段、直接拿一份现成口播稿（本 skill 之外写的、或从别处拿来的文档）说「把这份稿做成分镜/做成视频」时，也从这一步单独进——**唯一硬输入就是那份口播稿正文**，其余照常。此时通常没有走完阶段三的封面，走**无封面降级**：视觉母题不再「沿用封面核心意象」，改为直接从稿子主体（公司/行业/核心论点）提炼；情绪温度偏移从稿子本身的多空判断取。降级细节写在 storyboard-plan.md，子 agent 会按无封面路径处理。
 
-产出后在 `视频基础信息.md` 补一个「五、分镜规划」指针小节（见「统一输出文档」）。走独立入口、没有 `视频基础信息.md` 时，直接把 `storyboard_plan.md` 落在与来源稿同一目录（或用户指定目录）即可，不强行补建整套文档。
+产出后在 `视频基础信息.md` 补一个「五、分镜规划」指针小节（见「统一输出文档」）。走独立入口、没有 `视频基础信息.md` 时，直接把 `storyboard_plan.md` 落在与来源稿同一目录（或用户指定目录）即可，不强行补建整套文档。**每次产出 md 后必跑 `python3 <仓库根>/tools/storyboard_html.py <md 路径>` 生成同目录 `storyboard_plan.html`**（可视化审稿/编辑版，见 storyboard-plan.md §G），并把 html 路径一并交付用户。
 
 ## 统一输出文档
 
@@ -228,8 +227,8 @@ python3 "$SKILL_DIR/scripts/generate_cover.py" \
 
 ## 五、分镜规划（花生 AI）
 > 阶段四产出单独落在同目录 storyboard_plan.md（口播稿逐字复用、不在此重复），本节只记指针 + 一句风格说明。
-- 分镜规划书：storyboard_plan.md（<场景数>场景 / <分镜数>分镜 / 总 MG 占比 <X%>）
-- MG 画风：固定基因严肃财经调查风（暖金 hue <XX>）× 本期视觉母题<一句话>，情绪偏移：<看涨/看跌/中性>
+- 分镜规划书：storyboard_plan.md（<场景数>场景 / <分镜数>分镜 / form 分布 raw:<x> · mg-compose:<y> · mg-pure:<z>）
+- 画风：账号固定基因严肃财经调查风（暖金 hue <XX>）× 本期视觉母题<一句话>，情绪偏移：<看涨/看跌/中性>
 ```
 
 `视频基础信息.md` 的**元信息头**（写在正文前，方便追踪投稿与数据）：
@@ -277,6 +276,7 @@ workspace/
 └── <创建日期>_<最终标题>/  # 每支视频一个文件夹（日期 YYYY-MM-DD，取自建文件夹当天）
     ├── 视频基础信息.md     # 元信息头 + 口播稿 + 标题候选 + 终审记录 + 封面 + 分镜规划指针
     ├── storyboard_plan.md  # 阶段四：花生 AI 分镜规划书
+    ├── storyboard_plan.html # 阶段四：分镜可视化审稿/编辑版（tools/storyboard_html.py 生成，派生物勿手改）
     ├── 参考资料/           # 与本视频相关的外部资料 + 脚本抓来的原始数据，写稿前先读
     │   ├── 参考资料.md      # 用户手动丢进来的精读素材
     │   ├── 雪球热帖-摘要.md  # 热帖消化后的摘要（可直接引用）
@@ -352,9 +352,8 @@ workspace/
 - [references/script-review.md](references/script-review.md) — 独立终审模块（起子 agent 三层对抗性终审 + 第四层流量 Review）
 - [references/banned-words.md](references/banned-words.md) — AI 味词表（套话/大词/软起手式/堆砌副词/"不是而是"三毒），终审逐句扫
 - [references/title-formulas.md](references/title-formulas.md) — 爆款标题公式与范例
-- [references/cover-prompts.md](references/cover-prompts.md) — 封面提示词模板与方法论（设计基因/物证原则/数字锤/三级文字/主权红线）
-- [references/storyboard-plan.md](references/storyboard-plan.md) — 分镜规划方法论（阶段四；方案 B + Method B 五步 + MG 画风双层 + 花生分镜规划子 agent 派单指令）
-- [references/storyboard-plan-aroll.md](references/storyboard-plan-aroll.md) — A Roll 附加方法论（可选叠加层，仅当用户声明本片有真人出镜时加载）
+- [references/cover-prompts.md](references/cover-prompts.md) — 封面提示词模板与方法论（设计基因/物证原则/三级文字/主权红线）
+- [references/storyboard-plan.md](references/storyboard-plan.md) — 分镜规划方法论（阶段四；知识类视频通用框架「素材类型 × 组织形式」+ Method 五步 + 画风双层 + 分镜规划子 agent 派单指令；A Roll 已折入素材类型 `a-roll`）
 - [references/data-fetching.md](references/data-fetching.md) — 创作阶段五个采集脚本手册（web_search / web_fetch / xueqiu_quote / xueqiu_hot_posts / xueqiu_hot_stocks 用法 + JSON 结构 + 选股子 agent 派单）
 
 脚本（用法详见上面对应的 data-fetching）：

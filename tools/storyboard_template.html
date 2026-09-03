@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>创作规划书 · __TITLE__</title>
+<style>
+  :root {
+    --bg: #141518;
+    --panel: #1c1d22;
+    --panel-2: #222329;
+    --header: #28292f;
+    --border: #34363d;
+    --text: #d8d9de;
+    --dim: #8f919b;
+    --gold: #e0b35c;
+    --gold-dim: rgba(224, 179, 92, .16);
+    --raw: #7fb0d9;
+    --compose: #e0b35c;
+    --pure: #b48ce0;
+    --danger: #d9706a;
+  }
+  * { box-sizing: border-box; }
+  html { background: var(--bg); }
+  body {
+    margin: 0;
+    padding: 32px 40px 80px;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  .page-title {
+    display: flex; align-items: center; gap: 12px;
+    font-size: 20px; font-weight: 700; letter-spacing: 1px;
+    padding-bottom: 20px; border-bottom: 1px solid var(--border);
+    margin-bottom: 18px;
+  }
+  .page-title .logo { color: var(--gold); font-size: 22px; }
+  .page-title .sub { font-size: 13px; color: var(--dim); font-weight: 400; }
+
+  /* ── 统计面板 ─────────────────────────── */
+  .stats {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 28px;
+  }
+  .stats-row { display: flex; flex-wrap: wrap; gap: 28px 40px; align-items: flex-start; }
+  .stat-group { min-width: 0; }
+  .stat-group h4 {
+    margin: 0 0 8px; font-size: 12px; color: var(--dim);
+    font-weight: 600; letter-spacing: 2px;
+  }
+  .stat-big { display: flex; gap: 32px; }
+  .stat-big .num { font-size: 26px; font-weight: 700; color: var(--gold); font-variant-numeric: tabular-nums; }
+  .stat-big .lbl { font-size: 12px; color: var(--dim); margin-top: 2px; }
+  .bar-item { display: flex; align-items: center; gap: 10px; margin: 4px 0; }
+  .bar-item .tag { width: 96px; font-size: 12.5px; color: var(--text); flex-shrink: 0; }
+  .bar-item .bar { flex: 1; height: 8px; background: var(--panel-2); border-radius: 4px; overflow: hidden; min-width: 120px; }
+  .bar-item .bar i { display: block; height: 100%; border-radius: 4px; }
+  .bar-item .val { width: 86px; font-size: 12px; color: var(--dim); font-variant-numeric: tabular-nums; flex-shrink: 0; }
+  .mat-chips { display: flex; flex-wrap: wrap; gap: 8px; max-width: 560px; }
+  .mat-chip {
+    font-size: 12px; padding: 2px 10px; border-radius: 20px;
+    background: var(--panel-2); border: 1px solid var(--border); color: var(--text);
+    font-variant-numeric: tabular-nums;
+  }
+  .mat-chip b { color: var(--gold); font-weight: 600; }
+
+  /* ── 场景 ─────────────────────────────── */
+  .scene { margin-bottom: 34px; }
+  .scene-head {
+    display: flex; align-items: baseline; gap: 10px;
+    margin: 0 0 10px; font-size: 15px; font-weight: 600;
+  }
+  .scene-head .sid { color: var(--gold); font-variant-numeric: tabular-nums; }
+  .scene-head .stitle { outline: none; border-bottom: 1px dashed transparent; }
+  .scene-head .stitle:focus { border-bottom-color: var(--gold); }
+  .scene-head .count { font-size: 12px; color: var(--dim); font-weight: 400; }
+  .scene-design-toggle {
+    font-size: 12px; color: var(--dim); cursor: pointer; -webkit-user-select: none; user-select: none;
+    margin-left: auto; font-weight: 400;
+  }
+  .scene-design-toggle:hover { color: var(--gold); }
+  .scene-design {
+    background: var(--panel); border: 1px solid var(--border); border-radius: 8px;
+    padding: 10px 14px; margin-bottom: 10px; font-size: 12.5px; color: var(--dim);
+    outline: none; white-space: pre-wrap;
+  }
+  .scene-design:focus { color: var(--text); border-color: var(--gold); }
+
+  /* ── 分镜表格 ─────────────────────────── */
+  .board {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .board-head, .shot-row {
+    display: grid;
+    grid-template-columns: 190px minmax(320px, 5fr) minmax(320px, 5fr);
+  }
+  .board-head > div {
+    padding: 10px 16px; font-size: 13px; font-weight: 600;
+    color: var(--dim); background: var(--header);
+    border-bottom: 1px solid var(--border);
+    letter-spacing: 2px;
+  }
+  .board-head > div + div, .shot-row > div + div { border-left: 1px solid var(--border); }
+  .shot-row > div { padding: 14px 16px; vertical-align: top; }
+  .shot-row + .shot-row > div { border-top: 1px solid var(--border); }
+  .shot-row:hover { background: rgba(255,255,255,.015); }
+
+  .meta .shot-id {
+    font-size: 12px; color: var(--dim); font-variant-numeric: tabular-nums;
+    letter-spacing: 1px; margin-bottom: 8px;
+  }
+  .meta select.form-sel {
+    width: 100%; background: var(--panel-2); color: var(--text);
+    border: 1px solid var(--border); border-radius: 6px;
+    padding: 5px 8px; font-size: 12.5px; outline: none; cursor: pointer;
+  }
+  .meta select.form-sel.f-raw { color: var(--raw); border-color: rgba(127,176,217,.4); }
+  .meta select.form-sel.f-mg-compose { color: var(--compose); border-color: rgba(224,179,92,.4); }
+  .meta select.form-sel.f-mg-pure { color: var(--pure); border-color: rgba(180,140,224,.4); }
+  .char-count { font-size: 11px; color: var(--dim); margin-top: 8px; font-variant-numeric: tabular-nums; }
+
+  .mat-area { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 6px; cursor: pointer; }
+  .mat-tag {
+    font-size: 11.5px; padding: 1px 9px; border-radius: 20px;
+    background: var(--gold-dim); border: 1px solid rgba(224,179,92,.35); color: var(--gold);
+  }
+  .mat-tag.none { background: var(--panel-2); border-color: var(--border); color: var(--dim); border-style: dashed; }
+  .mat-hint { font-size: 10.5px; color: var(--dim); width: 100%; }
+
+  textarea.cell {
+    width: 100%; background: transparent; border: none; outline: none; resize: none;
+    color: var(--text); font: inherit; line-height: inherit; padding: 0;
+    overflow: hidden;
+  }
+  textarea.cell.script { caret-color: var(--gold); }
+  textarea.cell:focus { background: rgba(224,179,92,.04); }
+  .vd textarea.cell { color: #b9bac2; font-size: 13px; }
+
+  /* ── 素材选择弹层 ─────────────────────── */
+  .mat-pop {
+    position: absolute; z-index: 50; background: var(--panel-2);
+    border: 1px solid var(--border); border-radius: 8px;
+    padding: 10px 12px; box-shadow: 0 8px 28px rgba(0,0,0,.5);
+    min-width: 150px;
+  }
+  .mat-pop .pop-title { font-size: 11px; color: var(--dim); margin-bottom: 6px; letter-spacing: 1px; }
+  .mat-pop label {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 12.5px; padding: 3px 2px; cursor: pointer; color: var(--text);
+  }
+  .mat-pop input { accent-color: var(--gold); }
+
+  /* ── 规划书展示区 ─────────────────────── */
+  .sec-title {
+    font-size: 15px; font-weight: 700; letter-spacing: 2px;
+    margin: 34px 0 12px; color: var(--text);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .sec-title::before { content: ""; width: 4px; height: 16px; background: var(--gold); border-radius: 2px; }
+  .plan-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .plan-card {
+    background: var(--panel); border: 1px solid var(--border);
+    border-radius: 10px; padding: 14px 18px;
+  }
+  .plan-card.full { grid-column: 1 / -1; }
+  .plan-card h4 {
+    margin: 0 0 8px; font-size: 13px; color: var(--gold); font-weight: 600; letter-spacing: 1px;
+  }
+  .plan-card ul { margin: 0; padding: 0; list-style: none; }
+  .plan-card li {
+    font-size: 12.5px; color: #b9bac2; padding: 3px 0;
+    border-bottom: 1px dashed rgba(255,255,255,.05);
+  }
+  .plan-card li:last-child { border-bottom: none; }
+  .plan-card li b { color: var(--text); font-weight: 600; }
+  .plan-card li[contenteditable] { outline: none; border-radius: 4px; }
+  .plan-card li[contenteditable]:hover { background: rgba(224,179,92,.05); }
+  .plan-card li[contenteditable]:focus { background: rgba(224,179,92,.08); box-shadow: 0 0 0 1px var(--gold); }
+
+  /* ── 画风模拟 ─────────────────────────── */
+  .style-lab { display: flex; flex-wrap: wrap; gap: 18px; align-items: flex-start; }
+  .palette { display: flex; gap: 10px; flex-wrap: wrap; }
+  .swatch { width: 84px; }
+  .swatch .chip {
+    height: 44px; border-radius: 8px; border: 1px solid var(--border);
+  }
+  .swatch .name { font-size: 11px; color: var(--text); margin-top: 4px; text-align: center; }
+  .swatch .hex { font-size: 10px; color: var(--dim); text-align: center; font-variant-numeric: tabular-nums; }
+  .typo-demo {
+    flex: 1; min-width: 260px; background: var(--panel-2);
+    border: 1px solid var(--border); border-radius: 10px; padding: 16px 20px;
+  }
+  .typo-demo .t-title { font-size: 26px; font-weight: 900; color: var(--text); letter-spacing: 1px; }
+  .typo-demo .t-body { font-size: 13.5px; color: #b9bac2; margin-top: 8px; }
+  .typo-demo .t-num {
+    font-size: 34px; font-weight: 600; color: var(--gold); margin-top: 8px;
+    font-variant-numeric: tabular-nums;
+  }
+  .typo-demo .t-cap { font-size: 10.5px; color: var(--dim); margin-top: 2px; letter-spacing: 1px; }
+
+  .mg-gallery { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 6px; }
+  .mg-item { width: 168px; flex-shrink: 0; }
+  .mg-frame {
+    width: 168px; height: 298px; border-radius: 12px;
+    border: 1px solid var(--border);
+    background: linear-gradient(165deg, #1e1f24 0%, #15161a 70%);
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+  }
+  .mg-frame::after { /* 颗粒/底纹暗示 */
+    content: ""; position: absolute; inset: 0;
+    background: repeating-linear-gradient(0deg, transparent 0 3px, rgba(255,255,255,.012) 3px 4px);
+    pointer-events: none;
+  }
+  .mg-name-line { font-size: 12px; color: var(--gold); font-weight: 600; margin-top: 8px; text-align: center; }
+  .mg-desc { font-size: 10.5px; color: var(--dim); margin-top: 4px; line-height: 1.55; }
+  .mg-src {
+    display: inline-block; font-size: 10px; padding: 0 7px; border-radius: 10px;
+    background: var(--gold-dim); color: var(--gold); margin-top: 5px;
+  }
+  /* MG 样张内部 */
+  .mg-big { font-size: 44px; font-weight: 600; color: var(--gold); font-variant-numeric: tabular-nums; line-height: 1.1; }
+  .mg-unit { font-size: 16px; color: var(--gold); align-self: flex-end; margin: -14px 26px 0 0; }
+  .mg-foot { position: absolute; bottom: 14px; font-size: 9.5px; color: var(--dim); }
+  .mg-headline {
+    font-size: 22px; font-weight: 900; color: var(--text); text-align: center; line-height: 1.4;
+    text-shadow: 0 0 12px rgba(224,179,92,.35); padding: 0 12px;
+  }
+  .mg-headline u { text-decoration: none; border-bottom: 2px solid var(--gold); }
+  .mg-chap { display: flex; align-items: center; gap: 10px; padding: 0 14px; }
+  .mg-chap .n { font-size: 40px; font-weight: 900; color: var(--gold); line-height: 1; }
+  .mg-chap .r .nm { font-size: 14px; font-weight: 700; color: var(--text); }
+  .mg-chap .r .lb {
+    display: inline-block; font-size: 9px; color: var(--gold);
+    border: 1px solid rgba(224,179,92,.5); border-radius: 3px; padding: 0 5px; margin-top: 4px;
+  }
+  .mg-grid { width: 100%; padding: 0 16px; display: flex; flex-direction: column; gap: 8px; }
+  .mg-grid .row {
+    display: flex; justify-content: space-between; align-items: center;
+    background: rgba(255,255,255,.04); border-left: 2px solid var(--gold);
+    border-radius: 4px; padding: 6px 10px;
+  }
+  .mg-grid .row .k { font-size: 9.5px; color: #b9bac2; }
+  .mg-grid .row .v { font-size: 15px; font-weight: 600; color: var(--gold); font-variant-numeric: tabular-nums; }
+  .mg-grid .row.warn { border-left-color: var(--danger); }
+  .mg-grid .row.warn .v { color: var(--danger); }
+  .mg-quote { padding: 0 18px; }
+  .mg-quote .qm { font-size: 30px; color: var(--gold); line-height: .6; font-family: serif; }
+  .mg-quote .qt { font-size: 11.5px; color: var(--text); line-height: 1.8; margin-top: 6px; }
+  .mg-quote .qs { font-size: 9px; color: var(--dim); margin-top: 8px; text-align: right; }
+  .mg-disc {
+    position: absolute; bottom: 18px; left: 14px; right: 14px;
+    border: 1px solid rgba(224,179,92,.4); border-radius: 4px;
+    font-size: 8.5px; color: var(--dim); text-align: center; padding: 5px 6px; line-height: 1.6;
+  }
+  .mg-generic { font-size: 11px; color: var(--dim); padding: 0 16px; text-align: center; line-height: 1.8; }
+
+  /* ── 顶部操作 ─────────────────────────── */
+  .actions { position: fixed; right: 28px; top: 28px; display: flex; gap: 10px; z-index: 40; }
+  .actions button {
+    background: var(--panel-2); color: var(--text);
+    border: 1px solid var(--border); border-radius: 8px;
+    padding: 7px 16px; font-size: 12.5px; cursor: pointer;
+  }
+  .actions button:hover { border-color: var(--gold); color: var(--gold); }
+  .toast {
+    position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%);
+    background: var(--panel-2); border: 1px solid var(--gold); color: var(--gold);
+    padding: 8px 20px; border-radius: 20px; font-size: 13px; z-index: 60;
+    opacity: 0; transition: opacity .25s; pointer-events: none;
+  }
+  .kbd-tip { font-size: 12px; color: var(--dim); margin: -8px 0 24px; }
+  .kbd-tip kbd {
+    background: var(--panel-2); border: 1px solid var(--border); border-radius: 4px;
+    padding: 0 6px; font-size: 11px; font-family: inherit;
+  }
+</style>
+</head>
+<body>
+
+<div class="actions">
+  <button type="button" id="btn-export">导出 JSON</button>
+  <button type="button" id="btn-copy">复制 JSON</button>
+</div>
+
+<div class="page-title">
+  <span class="logo">🎬</span> 创作规划书
+  <span class="sub">__TITLE__</span>
+</div>
+
+<h2 class="sec-title">成片需求</h2>
+<div class="plan-grid" id="plan-info"></div>
+
+<h2 class="sec-title">画风预览</h2>
+<div class="plan-grid">
+  <div class="plan-card full">
+    <h4>🎨 画风设定</h4>
+    <ul id="style-notes"></ul>
+  </div>
+  <div class="plan-card full">
+    <h4>色板 · 字体（示意模拟）</h4>
+    <div class="style-lab">
+      <div class="palette" id="palette"></div>
+      <div class="typo-demo" id="typo"></div>
+    </div>
+  </div>
+  <div class="plan-card full">
+    <h4>MG 组件样式（9:16 样张示意，仅表达布局/气质，非最终动效）</h4>
+    <div class="mg-gallery" id="mg-gallery"></div>
+  </div>
+</div>
+
+<h2 class="sec-title">分镜脚本</h2>
+<div class="stats" id="stats"></div>
+
+<div class="kbd-tip">
+  编辑：页面所有文字（成片需求/画风/口播脚本/画面描述/场景标题）点击即可改｜口播脚本框内 <kbd>Enter</kbd> 拆分分镜（<kbd>Shift+Enter</kbd> 换行）｜首字符处 <kbd>⌫</kbd> 并入上一镜｜末字符处 <kbd>Del</kbd> 并入下一镜（仅同场景内）｜拆分/合并的新分镜默认继承原镜的画面描述、分镜类型、素材类型
+</div>
+
+<div id="scenes"></div>
+<div class="toast" id="toast"></div>
+
+<script>
+const DATA = __DATA__;
+const PLAN = __PLAN__;
+const FORM_OPTIONS = ["raw", "mg-compose", "mg-pure"];
+const FORM_LABEL = { "raw": "raw · 素材", "mg-compose": "mg-compose · 素材+MG", "mg-pure": "mg-pure · 纯MG" };
+const MAT_TYPES = DATA.available_material_types || ["a-roll","local","cloud","web","meme","gen-img","gen-vid"];
+
+/* ── 统计 ─────────────────────────────── */
+function calcStats() {
+  const shots = allShots();
+  const n = shots.length;
+  const totalChars = shots.reduce((s, x) => s + x.shot.script.length, 0);
+  const formCount = { raw: 0, "mg-compose": 0, "mg-pure": 0 };
+  shots.forEach(x => { formCount[x.shot.form] = (formCount[x.shot.form] || 0) + 1; });
+  const matCount = {};
+  MAT_TYPES.forEach(m => matCount[m] = 0);
+  shots.forEach(x => (x.shot.material || []).forEach(m => { matCount[m] = (matCount[m] || 0) + 1; }));
+  return { n, avg: n ? Math.round(totalChars / n) : 0, totalChars, formCount, matCount };
+}
+function allShots() {
+  const out = [];
+  DATA.scenes.forEach((sc, si) => sc.shots.forEach((sh, hi) => out.push({ scene: sc, si, hi, shot: sh })));
+  return out;
+}
+function renderStats() {
+  const s = calcStats();
+  const fc = FORM_OPTIONS.map(f => {
+    const c = s.formCount[f] || 0;
+    const pct = s.n ? Math.round(c / s.n * 100) : 0;
+    const color = f === "raw" ? "var(--raw)" : f === "mg-pure" ? "var(--pure)" : "var(--compose)";
+    return `<div class="bar-item"><span class="tag">${f}</span>
+      <span class="bar"><i style="width:${pct}%;background:${color}"></i></span>
+      <span class="val">${c} 镜 · ${pct}%</span></div>`;
+  }).join("");
+  const mats = MAT_TYPES.map(m =>
+    `<span class="mat-chip">${m} <b>${s.matCount[m] || 0}</b></span>`).join("");
+  document.getElementById("stats").innerHTML = `
+    <div class="stats-row">
+      <div class="stat-group"><h4>分镜总览</h4>
+        <div class="stat-big">
+          <div><div class="num">${s.n}</div><div class="lbl">分镜总数</div></div>
+          <div><div class="num">${s.avg}</div><div class="lbl">平均每镜字数</div></div>
+          <div><div class="num">${s.totalChars}</div><div class="lbl">口播总字数</div></div>
+        </div></div>
+      <div class="stat-group" style="flex:1;min-width:280px"><h4>分镜类型分布</h4>${fc}</div>
+      <div class="stat-group"><h4>素材类型分布（一镜可多素材，分别计数）</h4><div class="mat-chips">${mats}</div></div>
+    </div>`;
+}
+
+/* ── 渲染 ─────────────────────────────── */
+let focusReq = null; // {si, hi, field, pos}
+
+function esc(s) { return s.replace(/&/g, "&amp;").replace(/</g, "&lt;"); }
+
+function render() {
+  const root = document.getElementById("scenes");
+  root.innerHTML = "";
+  DATA.scenes.forEach((sc, si) => {
+    const sec = document.createElement("div");
+    sec.className = "scene";
+    sec.innerHTML = `
+      <h3 class="scene-head">
+        <span class="sid">${esc(sc.scene_id)}</span>
+        <span class="stitle" contenteditable="true" data-si="${si}">${esc(sc.scene_title)}</span>
+        <span class="count">${sc.shots.length} 镜</span>
+        <span class="scene-design-toggle" data-si="${si}">检索上下文 ▸</span>
+      </h3>
+      <div class="scene-design" contenteditable="true" data-si="${si}" style="display:none">${esc(sc.scene_design || "")}</div>
+      <div class="board">
+        <div class="board-head"><div>分镜 / 类型</div><div>口播脚本</div><div>画面描述</div></div>
+        ${sc.shots.map((sh, hi) => shotRow(sh, si, hi)).join("")}
+      </div>`;
+    root.appendChild(sec);
+  });
+  bindAll();
+  renderStats();
+  if (focusReq) {
+    const sel = `textarea[data-si="${focusReq.si}"][data-hi="${focusReq.hi}"][data-field="${focusReq.field}"]`;
+    const el = document.querySelector(sel);
+    if (el) { el.focus(); el.setSelectionRange(focusReq.pos, focusReq.pos); autoGrow(el); }
+    focusReq = null;
+  }
+}
+
+function shotRow(sh, si, hi) {
+  const opts = FORM_OPTIONS.map(f =>
+    `<option value="${f}" ${f === sh.form ? "selected" : ""}>${FORM_LABEL[f]}</option>`).join("");
+  const mats = (sh.material && sh.material.length)
+    ? sh.material.map(m => `<span class="mat-tag">${m}</span>`).join("")
+    : `<span class="mat-tag none">${sh.form === "mg-pure" ? "纯 MG · 无素材" : "＋ 选择素材"}</span>`;
+  const hint = sh.form === "raw" ? `<span class="mat-hint">raw 仅单选</span>` : "";
+  return `<div class="shot-row">
+    <div class="meta">
+      <div class="shot-id">${esc(sh.shot_id)}</div>
+      <select class="form-sel f-${sh.form}" data-si="${si}" data-hi="${hi}">${opts}</select>
+      <div class="mat-area" data-si="${si}" data-hi="${hi}">${mats}${hint}</div>
+      <div class="char-count" data-cc="${si}-${hi}">${sh.script.length} 字</div>
+    </div>
+    <div class="sc"><textarea class="cell script" data-si="${si}" data-hi="${hi}" data-field="script" rows="1">${esc(sh.script)}</textarea></div>
+    <div class="vd"><textarea class="cell" data-si="${si}" data-hi="${hi}" data-field="visual_description" rows="1">${esc(sh.visual_description)}</textarea></div>
+  </div>`;
+}
+
+function autoGrow(el) { el.style.height = "auto"; el.style.height = el.scrollHeight + "px"; }
+
+/* ── 事件绑定 ─────────────────────────── */
+function bindAll() {
+  document.querySelectorAll("textarea.cell").forEach(el => {
+    autoGrow(el);
+    el.addEventListener("input", () => {
+      const si = +el.dataset.si, hi = +el.dataset.hi;
+      DATA.scenes[si].shots[hi][el.dataset.field] = el.value;
+      autoGrow(el);
+      if (el.dataset.field === "script") {
+        const cc = document.querySelector(`[data-cc="${si}-${hi}"]`);
+        if (cc) cc.textContent = el.value.length + " 字";
+        debounceStats();
+      }
+    });
+    if (el.dataset.field === "script") el.addEventListener("keydown", onScriptKey);
+  });
+  document.querySelectorAll("select.form-sel").forEach(el => {
+    el.addEventListener("change", () => {
+      const si = +el.dataset.si, hi = +el.dataset.hi;
+      const sh = DATA.scenes[si].shots[hi];
+      sh.form = el.value;
+      if (sh.form === "mg-pure") sh.material = [];
+      else if (sh.form === "raw" && sh.material.length > 1) sh.material = [sh.material[0]];
+      focusReq = { si, hi, field: "script", pos: 0 };
+      render();
+    });
+  });
+  document.querySelectorAll(".mat-area").forEach(el => {
+    el.addEventListener("click", ev => {
+      const si = +el.dataset.si, hi = +el.dataset.hi;
+      if (DATA.scenes[si].shots[hi].form === "mg-pure") { toast("mg-pure 为纯代码画面，无素材"); return; }
+      openMatPop(el, si, hi);
+      ev.stopPropagation();
+    });
+  });
+  document.querySelectorAll(".stitle").forEach(el => {
+    el.addEventListener("input", () => { DATA.scenes[+el.dataset.si].scene_title = el.innerText; });
+    el.addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); el.blur(); } });
+  });
+  document.querySelectorAll(".scene-design").forEach(el => {
+    el.addEventListener("input", () => { DATA.scenes[+el.dataset.si].scene_design = el.innerText; });
+  });
+  document.querySelectorAll(".scene-design-toggle").forEach(el => {
+    el.addEventListener("click", () => {
+      const d = document.querySelector(`.scene-design[data-si="${el.dataset.si}"]`);
+      const open = d.style.display !== "none";
+      d.style.display = open ? "none" : "block";
+      el.textContent = open ? "检索上下文 ▸" : "检索上下文 ▾";
+    });
+  });
+}
+
+let statsTimer = null;
+function debounceStats() { clearTimeout(statsTimer); statsTimer = setTimeout(renderStats, 300); }
+
+/* ── 拆分 / 合并 ──────────────────────── */
+function onScriptKey(e) {
+  const el = e.target;
+  const si = +el.dataset.si, hi = +el.dataset.hi;
+  const shots = DATA.scenes[si].shots;
+  const sh = shots[hi];
+
+  if (e.key === "Enter" && !e.shiftKey) {
+    e.preventDefault();
+    const p = el.selectionStart;
+    const before = sh.script.slice(0, p), after = sh.script.slice(p);
+    if (!after.trim()) return; // 末尾回车不拆
+    sh.script = before;
+    const nsh = {
+      shot_id: "",
+      form: sh.form,
+      material: [...(sh.material || [])],
+      script: after,
+      visual_description: sh.visual_description
+    };
+    shots.splice(hi + 1, 0, nsh);
+    renumber();
+    focusReq = { si, hi: hi + 1, field: "script", pos: 0 };
+    render();
+    toast("已拆分，新分镜继承原镜类型与素材");
+  } else if (e.key === "Backspace" && el.selectionStart === 0 && el.selectionEnd === 0) {
+    if (hi === 0) return;
+    e.preventDefault();
+    const prev = shots[hi - 1];
+    const pos = prev.script.length;
+    prev.script += sh.script; // 逐字拼接，不加字符，保持与口播稿一致
+    shots.splice(hi, 1);
+    renumber();
+    focusReq = { si, hi: hi - 1, field: "script", pos };
+    render();
+    toast("已并入上一镜（保留上镜类型与素材）");
+  } else if (e.key === "Delete" && el.selectionStart === el.value.length) {
+    if (hi >= shots.length - 1) return;
+    e.preventDefault();
+    const next = shots[hi + 1];
+    const pos = sh.script.length;
+    sh.script += next.script;
+    shots.splice(hi + 1, 1);
+    renumber();
+    focusReq = { si, hi, field: "script", pos };
+    render();
+    toast("下一镜已并入本镜（保留本镜类型与素材）");
+  }
+}
+
+function renumber() {
+  let i = 1;
+  DATA.scenes.forEach(sc => sc.shots.forEach(sh => {
+    sh.shot_id = "S" + String(i++).padStart(2, "0");
+  }));
+}
+
+/* ── 素材弹层 ─────────────────────────── */
+let pop = null;
+function closePop() { if (pop) { pop.remove(); pop = null; } }
+document.addEventListener("click", closePop);
+
+function openMatPop(anchor, si, hi) {
+  closePop();
+  const sh = DATA.scenes[si].shots[hi];
+  const single = sh.form === "raw";
+  pop = document.createElement("div");
+  pop.className = "mat-pop";
+  pop.innerHTML = `<div class="pop-title">素材类型${single ? "（raw 单选）" : "（可多选）"}</div>` +
+    MAT_TYPES.map(m => `
+      <label><input type="${single ? "radio" : "checkbox"}" name="mat" value="${m}"
+        ${(sh.material || []).includes(m) ? "checked" : ""}> ${m}</label>`).join("");
+  document.body.appendChild(pop);
+  const r = anchor.getBoundingClientRect();
+  pop.style.left = (r.left + window.scrollX) + "px";
+  pop.style.top = (r.bottom + window.scrollY + 6) + "px";
+  pop.addEventListener("click", e => e.stopPropagation());
+  pop.querySelectorAll("input").forEach(inp => {
+    inp.addEventListener("change", () => {
+      if (single) sh.material = [inp.value];
+      else {
+        const cur = new Set(sh.material || []);
+        inp.checked ? cur.add(inp.value) : cur.delete(inp.value);
+        sh.material = MAT_TYPES.filter(m => cur.has(m)); // 保持类型表顺序
+      }
+      render();
+    });
+  });
+}
+
+/* ── 导出 ─────────────────────────────── */
+function exportJSON() {
+  return JSON.stringify({
+    schema_version: DATA.schema_version,
+    available_material_types: DATA.available_material_types,
+    mg_components: DATA.mg_components,
+    plan: PLAN,
+    scenes: DATA.scenes
+  }, null, 2);
+}
+document.getElementById("btn-export").addEventListener("click", () => {
+  const blob = new Blob([exportJSON()], { type: "application/json" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "storyboard_plan.json";
+  a.click();
+  toast("已下载 storyboard_plan.json");
+});
+document.getElementById("btn-copy").addEventListener("click", async () => {
+  await navigator.clipboard.writeText(exportJSON());
+  toast("JSON 已复制到剪贴板");
+});
+
+function toast(msg) {
+  const t = document.getElementById("toast");
+  t.textContent = msg;
+  t.style.opacity = 1;
+  clearTimeout(t._timer);
+  t._timer = setTimeout(() => t.style.opacity = 0, 1800);
+}
+
+/* ── 规划书 / 画风模拟 ─────────────────── */
+function liKV(line, si, li, kind) {
+  const edit = `contenteditable="true" data-kind="${kind}" data-si="${si}" data-li="${li}"`;
+  const i = line.indexOf("：");
+  if (i > 0) return `<li ${edit}><b>${esc(line.slice(0, i + 1))}</b>${esc(line.slice(i + 1))}</li>`;
+  return `<li ${edit}>${esc(line)}</li>`;
+}
+function renderPlan() {
+  const grid = document.getElementById("plan-info");
+  grid.innerHTML = PLAN.sections.map((sec, si) => `
+    <div class="plan-card${sec.wide ? " full" : ""}">
+      <h4>${esc(sec.title)}</h4>
+      <ul>${sec.lines.map((l, li) => liKV(l, si, li, "sec")).join("")}</ul>
+    </div>`).join("");
+  document.getElementById("style-notes").innerHTML =
+    PLAN.style_notes.map((l, li) => liKV(l, 0, li, "style")).join("");
+  // 成片需求/画风文字可编辑，改动写回 PLAN
+  document.querySelectorAll('.plan-card li[contenteditable], #style-notes li[contenteditable]')
+    .forEach(el => {
+      el.addEventListener("input", () => {
+        if (el.dataset.kind === "sec") PLAN.sections[+el.dataset.si].lines[+el.dataset.li] = el.innerText;
+        else PLAN.style_notes[+el.dataset.li] = el.innerText;
+      });
+      el.addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); el.blur(); } });
+    });
+}
+
+function renderPalette() {
+  const vs = PLAN.visual_style || {};
+  const hue = (vs.color_system && vs.color_system.main_hsb_hue) || 45;
+  const gold = `hsl(${hue}, 62%, 62%)`;
+  const warn = `hsl(${hue}, 85%, 58%)`;
+  const swatches = [
+    ["墨黑", "#17181c"], ["炭灰", "#3c3d44"],
+    [`暖金 · 主色 ${hue}°`, gold], ["警示黄", warn],
+  ];
+  document.getElementById("palette").innerHTML = swatches.map(([name, c]) => `
+    <div class="swatch"><div class="chip" style="background:${c}"></div>
+    <div class="name">${esc(name)}</div><div class="hex">${c}</div></div>`).join("");
+  const t = vs.typography || {};
+  document.getElementById("typo").innerHTML = `
+    <div class="t-title">现房销售落地</div>
+    <div class="t-cap">标题 · ${esc((t.title_font || {}).font_family || "极粗黑体")} / ${esc((t.title_font || {}).font_weight || "black")}</div>
+    <div class="t-body">同一个政策，为什么央企在哭、二手房在笑？这条视频把新政拆成三个主体，一个主体一个主体讲透。</div>
+    <div class="t-cap">正文 · ${esc((t.body_font || {}).font_family || "硬朗黑体")} / ${esc((t.body_font || {}).font_weight || "regular")}</div>
+    <div class="t-num">-9% <span style="font-size:16px;color:var(--dim)">2.61%</span></div>
+    <div class="t-cap">数字 · ${esc((t.number_font || {}).font_family || "数字展示体")} / ${esc((t.number_font || {}).font_weight || "semibold")}</div>`;
+}
+
+/* MG 组件样张：按组件名匹配布局示意 */
+function mgMock(key) {
+  if (/chapter|章节/.test(key)) return `
+    <div class="mg-chap"><div class="n">01</div>
+      <div class="r"><div class="nm">买房刚需</div><div class="lb">利好</div></div></div>
+    <div class="mg-foot">母题底纹 · 期房工地冷调 / 现房楼栋暖光</div>`;
+  if (/headline|金句|大字/.test(key)) return `
+    <div class="mg-headline"><u>换游戏规则</u></div>
+    <div class="mg-foot">注脚一行 · 可选</div>`;
+  if (/big_number|单数字/.test(key)) return `
+    <div class="mg-big">-9<span style="font-size:24px">%</span></div>
+    <div class="mg-unit">招商蛇口</div>
+    <div class="mg-foot">注脚一行 · 底部</div>`;
+  if (/data_grid|多数字|并列/.test(key)) return `
+    <div class="mg-grid">
+      <div class="row warn"><span class="k">新开工面积</span><span class="v">-24%</span></div>
+      <div class="row warn"><span class="k">开发投资</span><span class="v">-19%</span></div>
+      <div class="row"><span class="k">账上现金</span><span class="v">上千亿</span></div>
+    </div>
+    <div class="mg-foot">竖屏上下堆叠 · 逐条高亮</div>`;
+  if (/quote|引用/.test(key)) return `
+    <div class="mg-quote"><div class="qm">“</div>
+      <div class="qt">新出让的土地，商品住房优先实行现房销售。</div>
+      <div class="qs">—— 来源注脚</div></div>`;
+  if (/disclaimer|免责/.test(key)) return `
+    <div class="mg-generic">画面主体区域</div>
+    <div class="mg-disc">以上仅为个人分析，不构成投资建议，股市有风险，入市需谨慎。</div>`;
+  return `<div class="mg-generic">${esc(key)}<br>布局示意待定义</div>`;
+}
+function renderMG() {
+  const comps = DATA.mg_components || {};
+  document.getElementById("mg-gallery").innerHTML = Object.entries(comps).map(([key, c]) => `
+    <div class="mg-item">
+      <div class="mg-frame">${mgMock(key)}</div>
+      <div class="mg-name-line">${esc(key)}</div>
+      <div class="mg-desc"><b style="color:var(--text)">布局</b> ${esc(c.layout || "")}</div>
+      <div class="mg-desc"><b style="color:var(--text)">动效</b> ${esc(c.motion || "")}</div>
+      <span class="mg-src">${esc(c.source || "")}</span>
+    </div>`).join("");
+}
+
+renderPlan();
+renderPalette();
+renderMG();
+render();
+</script>
+</body>
+</html>

@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>创作规划书 · 影石创新：营收高增，产品越卖越火，股价为啥脚踝斩</title>
+<style>
+  :root {
+    --bg: #141518;
+    --panel: #1c1d22;
+    --panel-2: #222329;
+    --header: #28292f;
+    --border: #34363d;
+    --text: #d8d9de;
+    --dim: #8f919b;
+    --gold: #e0b35c;
+    --gold-dim: rgba(224, 179, 92, .16);
+    --raw: #7fb0d9;
+    --compose: #e0b35c;
+    --pure: #b48ce0;
+    --danger: #d9706a;
+  }
+  * { box-sizing: border-box; }
+  html { background: var(--bg); }
+  body {
+    margin: 0;
+    padding: 32px 40px 80px;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  .page-title {
+    display: flex; align-items: center; gap: 12px;
+    font-size: 20px; font-weight: 700; letter-spacing: 1px;
+    padding-bottom: 20px; border-bottom: 1px solid var(--border);
+    margin-bottom: 18px;
+  }
+  .page-title .logo { color: var(--gold); font-size: 22px; }
+  .page-title .sub { font-size: 13px; color: var(--dim); font-weight: 400; }
+
+  /* ── 统计面板 ─────────────────────────── */
+  .stats {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin-bottom: 28px;
+  }
+  .stats-row { display: flex; flex-wrap: wrap; gap: 28px 40px; align-items: flex-start; }
+  .stat-group { min-width: 0; }
+  .stat-group h4 {
+    margin: 0 0 8px; font-size: 12px; color: var(--dim);
+    font-weight: 600; letter-spacing: 2px;
+  }
+  .stat-big { display: flex; gap: 32px; }
+  .stat-big .num { font-size: 26px; font-weight: 700; color: var(--gold); font-variant-numeric: tabular-nums; }
+  .stat-big .lbl { font-size: 12px; color: var(--dim); margin-top: 2px; }
+  .bar-item { display: flex; align-items: center; gap: 10px; margin: 4px 0; }
+  .bar-item .tag { width: 96px; font-size: 12.5px; color: var(--text); flex-shrink: 0; }
+  .bar-item .bar { flex: 1; height: 8px; background: var(--panel-2); border-radius: 4px; overflow: hidden; min-width: 120px; }
+  .bar-item .bar i { display: block; height: 100%; border-radius: 4px; }
+  .bar-item .val { width: 86px; font-size: 12px; color: var(--dim); font-variant-numeric: tabular-nums; flex-shrink: 0; }
+  .mat-chips { display: flex; flex-wrap: wrap; gap: 8px; max-width: 560px; }
+  .mat-chip {
+    font-size: 12px; padding: 2px 10px; border-radius: 20px;
+    background: var(--panel-2); border: 1px solid var(--border); color: var(--text);
+    font-variant-numeric: tabular-nums;
+  }
+  .mat-chip b { color: var(--gold); font-weight: 600; }
+
+  /* ── 场景 ─────────────────────────────── */
+  .scene { margin-bottom: 34px; }
+  .scene-head {
+    display: flex; align-items: baseline; gap: 10px;
+    margin: 0 0 10px; font-size: 15px; font-weight: 600;
+  }
+  .scene-head .sid { color: var(--gold); font-variant-numeric: tabular-nums; }
+  .scene-head .stitle { outline: none; border-bottom: 1px dashed transparent; }
+  .scene-head .stitle:focus { border-bottom-color: var(--gold); }
+  .scene-head .count { font-size: 12px; color: var(--dim); font-weight: 400; }
+  .scene-design-toggle {
+    font-size: 12px; color: var(--dim); cursor: pointer; -webkit-user-select: none; user-select: none;
+    margin-left: auto; font-weight: 400;
+  }
+  .scene-design-toggle:hover { color: var(--gold); }
+  .scene-design {
+    background: var(--panel); border: 1px solid var(--border); border-radius: 8px;
+    padding: 10px 14px; margin-bottom: 10px; font-size: 12.5px; color: var(--dim);
+    outline: none; white-space: pre-wrap;
+  }
+  .scene-design:focus { color: var(--text); border-color: var(--gold); }
+
+  /* ── 分镜表格 ─────────────────────────── */
+  .board {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .board-head, .shot-row {
+    display: grid;
+    grid-template-columns: 190px minmax(320px, 5fr) minmax(320px, 5fr);
+  }
+  .board-head > div {
+    padding: 10px 16px; font-size: 13px; font-weight: 600;
+    color: var(--dim); background: var(--header);
+    border-bottom: 1px solid var(--border);
+    letter-spacing: 2px;
+  }
+  .board-head > div + div, .shot-row > div + div { border-left: 1px solid var(--border); }
+  .shot-row > div { padding: 14px 16px; vertical-align: top; }
+  .shot-row + .shot-row > div { border-top: 1px solid var(--border); }
+  .shot-row:hover { background: rgba(255,255,255,.015); }
+
+  .meta .shot-id {
+    font-size: 12px; color: var(--dim); font-variant-numeric: tabular-nums;
+    letter-spacing: 1px; margin-bottom: 8px;
+  }
+  .meta select.form-sel {
+    width: 100%; background: var(--panel-2); color: var(--text);
+    border: 1px solid var(--border); border-radius: 6px;
+    padding: 5px 8px; font-size: 12.5px; outline: none; cursor: pointer;
+  }
+  .meta select.form-sel.f-raw { color: var(--raw); border-color: rgba(127,176,217,.4); }
+  .meta select.form-sel.f-mg-compose { color: var(--compose); border-color: rgba(224,179,92,.4); }
+  .meta select.form-sel.f-mg-pure { color: var(--pure); border-color: rgba(180,140,224,.4); }
+  .char-count { font-size: 11px; color: var(--dim); margin-top: 8px; font-variant-numeric: tabular-nums; }
+
+  .mat-area { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 6px; cursor: pointer; }
+  .mat-tag {
+    font-size: 11.5px; padding: 1px 9px; border-radius: 20px;
+    background: var(--gold-dim); border: 1px solid rgba(224,179,92,.35); color: var(--gold);
+  }
+  .mat-tag.none { background: var(--panel-2); border-color: var(--border); color: var(--dim); border-style: dashed; }
+  .mat-hint { font-size: 10.5px; color: var(--dim); width: 100%; }
+
+  textarea.cell {
+    width: 100%; background: transparent; border: none; outline: none; resize: none;
+    color: var(--text); font: inherit; line-height: inherit; padding: 0;
+    overflow: hidden;
+  }
+  textarea.cell.script { caret-color: var(--gold); }
+  textarea.cell:focus { background: rgba(224,179,92,.04); }
+  .vd textarea.cell { color: #b9bac2; font-size: 13px; }
+
+  /* ── 素材选择弹层 ─────────────────────── */
+  .mat-pop {
+    position: absolute; z-index: 50; background: var(--panel-2);
+    border: 1px solid var(--border); border-radius: 8px;
+    padding: 10px 12px; box-shadow: 0 8px 28px rgba(0,0,0,.5);
+    min-width: 150px;
+  }
+  .mat-pop .pop-title { font-size: 11px; color: var(--dim); margin-bottom: 6px; letter-spacing: 1px; }
+  .mat-pop label {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 12.5px; padding: 3px 2px; cursor: pointer; color: var(--text);
+  }
+  .mat-pop input { accent-color: var(--gold); }
+
+  /* ── 规划书展示区 ─────────────────────── */
+  .sec-title {
+    font-size: 15px; font-weight: 700; letter-spacing: 2px;
+    margin: 34px 0 12px; color: var(--text);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .sec-title::before { content: ""; width: 4px; height: 16px; background: var(--gold); border-radius: 2px; }
+  .plan-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .plan-card {
+    background: var(--panel); border: 1px solid var(--border);
+    border-radius: 10px; padding: 14px 18px;
+  }
+  .plan-card.full { grid-column: 1 / -1; }
+  .plan-card h4 {
+    margin: 0 0 8px; font-size: 13px; color: var(--gold); font-weight: 600; letter-spacing: 1px;
+  }
+  .plan-card ul { margin: 0; padding: 0; list-style: none; }
+  .plan-card li {
+    font-size: 12.5px; color: #b9bac2; padding: 3px 0;
+    border-bottom: 1px dashed rgba(255,255,255,.05);
+  }
+  .plan-card li:last-child { border-bottom: none; }
+  .plan-card li b { color: var(--text); font-weight: 600; }
+  .plan-card li[contenteditable] { outline: none; border-radius: 4px; }
+  .plan-card li[contenteditable]:hover { background: rgba(224,179,92,.05); }
+  .plan-card li[contenteditable]:focus { background: rgba(224,179,92,.08); box-shadow: 0 0 0 1px var(--gold); }
+
+  /* ── 画风模拟 ─────────────────────────── */
+  .style-lab { display: flex; flex-wrap: wrap; gap: 18px; align-items: flex-start; }
+  .palette { display: flex; gap: 10px; flex-wrap: wrap; }
+  .swatch { width: 84px; }
+  .swatch .chip {
+    height: 44px; border-radius: 8px; border: 1px solid var(--border);
+  }
+  .swatch .name { font-size: 11px; color: var(--text); margin-top: 4px; text-align: center; }
+  .swatch .hex { font-size: 10px; color: var(--dim); text-align: center; font-variant-numeric: tabular-nums; }
+  .typo-demo {
+    flex: 1; min-width: 260px; background: var(--panel-2);
+    border: 1px solid var(--border); border-radius: 10px; padding: 16px 20px;
+  }
+  .typo-demo .t-title { font-size: 26px; font-weight: 900; color: var(--text); letter-spacing: 1px; }
+  .typo-demo .t-body { font-size: 13.5px; color: #b9bac2; margin-top: 8px; }
+  .typo-demo .t-num {
+    font-size: 34px; font-weight: 600; color: var(--gold); margin-top: 8px;
+    font-variant-numeric: tabular-nums;
+  }
+  .typo-demo .t-cap { font-size: 10.5px; color: var(--dim); margin-top: 2px; letter-spacing: 1px; }
+
+  .mg-gallery { display: flex; flex-wrap: wrap; gap: 18px; margin-top: 6px; }
+  .mg-item { width: 168px; flex-shrink: 0; }
+  .mg-frame {
+    width: 168px; height: 298px; border-radius: 12px;
+    border: 1px solid var(--border);
+    background: linear-gradient(165deg, #1e1f24 0%, #15161a 70%);
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+  }
+  .mg-frame::after { /* 颗粒/底纹暗示 */
+    content: ""; position: absolute; inset: 0;
+    background: repeating-linear-gradient(0deg, transparent 0 3px, rgba(255,255,255,.012) 3px 4px);
+    pointer-events: none;
+  }
+  .mg-name-line { font-size: 12px; color: var(--gold); font-weight: 600; margin-top: 8px; text-align: center; }
+  .mg-desc { font-size: 10.5px; color: var(--dim); margin-top: 4px; line-height: 1.55; }
+  .mg-src {
+    display: inline-block; font-size: 10px; padding: 0 7px; border-radius: 10px;
+    background: var(--gold-dim); color: var(--gold); margin-top: 5px;
+  }
+  /* MG 样张内部 */
+  .mg-big { font-size: 44px; font-weight: 600; color: var(--gold); font-variant-numeric: tabular-nums; line-height: 1.1; }
+  .mg-unit { font-size: 16px; color: var(--gold); align-self: flex-end; margin: -14px 26px 0 0; }
+  .mg-foot { position: absolute; bottom: 14px; font-size: 9.5px; color: var(--dim); }
+  .mg-headline {
+    font-size: 22px; font-weight: 900; color: var(--text); text-align: center; line-height: 1.4;
+    text-shadow: 0 0 12px rgba(224,179,92,.35); padding: 0 12px;
+  }
+  .mg-headline u { text-decoration: none; border-bottom: 2px solid var(--gold); }
+  .mg-chap { display: flex; align-items: center; gap: 10px; padding: 0 14px; }
+  .mg-chap .n { font-size: 40px; font-weight: 900; color: var(--gold); line-height: 1; }
+  .mg-chap .r .nm { font-size: 14px; font-weight: 700; color: var(--text); }
+  .mg-chap .r .lb {
+    display: inline-block; font-size: 9px; color: var(--gold);
+    border: 1px solid rgba(224,179,92,.5); border-radius: 3px; padding: 0 5px; margin-top: 4px;
+  }
+  .mg-grid { width: 100%; padding: 0 16px; display: flex; flex-direction: column; gap: 8px; }
+  .mg-grid .row {
+    display: flex; justify-content: space-between; align-items: center;
+    background: rgba(255,255,255,.04); border-left: 2px solid var(--gold);
+    border-radius: 4px; padding: 6px 10px;
+  }
+  .mg-grid .row .k { font-size: 9.5px; color: #b9bac2; }
+  .mg-grid .row .v { font-size: 15px; font-weight: 600; color: var(--gold); font-variant-numeric: tabular-nums; }
+  .mg-grid .row.warn { border-left-color: var(--danger); }
+  .mg-grid .row.warn .v { color: var(--danger); }
+  .mg-quote { padding: 0 18px; }
+  .mg-quote .qm { font-size: 30px; color: var(--gold); line-height: .6; font-family: serif; }
+  .mg-quote .qt { font-size: 11.5px; color: var(--text); line-height: 1.8; margin-top: 6px; }
+  .mg-quote .qs { font-size: 9px; color: var(--dim); margin-top: 8px; text-align: right; }
+  .mg-disc {
+    position: absolute; bottom: 18px; left: 14px; right: 14px;
+    border: 1px solid rgba(224,179,92,.4); border-radius: 4px;
+    font-size: 8.5px; color: var(--dim); text-align: center; padding: 5px 6px; line-height: 1.6;
+  }
+  .mg-generic { font-size: 11px; color: var(--dim); padding: 0 16px; text-align: center; line-height: 1.8; }
+
+  /* ── 顶部操作 ─────────────────────────── */
+  .actions { position: fixed; right: 28px; top: 28px; display: flex; gap: 10px; z-index: 40; }
+  .actions button {
+    background: var(--panel-2); color: var(--text);
+    border: 1px solid var(--border); border-radius: 8px;
+    padding: 7px 16px; font-size: 12.5px; cursor: pointer;
+  }
+  .actions button:hover { border-color: var(--gold); color: var(--gold); }
+  .toast {
+    position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%);
+    background: var(--panel-2); border: 1px solid var(--gold); color: var(--gold);
+    padding: 8px 20px; border-radius: 20px; font-size: 13px; z-index: 60;
+    opacity: 0; transition: opacity .25s; pointer-events: none;
+  }
+  .kbd-tip { font-size: 12px; color: var(--dim); margin: -8px 0 24px; }
+  .kbd-tip kbd {
+    background: var(--panel-2); border: 1px solid var(--border); border-radius: 4px;
+    padding: 0 6px; font-size: 11px; font-family: inherit;
+  }
+</style>
+</head>
+<body>
+
+<div class="actions">
+  <button type="button" id="btn-export">导出 JSON</button>
+  <button type="button" id="btn-copy">复制 JSON</button>
+</div>
+
+<div class="page-title">
+  <span class="logo">🎬</span> 创作规划书
+  <span class="sub">影石创新：营收高增，产品越卖越火，股价为啥脚踝斩</span>
+</div>
+
+<h2 class="sec-title">成片需求</h2>
+<div class="plan-grid" id="plan-info"></div>
+
+<h2 class="sec-title">画风预览</h2>
+<div class="plan-grid">
+  <div class="plan-card full">
+    <h4>🎨 画风设定</h4>
+    <ul id="style-notes"></ul>
+  </div>
+  <div class="plan-card full">
+    <h4>色板 · 字体（示意模拟）</h4>
+    <div class="style-lab">
+      <div class="palette" id="palette"></div>
+      <div class="typo-demo" id="typo"></div>
+    </div>
+  </div>
+  <div class="plan-card full">
+    <h4>MG 组件样式（9:16 样张示意，仅表达布局/气质，非最终动效）</h4>
+    <div class="mg-gallery" id="mg-gallery"></div>
+  </div>
+</div>
+
+<h2 class="sec-title">分镜脚本</h2>
+<div class="stats" id="stats"></div>
+
+<div class="kbd-tip">
+  编辑：页面所有文字（成片需求/画风/口播脚本/画面描述/场景标题）点击即可改｜口播脚本框内 <kbd>Enter</kbd> 拆分分镜（<kbd>Shift+Enter</kbd> 换行）｜首字符处 <kbd>⌫</kbd> 并入上一镜｜末字符处 <kbd>Del</kbd> 并入下一镜（仅同场景内）｜拆分/合并的新分镜默认继承原镜的画面描述、分镜类型、素材类型
+</div>
+
+<div id="scenes"></div>
+<div class="toast" id="toast"></div>
+
+<script>
+const DATA = {"schema_version": "2.1", "available_material_types": ["a-roll", "cloud", "web", "meme", "gen-img"], "mg_components": {"chapter_card": {"layout": "左上角章节序号徽章（金边圆形）+ 右中章节标题大字（极粗黑体），scissor_motif 剪刀叉暗纹垫底", "motion": "序号先砸入，标题跟随扫入，念到章节词时定格", "source": "账号固定"}, "big_number": {"layout": "数字居中满屏（等宽 semibold 暖金），单位缩一级右下角，注脚一行底部（无衬线黑体灰字）", "motion": "数字滚动到终值后整组放大定格，注脚随后淡入", "source": "本期定义"}, "duo_compare": {"layout": "双栏对比卡：左栏影石 / 右栏对手或同行，仅高亮关键行，scissor_motif 剪刀叉做两栏分隔线", "motion": "两栏逐项扫入，念到关键行时该行高亮放大、对方压灰", "source": "本期定义"}, "scissor_motif": {"layout": "背离剪刀叉母题：一根金色向上箭头 + 一根红色向下曲线形成剪刀分叉，弱化为底纹 / 转场元素", "motion": "两线随口播节奏缓慢分叉，不抢主信息", "source": "本期定义"}, "cta_card": {"layout": "底部 CTA 条：点赞 / 收藏 / 关注三个图标 + 引导文案，账户色板", "motion": "图标依次点亮，跟随口播引导", "source": "账号固定"}}, "scenes": [{"scene_id": "A01", "scene_title": "开场·核心矛盾砸屏", "scene_design": "专名清单：影石创新（公司）／范围：中国 ／年代：现代 ／素材来源：科创板敲钟、股市行情屏、相机产品空镜 ／素材偏好：数据画面留白给 MG，避免素人正脸 ／画面一致性：开场更锐、影调压暗、MG 统一深色底 + 暖金数字·动效偏快；母题剪刀叉在数据卡中雏形化；a-roll 语气克制陈述转加重。", "shots": [{"shot_id": "S01", "form": "mg-compose", "material": ["a-roll"], "script": "影石创新，今天盘中创了历史新低，股价从 377 块一路跌到 113 块，整整跌了七成。", "visual_description": "① 核心矛盾数字锤：股价崩盘的当头一棒。② 底为 a-roll 主播半身正面对镜、提词器辅助，语气克制陈述，暗化压作衬底。③ 主播居中偏下、上方留白叠大字报。④ 信息层用 big_number 组件：砸『377→113』，注脚『股价·跌七成』，念到『377 块』金色数字起跳、念到『113 块』砸定格。⑤ 开场即高动效，数字滚动 1 秒内落定，随后主播表情微收、定格一瞬。"}, {"shot_id": "S02", "form": "mg-compose", "material": ["cloud"], "script": "更狠的是它的财报，上半年卖了 55 个亿，同比涨了一半，结果到手的利润只剩 3000 万，扣非还倒亏 1500 多万。", "visual_description": "① 剪刀叉雏形：营收向上、利润向下。② 底为相机产线/门店空镜（cloud）压暗虚化作衬。③ 竖屏上下堆叠：上方金色向上箭头标营收，下方红色向下箭头标利润，剪刀分叉构图。④ 信息层：营收『55 亿 +50%』暖金，利润『3000 万』与扣非『-1500 多万』警示红，两数对撞；补坐标『上半年·同比』。⑤ 念到『55 个亿』金色箭头先上冲，念到『3000 万』红色箭头下坠、两线分叉成型，整组定格。"}, {"shot_id": "S03", "form": "raw", "material": ["a-roll"], "script": "卖得越多、亏得越狠。", "visual_description": "① 主播半身正面对镜的纯露脸口播。② 近景、提词器辅助，语气加重，念完微微点头收束。"}]}, {"scene_id": "A02", "scene_title": "品牌锚·上市回顾", "scene_design": "专名清单：影石创新（公司）、蛋炒饭财经（账号）／范围：中国 ／年代：2025—2026 ／素材来源：科创板敲钟仪式、股市行情大屏绿盘 ／素材偏好：行情大屏全景、避免素人正脸 ／画面一致性：从开场锐利转温和叙事，影调仍压暗；raw 镜头舒缓呼吸；MG 统一深色底。", "shots": [{"shot_id": "S04", "form": "raw", "material": ["a-roll"], "script": "关注蛋炒饭财经，带你深度巡礼 1000 只股票，今天我们聊影石创新。", "visual_description": "① 主播半身正面对镜的品牌锚口播。② 中近景、提词器辅助，语气平稳亲和，结尾微微抬手示意。"}, {"shot_id": "S05", "form": "raw", "material": ["cloud"], "script": "再说它这一年有多惨。影石创新是去年 6 月 11 号上市的，上市第一天就涨了 274%，最高的时候，市值一度摸到 1400 亿。", "visual_description": "① 科创板敲钟仪式空镜（cloud）满屏。② 影调微暖略做旧，承载'上市风光'的情绪对照；不用 MG 叠字，数字随口播入耳。"}, {"shot_id": "S06", "form": "mg-compose", "material": ["cloud"], "script": "现在呢，454 亿，蒸发了将近 1000 亿。上市才一年多，从风光无限到只剩三折。", "visual_description": "① 市值雪崩：风光到三折的数字锤。② 底为股市行情大屏一片绿（cloud）压暗。③ 满屏 big_number 组件。④ 信息层砸『454 亿』，注脚『市值·蒸发近 1000 亿』，附迷你下行曲线做坐标；『只剩三折』叠红色角标。⑤ 念到『454 亿』数字滚落定格，绿色大屏缓慢下坠为衬。"}, {"shot_id": "S07", "form": "mg-compose", "material": ["a-roll", "meme"], "script": "评论区肯定有从 300 多一路扛下来的老哥，成本 370，现在 113，你说他天天看着盘，是个什么心情。", "visual_description": "① 套牢股民的身份共情卡。② 底为 a-roll 主播半身，侧四十五度、语气转同理，右上角嵌入小尺寸表情包（meme）压暗作情绪注脚。③ 人物身份卡器型：左侧一个抽象'老哥'剪影头像，右侧成本对比。④ 信息层：成本『370』与现价『113』双行，下行数字警示红；补坐标『-70%』。⑤ 念到『370』亮成本行，念到『113』现价行高亮、剪影表情微垂，meme 一闪不抢戏。"}]}, {"scene_id": "A03", "scene_title": "卖得不差·反常设问", "scene_design": "专名清单：影石创新（公司）／范围：全球（东京 / 纽约门店）／年代：现代 ／素材来源：全景相机实拍、东京商场门店排队、纽约时代广场、消费电子门店 ／素材偏好：门店全景 / 背影，避免素人正脸 ／画面一致性：影调略回暖、呈现'产品火'的热闹感，与利润归零的冷感形成反差；raw 镜头舒缓；母题剪刀叉在此段作为反差底纹轻带。", "shots": [{"shot_id": "S08", "form": "mg-compose", "material": ["cloud"], "script": "可问题是，它卖得一点都不差。上半年营收 55 亿，同比涨了 50%，放在消费电子这么疲软的赛道里，这个增速是顶级的。", "visual_description": "① 增速碾压：把 50% 放到疲软赛道里看。② 底为消费电子门店 / 产线空镜（cloud）压暗。③ big_number 组件 + 迷你柱状做坐标。④ 信息层：『+50%』暖金上冲，柱状右侧补行业均值一根矮柱压灰作坐标（消费电子赛道疲软）。⑤ 念到『涨了 50%』我方柱体拔高、行业均值柱压灰不动，整组放大定格。"}, {"shot_id": "S09", "form": "raw", "material": ["cloud"], "script": "全景相机全球市占率 71%，累计出货突破了 1000 万台，东京的门店开业那天排长队，纽约时代广场的旗舰店也马上要开。", "visual_description": "① 东京门店排长队 / 纽约时代广场旗舰店（cloud）满屏。② 镜头舒缓呼吸，暖色街景，'卖爆全球'的真实感；数字随口播入耳，不叠 MG。"}, {"shot_id": "S10", "form": "raw", "material": ["cloud"], "script": "产品火成这个样子，利润却几乎归零。这就很反常了，一家公司产品卖爆全球，怎么反而越卖越亏？", "visual_description": "① 产品热卖空镜（cloud）收尾，转冷色调压暗。② 由暖转暗的审视感，为下一段'三坑'蓄势；设问留白、不叠字。"}]}, {"scene_id": "A04", "scene_title": "第一坑·给上游半导体打工", "scene_design": "专名清单：影石创新（公司）、存储芯片 / DRAM（物料）、瑞银（机构）／范围：中国 + 全球 ／年代：现代 ／素材来源：半导体晶圆产线、DRAM 颗粒、数据中心机柜、研报截图 ／素材偏好：芯片特写 / 产线全景 ／画面一致性：影调压暗审视，警示黄为主强调色；MG 数据瀑布 / 柱状统一深色底；raw 镜头硬朗。", "shots": [{"shot_id": "S11", "form": "mg-compose", "material": ["cloud"], "script": "第一个坑，是给上游半导体打工。", "visual_description": "① 章节卡。② 底为半导体晶圆产线空镜（cloud）压暗。③ 用 chapter_card 组件：序号徽章『①』+ 标题『给上游半导体打工』。④ 信息层仅章节词。⑤ 序号先砸入、标题扫入定格，产线暗底缓动。"}, {"shot_id": "S12", "form": "raw", "material": ["cloud"], "script": "影石相机的核心物料是存储芯片，这两年 AI 爆了，DRAM 这种存储芯片被数据中心抢疯了，价格涨了 4 倍多。", "visual_description": "① 数据中心机柜 / DRAM 存储颗粒空镜（cloud）满屏。② 冷蓝工业影调、硬朗快切，'AI 抢芯'的压迫感；数字随口播入耳。"}, {"shot_id": "S13", "form": "mg-compose", "material": ["cloud"], "script": "影石相机物料成本里，存储芯片的占比，从原来的 5%，飙到 20%。光这一项，就把它的毛利率从 51% 打到 41%，一年跌了 10 个点。", "visual_description": "① 成本占比 + 毛利率双瀑布数据卡。② 底为芯片物料特写（cloud）压暗。③ 上下堆叠两组瀑布条：上『存储占比 5%→20%』警示黄，下『毛利率 51%→41%』红色。④ 信息层补坐标：毛利率标注『一年跌 10 个点』趋势箭头。⑤ 念到『5%』短条、念到『20%』长条冲出；下组念到『51%』高、念到『41%』塌落，两瀑布同步成型、定格。"}, {"shot_id": "S14", "form": "mg-compose", "material": ["web"], "script": "这个数，瑞银的研报专门算过。说白了，影石辛辛苦苦卖一台相机，利润先被上游的存储厂抽走一大截。", "visual_description": "① 引用背书 + 利润被抽走的装置隐喻。② 底为瑞银研报 / 财经新闻截图（web）压暗虚化作衬。③ 底部一条抽走式进度条：代表利润的暖金条被一个上游箭头抽掉一大截。④ 信息层标注『瑞银研报』信源小字。⑤ 念到『瑞银』研报截图边框高亮；念到『抽走一大截』金条被抽短、红色箭头放大定格。"}]}, {"scene_id": "A05", "scene_title": "第二坑·给大疆价格战买单", "scene_design": "专名清单：影石创新（公司）、大疆 / DJI（公司）、Osmo 360 / X5（产品）／范围：中国 ／年代：2025—2026 ／素材来源：大疆无人机产品空镜、全景相机产品图、大疆官网 / 产品页价格截图、专利 / 法庭新闻 ／素材偏好：产品特写、避免素人正脸 ／画面一致性：警示红为强调色，竞争对峙感；MG 双栏对比卡；raw 镜头硬朗快切。", "shots": [{"shot_id": "S15", "form": "mg-compose", "material": ["cloud"], "script": "第二个坑，是给大疆的价格战买单。以前全景相机这个细分赛道，基本是影石的独家生意。", "visual_description": "① 章节卡 + 独家生意到群雄的转折。② 底为全景相机产品空镜（cloud）压暗。③ chapter_card 组件：序号『②』+ 标题『给大疆价格战买单』，下叠一张迷你'赛道从独占→多玩家'示意。④ 信息层仅章节词 + 一个'独家'标签。⑤ 序号砸入、标题扫入，'独家'标签随后被划掉，引出下一镜对手。"}, {"shot_id": "S16", "form": "mg-compose", "material": ["web"], "script": "但 2025 年大疆杀了进来，第一款全景相机 Osmo 360，直接定价 2999，比影石同档的 X5 便宜了 800 块。", "visual_description": "① 价格对标卡：2999 碾压 800 价差。② 底为大疆 Osmo 360 产品页 / 官网价格截图（web）压暗作衬。③ duo_compare 组件：左 X5、右 Osmo 360。④ 信息层高亮『2999』与『便宜 800 块』，补坐标『同档产品』；影石侧价格压灰。⑤ 念到『2999』右栏价格砸入放大，念到『便宜了 800 块』价差红字弹出、左栏下压。"}, {"shot_id": "S17", "form": "raw", "material": ["cloud"], "script": "大疆是全球无人机老大，有无人机业务赚的钱反哺，有自研芯片控制成本，一进来就用价格往下压，一个季度就拿走了 35% 的份额。", "visual_description": "① 大疆无人机航拍 / 产线空镜（cloud）满屏。② 硬朗快切、压迫感，'无人机老大'的体量感；份额数字随口播入耳。"}, {"shot_id": "S18", "form": "raw", "material": ["web"], "script": "价格战打到后面，两边还互相告专利，光没判的官司就有十来起。这第二个坑，是硬碰硬的竞争。", "visual_description": "① 专利诉讼 / 法庭新闻截图（web）满屏。② 压暗审视、冷峻，'硬碰硬'的证据感；数字随口播入耳。"}]}, {"scene_id": "A06", "scene_title": "第三坑·给自己野心买单", "scene_design": "专名清单：影石创新（公司）、全景无人机 / 云台相机 / 无线麦克风（业务）／范围：中国 ／年代：现代 ／素材来源：全景无人机、云台相机、无线麦克风产品空镜 ／素材偏好：产品特写 ／画面一致性：影调压暗，警示黄 / 红并重；MG 数据卡统一深色底；raw 镜头硬朗。", "shots": [{"shot_id": "S19", "form": "mg-compose", "material": ["cloud"], "script": "第三个坑，是给自己野心买单。影石为了扛住大疆，把战线拉得很长，全景无人机、云台相机、无线麦克风，全都铺开。", "visual_description": "① 章节卡 + 战线铺开的拼版。② 底为三款产品空镜（cloud）压暗。③ chapter_card 组件：序号『③』+ 标题『给自己野心买单』，下叠三枚产品图标横排（无人机 / 云台 / 麦克风）。④ 信息层仅章节词 + 三产品名小字。⑤ 序号砸入、标题扫入，三枚图标随口播逐一点亮铺开。"}, {"shot_id": "S20", "form": "mg-compose", "material": ["cloud"], "script": "研发投入从一年 5.6 亿直接加到 10 个亿，翻了一倍。光无人机这条新业务，四家子公司加起来亏了 3.7 亿。", "visual_description": "① 烧钱双数据卡：研发翻倍 + 子公司亏损。② 底为研发 / 产线空镜（cloud）压暗。③ 上下堆叠两条数据：上『研发 5.6 亿→10 亿』警示黄，下『无人机四子公司 -3.7 亿』红色。④ 信息层补坐标：研发标注『翻一倍』、亏损标注『四家子公司』。⑤ 念到『5.6 亿』短柱、『10 个亿』长柱冲出；念到『3.7 亿』下方红柱塌落，两组定格。"}, {"shot_id": "S21", "form": "mg-compose", "material": ["cloud"], "script": "再加上它赌存储还要涨，一口气囤了 20 亿的芯片。上半年光研发、销售、管理这三项，就吃掉 23 个亿，占了营收的 42%。", "visual_description": "① 囤货 + 三费吞噬占比卡。② 底为芯片仓储 / 物流空镜（cloud）压暗。③ 数据大字报 + 一条三费占比横条。④ 信息层：『囤 20 亿芯片』暖金，『三费 23 亿』红色，横条标『占营收 42%』做坐标。⑤ 念到『20 亿』芯片数字滚动，念到『23 个亿』三费数字弹出、横条涨到 42% 定格。"}]}, {"scene_id": "A07", "scene_title": "三头狼·季度反差", "scene_design": "专名清单：影石创新（公司）／范围：中国 ／年代：现代 ／素材来源：无（框架型 MG）／素材偏好：无 ／画面一致性：影调最压暗、看跌警示最强；母题剪刀叉在此化为三源汇流机制图；动效偏快、信息密度高。", "shots": [{"shot_id": "S22", "form": "mg-pure", "material": [], "script": "就是一家本来在赚钱的公司，同时被三头狼咬：上游涨价咬一口，对手打价格战咬一口，自己扩张烧钱再咬一口。", "visual_description": "① 三头狼压力源汇流机制图（框架型）。② 深色网格设计稿底 + scissor_motif 剪刀叉暗纹。③ 中心一个代表利润的暖金圆，三条红色箭头从左上/右上/下方三向咬合指向圆心，流程传导链器型。④ 信息层：三源分别标『上游涨价』『大疆价格战』『扩张烧钱』，中心标『利润』。⑤ 念到每一'咬一口'对应箭头逐节逼近，三条箭头齐汇时中心圆被压缩、变暗，定格。"}, {"shot_id": "S23", "form": "mg-compose", "material": ["cloud"], "script": "三头狼一起上，利润就剩不下什么了。二季度最典型，一季度还赚 8500 万，到了二季度，直接亏 5400 万。", "visual_description": "① 季度盈亏大逆转数据卡。② 底为财报 / 数据图表空镜（cloud）压暗。③ 上下两行 big_number 式数据：上『Q1 +8500 万』暖金，下『Q2 -5400 万』警示红。④ 信息层补坐标：两季之间一根断崖式下降箭头。⑤ 念到『8500 万』上行亮，念到『5400 万』下行砸入、断崖箭头急速下坠定格。"}, {"shot_id": "S24", "form": "raw", "material": ["a-roll"], "script": "三个月，从赚钱到亏钱，连个过渡都没有。", "visual_description": "① 主播半身正面对镜的纯露脸口播。② 近景、提词器辅助，语气加重，微微摇头，收束'三坑'这一大段。"}]}, {"scene_id": "A08", "scene_title": "三坑性质·判断引子", "scene_design": "专名清单：影石创新（公司）／范围：中国 ／年代：现代 ／素材来源：无 / 行情屏空镜 ／素材偏好：留白给 MG ／画面一致性：影调压暗、语气转悬念；MG 统一深色底；母题剪刀叉作分叉底纹。", "shots": [{"shot_id": "S25", "form": "mg-compose", "material": ["cloud"], "script": "那这三个坑，是暂时的，还是长期的？这才是真正决定这只股票值多少钱的问题。", "visual_description": "① 暂时 vs 长期的双分叉设问。② 底为行情屏 / 图表空镜（cloud）压暗。③ 中部一条横线分叉成'暂时'与'长期'两枝，时间轴分叉器型。④ 信息层：左枝『暂时』灰、右枝『长期』暖金，问号悬于分叉点。⑤ 念到『暂时的』左枝淡入，念到『长期的』右枝点亮，问号放大定格。"}, {"shot_id": "S26", "form": "raw", "material": ["a-roll"], "script": "我的判断是：三个坑，性质完全不一样。", "visual_description": "① 主播半身正面对镜的纯露脸口播。② 近景、提词器辅助，语气加重、表态担责，念到'性质完全不一样'时略停顿强调。"}]}, {"scene_id": "A09", "scene_title": "存储涨价·全行业逆风", "scene_design": "专名清单：英伟达、三星 / 海力士 / 美光（存储厂）、影石创新（公司）、大疆（公司）／范围：全球 ／年代：现代 ／素材来源：数据中心、半导体产线、英伟达财报 / 新闻截图、芯片仓储 ／素材偏好：芯片 / 数据中心空镜，避免素人正脸 ／画面一致性：影调压暗、语气克制陈述；MG 统一深色底；raw 镜头舒缓呼吸；存储段强调色仍警示黄。", "shots": [{"shot_id": "S27", "form": "raw", "material": ["cloud"], "script": "先说存储涨价。很多人以为这是普通涨价周期，过两年就回落。但这次不太一样。", "visual_description": "① 存储芯片价格曲线 / 半导体空镜（cloud）满屏。② 舒缓呼吸、微压暗，'普通周期'的错觉感；数字随口播入耳。"}, {"shot_id": "S28", "form": "mg-compose", "material": ["web"], "script": "英伟达已经明说，内存的供应瓶颈至少要持续到 2028 财年。三星、海力士、美光这些存储厂，甚至开始跟客户签长期协议锁产能，不玩以前的季度短单了。", "visual_description": "① 引用卡 + 三厂锁产能证据链。② 底为英伟达财报 / 新闻截图（web）压暗虚化作衬。③ 中部引用卡标『英伟达：瓶颈至 2028 财年』，下方三枚存储厂徽章横排（三星 / 海力士 / 美光）。④ 信息层补坐标：三徽章各标『签长期协议锁产能』。⑤ 念到『2028 财年』引用卡高亮，念到三厂名时对应徽章依次点亮、锁链图标连起。"}, {"shot_id": "S29", "form": "raw", "material": ["cloud"], "script": "这轮涨价，是 AI 把存储产能抽空了，不是普通周期波动。所以短期一两年内，存储不会便宜。", "visual_description": "① 数据中心 AI 机柜 / 存储产能空镜（cloud）满屏。② 冷蓝工业影调、硬朗快切，'产能被抽空'的压迫感；数字随口播入耳。"}, {"shot_id": "S30", "form": "mg-compose", "material": ["cloud"], "script": "但这里有个关键：存储涨价是全行业一起扛的，大疆的相机一样要用存储，一样贵。这不是影石独有的死穴，是大家共同的逆风。", "visual_description": "① 共同逆风双栏对比卡。② 底为两品牌相机产品空镜（cloud）压暗。③ duo_compare 组件：左影石、右大疆，两栏并排同高。④ 信息层：两栏各标『同样用存储』『一样贵』，强调色从警示红转中性灰，标注『全行业共同逆风』。⑤ 念到『全行业一起扛』两栏同频上浮、红转灰，念到『共同的逆风』整组平稳定格。"}, {"shot_id": "S31", "form": "raw", "material": ["cloud"], "script": "而且影石自己还囤了 20 亿芯片，提前锁了价，等于在给未来对冲。", "visual_description": "① 芯片仓储 / 库存空镜（cloud）满屏。② 影调略回暖、'提前锁价'的底气感；数字随口播入耳。"}]}, {"scene_id": "A10", "scene_title": "大疆价格战·长期变量", "scene_design": "专名清单：大疆 / DJI（公司）、影石创新（公司）、全景相机（品类）／范围：中国 ／年代：现代 ／素材来源：大疆无人机航拍、产品空镜 ／素材偏好：无人机 / 产线空镜 ／画面一致性：警示红强调、对峙感；raw 镜头硬朗；MG 双分支条件图统一深色底。", "shots": [{"shot_id": "S32", "form": "mg-compose", "material": ["cloud"], "script": "第二个坑，大疆的价格战，这才是真正要担心的长期变量。", "visual_description": "① 章节卡。② 底为大疆无人机空镜（cloud）压暗。③ chapter_card 组件：序号『②』+ 标题『大疆价格战·长期变量』。④ 信息层仅章节词，'长期变量'标警示红。⑤ 序号砸入、标题扫入，'长期变量'红字闪烁定格。"}, {"shot_id": "S33", "form": "raw", "material": ["cloud"], "script": "因为大疆有无人机这条现金流印钞机，它亏得起，能陪你打三年五年的价格战。价格战不会因为影石利润崩了就停。", "visual_description": "① 大疆无人机航拍 / 产线空镜（cloud）满屏。② 硬朗快切、压迫感，'现金流印钞机'的体量；数字随口播入耳。"}, {"shot_id": "S34", "form": "raw", "material": ["cloud"], "script": "只要大疆还留在全景相机这个赛道，这块利润就一直被压着。什么时候能松？要么双方打到都受不了，形成默契；要么某一方认输退出。", "visual_description": "① 全景相机赛道 / 产品空镜（cloud）满屏。② 压暗审视、冷峻，'被压着'的窒息感；两个'要么'设问随口播入耳、留白不叠字。"}, {"shot_id": "S35", "form": "raw", "material": ["cloud"], "script": "这个不确定性，短期解不开。", "visual_description": "① 压暗审视空镜（cloud）满屏。② 冷色收束、留白，一句金句落在空镜上，情绪落点。"}]}, {"scene_id": "A11", "scene_title": "自己扩张·最不用怕", "scene_design": "专名清单：影石创新（公司）、董事会 / 管理层（主体）／范围：中国 ／年代：现代 ／素材来源：企业办公 / 会议室空镜 ／素材偏好：会议室 / 办公空镜，避免素人正脸 ／画面一致性：影调略回暖、语气转确定；MG 旋钮装置统一深色底；raw 镜头舒缓。", "shots": [{"shot_id": "S36", "form": "mg-compose", "material": ["cloud"], "script": "第三个坑，自己扩张，这个其实是最不用怕的。因为它是管理层自己的选择，是可以收的。", "visual_description": "① 章节卡 + 可回收的确定性。② 底为会议室 / 办公空镜（cloud）压暗。③ chapter_card 组件：序号『③』+ 标题『自己扩张·最不用怕』。④ 信息层仅章节词，'最不用怕'标暖金。⑤ 序号砸入、标题扫入，'最不用怕'暖金放大定格。"}, {"shot_id": "S37", "form": "mg-compose", "material": ["cloud"], "script": "研发投多少、无人机铺多大、囤多少芯片，都是董事会一句话的事。利润压力真的大了，管理层随时能收缩战线、砍掉烧钱的业务。", "visual_description": "① 三个可调旋钮装置隐喻。② 底为办公空镜（cloud）压暗。③ 三枚旋钮横排（研发 / 无人机 / 芯片），各带一格可拨到'缩'的刻度。④ 信息层三旋钮标名 + 一个'董事会一句话'标签。⑤ 念到每个词对应旋钮转动，念到『收缩战线』三旋钮统一回拨、'烧钱业务'标签被划掉，定格。"}, {"shot_id": "S38", "form": "raw", "material": ["cloud"], "script": "所以这个坑，是三个坑里唯一一个自己说了算的。", "visual_description": "① 会议室 / 决策空镜（cloud）满屏。② 影调略回暖、'自己说了算'的确定感；一句金句落空镜收束。"}]}, {"scene_id": "A12", "scene_title": "产品力·能打", "scene_design": "专名清单：影石创新（公司）、大疆（公司）、全景相机（品类）／范围：中国 + 全球 ／年代：2015—2026 ／素材来源：全景相机实拍、极限运动 / 防抖实拍、全景拼接成像演示 ／素材偏好：产品实拍 / 成像演示 ／画面一致性：影调回暖、语气转自信；raw 镜头舒展；MG 数据卡统一深色底；母题剪刀叉在此转'向上'侧翼。", "shots": [{"shot_id": "S39", "form": "raw", "material": ["cloud"], "script": "那问题就来了，把这三头狼都摆开，影石创新这家公司，底子到底还在不在？", "visual_description": "① 影石相机产品 / 成像实拍（cloud）满屏。② 影调回暖、审视中带希望；设问留白、不叠字。"}, {"shot_id": "S40", "form": "raw", "material": ["a-roll"], "script": "长期看，价格战打到最后，拼的还是产品力。影石的产品力，还能不能打？", "visual_description": "① 主播半身正面对镜的纯露脸口播。② 中近景、提词器辅助，语气转卖关子，念到'还能不能打'时前倾、挑眉设问。"}, {"shot_id": "S41", "form": "mg-compose", "material": ["a-roll"], "script": "我的判断很明确：能打，而且这是这只股票最值钱的部分。", "visual_description": "① 核心判断大字报。② 底为 a-roll 主播半身正面对镜，语气自信加重，压暗作衬。③ 主播居中偏下，上方留白叠大字。④ 信息层用 big_number 式大字：砸『能打』两字暖金满屏，注脚『这只股票最值钱的部分』。⑤ 念到『能打』大字砸入放大定格，主播表情笃定。"}, {"shot_id": "S42", "form": "raw", "material": ["cloud"], "script": "很多人一看利润崩了，就觉得这公司是不是产品不行了。真不是。", "visual_description": "① 相机产品实拍 / 成像演示（cloud）满屏。② 影调回暖、'产品其实行'的反证；'真不是'落在空镜上。"}, {"shot_id": "S43", "form": "mg-compose", "material": ["cloud"], "script": "影石从 2015 年就开始做全景相机，十年时间，把全球市占率做到 71%，累计出货 1000 万台，是这个品类的定义者。", "visual_description": "① 品类定义者的数据卡。② 底为全景相机实拍（cloud）压暗。③ 数据大字报 + 迷你时间轴。④ 信息层：『2015 起做』『市占率 71%』『出货 1000 万台』三行，补坐标『十年』『品类定义者』标签。⑤ 念到每个数字依次滚入，念到『定义者』暖金标签盖章式落定。"}, {"shot_id": "S44", "form": "raw", "material": ["cloud"], "script": "它的看家本领是全景拼接算法、防抖、AI 影像，这些不是大疆一年半载能抄走的。", "visual_description": "① 全景拼接成像 / 防抖实拍演示（cloud）满屏。② 舒展、自信的技术演示感；本领名词随口播入耳。"}]}, {"scene_id": "A13", "scene_title": "X5 产品参数", "scene_design": "专名清单：影石 X5（产品）、大疆 Osmo 360（产品）／范围：中国 ／年代：现代 ／素材来源：产品特写、传感器大底对比示意（gen-img）、实测样片 ／素材偏好：产品特写 + 可控产品规格示意 ／画面一致性：影调回暖、产品力高光；MG 参数卡统一深色底 + 暖金；生成一致性锚（本场含 gen-img）：主体外观＝影石 X5 全景相机双镜头机身、炭黑金属质感，风格词＝写实产品图 / 光影通透，负面约束＝不得出现大疆 logo、不得生成虚假的实拍证件照。", "shots": [{"shot_id": "S45", "form": "mg-compose", "material": ["gen-img"], "script": "就说最新这一代 X5。它用了两颗 1.28 英寸的大底传感器，比大疆 Osmo 360 的底还大，底大一级，画质和夜景就压一头。", "visual_description": "① 大底传感器尺寸对比示意。② 底为 gen-img 生成的两颗大底传感器 + X5 机身特写图，压暗作衬。③ duo_compare 组件：左 X5 双底、右 Osmo 360 单底，传感器面积直观对比。④ 信息层：左标『两颗 1.28 英寸大底』暖金，右标『Osmo 360 底更小』压灰。⑤ 念到『1.28 英寸』左栏传感器放大、发光，念到『底还大』左底圈明显大于右底圈，定格。"}, {"shot_id": "S46", "form": "raw", "material": ["cloud"], "script": "它的 FlowState 防抖、13.5 档动态范围，加上夜景专用的 PureVideo 模式，你去翻实测，画质、防抖、生态到今天都没掉队，甚至在画质上还压大疆一头。", "visual_description": "① 运动防抖 / 夜景实测样片（cloud）满屏。② 舒展、通透的实测画面，'画质压一头'的底气；参数名词随口播入耳。"}]}, {"scene_id": "A14", "scene_title": "产品力对规模·持久战", "scene_design": "专名清单：大疆（公司）、影石创新（公司）／范围：中国 ／年代：现代 ／素材来源：大疆无人机产线、影石相机实拍 ／素材偏好：产线 / 产品空镜 ／画面一致性：影调居中、理性对峙；MG 双栏对比卡统一深色底；母题剪刀叉在此做两栏分隔。", "shots": [{"shot_id": "S47", "form": "raw", "material": ["cloud"], "script": "大疆强在供应链规模、自研芯片、还有无人机业务反哺的钱。它能在同等产品上，用更低的价格去卖。", "visual_description": "① 大疆无人机产线 / 供应链空镜（cloud）满屏。② 硬朗快切、'规模碾压'的体量感；优势名词随口播入耳。"}, {"shot_id": "S48", "form": "mg-compose", "material": ["cloud"], "script": "所以这不是一场产品力对产品力的碾压，是一场产品力对规模的持久战。", "visual_description": "① 产品力 vs 规模的持久战双栏。② 底为双品牌产品空镜（cloud）压暗。③ duo_compare 组件：左栏『影石·产品力』暖金、右栏『大疆·规模』中性灰，中间 scissor_motif 剪刀叉做分隔线。④ 信息层：'不是碾压、是持久战'小字注脚。⑤ 念到『产品力』左栏点亮，念到『规模』右栏点亮，中间剪刀叉缓慢张开、两栏对峙定格。"}, {"shot_id": "S49", "form": "raw", "material": ["cloud"], "script": "影石的产品力能打，但它能不能在价格战里，把产品力重新变成利润，这才是真正的悬念。", "visual_description": "① 影石相机产品实拍（cloud）满屏。② 影调居中、留白，'真正悬念'一句落在空镜上，为估值段蓄势。"}]}, {"scene_id": "A15", "scene_title": "估值·市盈率失真", "scene_design": "专名清单：影石创新（公司）／范围：中国 ／年代：现代 ／素材来源：行情屏 / 财报图表空镜 ／素材偏好：留白给 MG ／画面一致性：影调压暗、语气转理性；MG 公式 / 数据卡统一深色底 + 暖金数字；母题剪刀叉作底纹。", "shots": [{"shot_id": "S50", "form": "raw", "material": ["a-roll"], "script": "最后落到大家最关心的：现在这个价，到底贵不贵。", "visual_description": "① 主播半身正面对镜的纯露脸口播。② 中近景、提词器辅助，语气转卖关子，念到'贵不贵'时略停顿、看向镜头。"}, {"shot_id": "S51", "form": "mg-compose", "material": ["cloud"], "script": "先说市盈率。现在影石的市盈率是 103 倍，看着吓人，但这是假的。", "visual_description": "① PE 103 倍大字报 + 假的标签。② 底为行情屏空镜（cloud）压暗。③ big_number 组件。④ 信息层砸『103 倍』暖金，角标盖一个红色『假』戳。⑤ 念到『103 倍』数字滚动，念到『这是假的』红色『假』戳盖章式落下、数字变灰。"}, {"shot_id": "S52", "form": "mg-compose", "material": ["cloud"], "script": "因为它的利润崩了，分母变小了，市盈率被硬生生抬上去了。拿 103 倍说它贵，是不对的，因为它的利润正处在最难看的时候。", "visual_description": "① PE 公式失真示意。② 底为财报图表空镜（cloud）压暗。③ 一条 PE＝股价÷利润 公式，分母框被箭头缩小、商数被抬高。④ 信息层：分母标『利润↓崩了』、商数标『PE 被抬高』，补坐标『利润最难看的时刻』。⑤ 念到『分母变小』分母框收缩，念到『抬上去了』商数放大上浮，公式整体定格。"}, {"shot_id": "S53", "form": "raw", "material": ["cloud"], "script": "所以影石现在不能看市盈率，得看市销率。", "visual_description": "① 行情屏 / 数据空镜（cloud）满屏。② 压暗收束、留白，'得看市销率'落在空镜上，引入下一段。"}]}, {"scene_id": "A16", "scene_title": "市销率·同行对比", "scene_design": "专名清单：影石创新（公司）、立讯精密 / 京东方 / 歌尔股份（同行）／范围：中国 ／年代：现代 ／素材来源：消费电子产线空镜 ／素材偏好：产线 / 产品空镜 ／画面一致性：影调压暗、语气理性；MG 对比 / 公式卡统一深色底；母题剪刀叉做分隔。", "shots": [{"shot_id": "S54", "form": "mg-compose", "material": ["cloud"], "script": "市销率，就是市值除以营收。影石现在市值 454 亿，过去一年营收大概 116 亿，算下来市销率差不多 3.9 倍。", "visual_description": "① 市销率公式 + 计算过程卡。② 底为消费电子产线空镜（cloud）压暗。③ 一条 市销率＝454 亿 ÷ 116 亿 公式，商数标出。④ 信息层：分子『市值 454 亿』、分母『营收 116 亿』、商『≈3.9 倍』暖金。⑤ 念到『454 亿』『116 亿』逐项填入，念到『3.9 倍』商数滚动落定、整式放大。"}, {"shot_id": "S55", "form": "mg-compose", "material": ["cloud"], "script": "什么概念？一般的消费电子公司，像立讯精密、京东方、歌尔股份，市销率也就 1.5 到 2 倍。", "visual_description": "① 同行市销率对比卡。② 底为同行产线空镜（cloud）压暗。③ 票据式排行榜：立讯精密 / 京东方 / 歌尔股份三行，市销率均标 1.5—2 倍区间。④ 信息层：三行灰色区间，补坐标『一般消费电子 1.5—2 倍』。⑤ 念到三家公司名对应行依次扫入，1.5—2 倍区间高亮定格。"}, {"shot_id": "S56", "form": "mg-compose", "material": ["cloud"], "script": "影石给了 3.9 倍，几乎是它们的两倍。这个溢价哪来的？就是市场在赌它那 50% 的增速，赌它利润拐点早点来。", "visual_description": "① 溢价来源对比卡。② 底为消费电子空镜（cloud）压暗。③ duo_compare 组件：左『影石 3.9 倍』暖金、右『同行 1.5—2 倍』灰，中间剪刀叉分隔。④ 信息层补坐标：'≈同行两倍'注脚 + '赌 50% 增速'标签。⑤ 念到『3.9 倍』左柱拔高至右柱近两倍，念到『赌它那 50%』增速标签弹出，整组定格。"}]}, {"scene_id": "A17", "scene_title": "估值判断·泡沫挤掉大半", "scene_design": "专名清单：影石创新（公司）／范围：中国 ／年代：现代 ／素材来源：行情屏空镜 ／素材偏好：留白给 MG ／画面一致性：影调压暗、语气转判断；母题剪刀叉在此化为全片最完整装置；MG 统一深色底。", "shots": [{"shot_id": "S57", "form": "mg-compose", "material": ["a-roll"], "script": "所以我的判断是：现在这个价，谈不上便宜，但也已经把泡沫挤掉大半了。", "visual_description": "① 估值判断大字报。② 底为 a-roll 主播半身正面对镜、语气理性加重，压暗作衬。③ 主播居中偏下、上方留白叠大字。④ 信息层大字『泡沫挤掉大半』，暖金 + 红色下挫箭头点缀。⑤ 念到『谈不上便宜』先压暗，念到『挤掉大半』大字暖金点亮、箭头小幅回抽定格。"}, {"shot_id": "S58", "form": "mg-pure", "material": [], "script": "它从 1400 亿跌到 454 亿，最疯狂的那部分已经跌没了。剩下这 454 亿，买的是“利润拐点会来”这个预期，不是现价的便宜。", "visual_description": "① 背离剪刀叉全片核心装置（框架型）：股价向下 vs 预期向上。② 深色网格设计稿底 + 全片母题底纹。③ 一根红色向下坠落曲线（股价 1400 亿→454 亿）与一根金色向上箭头（利润拐点预期）形成剪刀分叉，右侧上下双轨时间轴。④ 信息层：红线端点标『1400 亿』『454 亿』，金线标『利润拐点预期』，补坐标『跌没了的最疯狂部分』灰区。⑤ 念到『1400 亿』红线下坠，念到『454 亿』红线触底、灰区褪去，念到『利润拐点会来』金线反向抬起、两线分叉成型定格。"}, {"shot_id": "S59", "form": "mg-compose", "material": ["cloud"], "script": "我自己用市销率粗算，按消费电子给个 2.5 到 3 倍，这 116 亿营收对应的，大概就是 300 亿到 350 亿上下的量级。", "visual_description": "① 市销率粗算刻度尺装置。② 底为行情屏空镜（cloud）压暗。③ 一把横向刻度尺：2.5 倍—3 倍区间，映射 300 亿—350 亿。④ 信息层：刻度标『2.5—3 倍』，数值标『≈300 亿—350 亿』暖金。⑤ 念到『2.5 到 3 倍』刻度区间亮起，念到『300 亿到 350 亿』映射数值滚动落定、刻度尺放大定格。"}, {"shot_id": "S60", "form": "raw", "material": ["a-roll"], "script": "先声明，这是我个人按一套算法估的，给你一把衡量的尺子，不是说它一定会跌到那，市场短期认不认账，从来不听估值模型的。", "visual_description": "① 主播半身正面对镜的纯露脸口播。② 近景、提词器辅助，语气转客观平衡、表态担责，念到'不是一定'时微微摆手。"}]}, {"scene_id": "A18", "scene_title": "三信号·盯什么", "scene_design": "专名清单：影石创新（公司）、大疆（公司）、存储芯片（物料）／范围：中国 + 全球 ／年代：现代 ／素材来源：芯片 / 产品空镜 ／素材偏好：留白给 MG ／画面一致性：影调压暗、语气转清单式；MG 三信号图标卡统一深色底 + 暖金；母题剪刀叉作底纹。", "shots": [{"shot_id": "S61", "form": "mg-compose", "material": ["cloud"], "script": "那这只股票，到底该盯什么？我给三个信号。", "visual_description": "① 三信号章节卡。② 底为行情屏空镜（cloud）压暗。③ chapter_card 组件 + 三枚待点亮信号位。④ 信息层：标题『三个信号』+ 三枚空槽。⑤ 序号砸入、标题扫入，三枚空槽预备闪一下，进入逐条。"}, {"shot_id": "S62", "form": "mg-compose", "material": ["cloud"], "script": "第一，盯存储芯片的价格拐点，存储什么时候见顶回落，它的毛利率才能回升。", "visual_description": "① 信号一：存储价格拐点图标卡。② 底为芯片空镜（cloud）压暗。③ 一枚信号图标（存储芯片 + 见顶回落箭头）+ 右侧文字。④ 信息层：图标点亮，文字『盯存储价格拐点 → 毛利率回升』。⑤ 念到『价格拐点』图标亮起、见顶回落箭头翻转，定格。"}, {"shot_id": "S63", "form": "mg-compose", "material": ["cloud"], "script": "第二，盯大疆和它的价格战，是继续打，还是双方开始默契休战。", "visual_description": "① 信号二：大疆价格战图标卡。② 底为无人机空镜（cloud）压暗。③ 一枚信号图标（对峙双箭头）+ 右侧文字。④ 信息层：图标点亮，文字『盯大疆价格战 → 继续打或休战』，两分叉小箭头。⑤ 念到『继续打』与『默契休战』两箭头分叉闪烁，定格。"}, {"shot_id": "S64", "form": "mg-compose", "material": ["cloud"], "script": "第三，盯它自己，管理层会不会收缩无人机这些烧钱的业务。", "visual_description": "① 信号三：管理层收缩图标卡。② 底为办公空镜（cloud）压暗。③ 一枚信号图标（收缩箭头 + 烧钱业务标签）+ 右侧文字。④ 信息层：图标点亮，文字『盯管理层收缩烧钱业务』。⑤ 念到『收缩』收缩箭头回拨、标签被划掉，定格。"}, {"shot_id": "S65", "form": "mg-compose", "material": ["cloud"], "script": "这三个信号，任何一个出现实质变化，这公司的逻辑都会跟着变。", "visual_description": "① 三信号汇总呼应。② 底为行情屏空镜（cloud）压暗 + scissor_motif 剪刀叉底纹。③ 三枚已点亮的信号图标横排。④ 信息层：三图标连线汇至中心一个'逻辑'节点。⑤ 念到『任何一个出现实质变化』三图标逐次脉冲，念到『逻辑都会跟着变』中心节点点亮、整组定格。"}]}, {"scene_id": "A19", "scene_title": "收尾判断·成长股", "scene_design": "专名清单：影石创新（公司）／范围：中国 ／年代：现代 ／素材来源：产品空镜 / 行情屏空镜 ／素材偏好：留白给 MG ／画面一致性：影调压暗、语气转收束；母题剪刀叉作收尾底纹；MG 大字报统一深色底。", "shots": [{"shot_id": "S66", "form": "mg-compose", "material": ["a-roll"], "script": "说白了，影石创新不是一家产品不行的公司，它是一家产品能打、但赚钱这件事暂时被三头狼卡住的公司。", "visual_description": "① 收尾判断大字报 + 三头狼回呼。② 底为 a-roll 主播半身正面对镜、语气加重，压暗作衬。③ 主播居中偏下、上方留白叠大字。④ 信息层大字『产品能打 · 被三头狼卡住』，暖金 + 红色三向箭头暗纹回呼 S22。⑤ 念到『产品能打』暖金点亮，念到『三头狼卡住』三向红色箭头暗纹一闪，定格。"}, {"shot_id": "S67", "form": "raw", "material": ["cloud"], "script": "它的底子还在，问题是这场价格战，它得熬多久。", "visual_description": "① 影石产品 / 行情空镜（cloud）满屏。② 压暗审视、留白，'熬多久'的悬而未决感。"}, {"shot_id": "S68", "form": "mg-compose", "material": ["a-roll"], "script": "我个人倾向于，别把它当成一个跌了七成就该捡的便宜，也别当成一个利润归零就该丢的破烂。", "visual_description": "① 双否定态度大字报。② 底为 a-roll 主播半身正面对镜、语气理性，压暗作衬。③ 主播居中偏下、上方留白叠双行大字。④ 信息层双行：『不是捡的便宜』灰、『不是丢的破烂』灰，中间一个暖金'？'。⑤ 念到两个'别当成'两行大字依次淡入，念完暖金问号定格。"}, {"shot_id": "S69", "form": "mg-compose", "material": ["cloud"], "script": "它就是一个高增长、但暂时不赚钱的成长股，值不值这个价，取决于你敢不敢赌它的利润拐点。", "visual_description": "① 成长股定性金句卡。② 底为行情屏空镜（cloud）压暗 + scissor_motif 剪刀叉底纹。③ 中部金句卡：『高增长 · 暂时不赚钱的成长股』。④ 信息层补一句『赌不赌利润拐点』暖金。⑤ 念到『高增长』金线上冲、念到『暂时不赚钱』红线下压，念到『利润拐点』两线分叉呼应母题，定格。"}]}, {"scene_id": "A20", "scene_title": "价值锚·风险提示", "scene_design": "专名清单：蛋炒饭财经（账号）／范围：中国 ／年代：现代 ／素材来源：无 ／素材偏好：无 ／画面一致性：影调压暗、语气郑重；价值锚与风险卡统一账户色板；母题剪刀叉收成一条底线。", "shots": [{"shot_id": "S70", "form": "mg-compose", "material": ["a-roll"], "script": "说到底，我能保证的只有一件事：踏踏实实做研究，本本分分看数据，剩下的，自己拿主意。", "visual_description": "① 账号价值锚大字报。② 底为 a-roll 主播半身正面对镜、语气郑重担责，压暗作衬。③ 主播居中偏下、上方留白叠大字。④ 信息层大字『踏踏实实做研究 · 本本分分看数据』暖金，注脚『剩下的自己拿主意』。⑤ 念到两句十六字大字逐字敲入，念完注脚淡入定格。"}, {"shot_id": "S71", "form": "mg-pure", "material": [], "script": "以上仅为个人分析，不构成投资建议，股市有风险，入市需谨慎。", "visual_description": "① 风险提示固定卡。② 纯色深灰底 + 细金线框。③ 居中两行风险提示文字（无衬线黑体）。④ 信息层：『个人分析 · 不构成投资建议』『股市有风险 · 入市需谨慎』。⑤ 两行文字依次淡入、细金线框闭合定格，全程静止。"}]}, {"scene_id": "A21", "scene_title": "CTA·互动结尾", "scene_design": "专名清单：影石创新（公司）、蛋炒饭财经（账号）／范围：中国 ／年代：现代 ／素材来源：无 ／素材偏好：无 ／画面一致性：影调回暖、语气转互动；CTA 卡统一账户色板；母题剪刀叉收成尾标点缀。", "shots": [{"shot_id": "S72", "form": "mg-compose", "material": ["a-roll"], "script": "你对影石创新这 454 亿的市值怎么看？是觉得它跌到位了，还是觉得它还得再杀一杀估值？评论区聊聊你的看法。", "visual_description": "① 互动提问大字报。② 底为 a-roll 主播半身正面对镜、语气转互动，压暗作衬。③ 主播居中偏下、上方留白叠大字。④ 信息层大字『454 亿 · 跌到位 还是 再杀估值』，暖金数字 + 双向箭头。⑤ 念到『454 亿』暖金数字点亮，念到『跌到位』『再杀估值』两箭头左右分叉闪烁，定格。"}, {"shot_id": "S73", "form": "mg-compose", "material": ["a-roll"], "script": "觉得有用的帮我点赞收藏，想继续看深度拆解的关注蛋炒饭财经，我带你接着巡礼下一只股票。", "visual_description": "① CTA 结尾。② 底为 a-roll 主播半身正面对镜、语气亲和，压暗作衬。③ 主播居中偏下，底部叠 cta_card 组件。④ 信息层用 cta_card：点赞 / 收藏 / 关注三图标 + 引导文案，尾标 scissor_motif 小点缀。⑤ 念到『点赞收藏』两图标依次点亮，念到『关注蛋炒饭财经』关注图标点亮放大，定格。"}]}]};
+const PLAN = {"sections": [{"title": "📋 基础信息", "lines": ["视频标题：影石创新：营收高增，产品越卖越火，股价为啥脚踝斩", "内容摘要：影石创新产品卖爆全球——上半年营收 55 亿、同比涨 50%、全景相机市占率 71%，股价却从 377 块跌到 113 块、市值从 1400 亿跌到 454 亿。本片拆解\"越卖越亏\"的三大坑：存储涨价、大疆价格战、自己烧钱扩张，判断三者性质不同，收口到产品力与市销率估值，给出三个跟踪信号。", "画幅 / 主发平台：9:16 竖屏（抖音主发）", "年代背景：现代（2025—2026）", "参考风格：严肃财经调查 / 深度解说", "BGM 需求：贴合\"看跌警示 + 反转拆解\"的克制紧张感，中段拆解段落（存储 / 大疆 / 产品力）稍舒缓。"], "wide": false}, {"title": "🎥 素材要求", "lines": ["本次可用素材类型：`a-roll` / `cloud` / `web` / `meme` / `gen-img`", "素材偏好：真实空镜留白给 MG 叠加；数据画面统一深色底 + 暖金数字；避免素人正脸（门店排队/时代广场场景取全景或背影）。", "素材禁忌：禁止用\"影石具体股价数字 / 具体财报数值\"去检索素材（检索必错，改由 MG 代码画）；禁止生成影石或大疆的假产品照片冒充实拍。", "时效性：使用近两年（2024—2026）素材。", "地域 / 范围：中国（科创板）+ 全球门店（东京 / 纽约）背景。", "专名要求：影石创新（Insta360，科创板 688775）、大疆（DJI）、Osmo 360、X5、英伟达、三星 / 海力士 / 美光、立讯精密 / 京东方 / 歌尔股份。", "用户硬性要求：无"], "wide": false}], "style_notes": ["账号固定层：墨黑/炭灰打底 + 暖金点缀；标题/金句用极粗黑体（装饰性可用衬线宋体），正文/数据标注用无衬线黑体，数字用等宽感 semibold；图标克制线性、财经质感。", "情绪偏移：看跌 / 警示——压暗 + 警示黄/红，承载\"业绩好、股价却暴跌七成\"的焦虑反差。", "视觉母题（本期共振）：「背离剪刀叉」——一根金色向上的营收/产品箭头 vs 一根红色向下坠落的股价曲线，形成剪刀分叉，外加「377→113」数字锤；作为 MG 底纹、转场元素、图标灵感贯穿全片（弱处理、不抢主信息）。", "MG 组件：`chapter_card`（章节卡）、`big_number`（数据大字报）、`duo_compare`（双栏对比卡）、`scissor_motif`（剪刀叉母题底纹）、`cta_card`（CTA 卡）。"], "visual_style": {"visual_style": "严肃财经调查/深度解说", "aspect_ratio": "9:16", "color_system": {"color_style": "深色底+暖金", "main_hsb_hue": 45}, "typography": {"title_font": {"font_family": "思源黑体/极粗黑体", "font_weight": "black"}, "body_font": {"font_family": "思源黑体/无衬线黑体", "font_weight": "regular"}, "number_font": {"font_family": "等宽数字 semibold", "font_weight": "semibold"}}, "icon_library": {"style": "克制线性财经图标"}}};
+const FORM_OPTIONS = ["raw", "mg-compose", "mg-pure"];
+const FORM_LABEL = { "raw": "raw · 素材", "mg-compose": "mg-compose · 素材+MG", "mg-pure": "mg-pure · 纯MG" };
+const MAT_TYPES = DATA.available_material_types || ["a-roll","local","cloud","web","meme","gen-img","gen-vid"];
+
+/* ── 统计 ─────────────────────────────── */
+function calcStats() {
+  const shots = allShots();
+  const n = shots.length;
+  const totalChars = shots.reduce((s, x) => s + x.shot.script.length, 0);
+  const formCount = { raw: 0, "mg-compose": 0, "mg-pure": 0 };
+  shots.forEach(x => { formCount[x.shot.form] = (formCount[x.shot.form] || 0) + 1; });
+  const matCount = {};
+  MAT_TYPES.forEach(m => matCount[m] = 0);
+  shots.forEach(x => (x.shot.material || []).forEach(m => { matCount[m] = (matCount[m] || 0) + 1; }));
+  return { n, avg: n ? Math.round(totalChars / n) : 0, totalChars, formCount, matCount };
+}
+function allShots() {
+  const out = [];
+  DATA.scenes.forEach((sc, si) => sc.shots.forEach((sh, hi) => out.push({ scene: sc, si, hi, shot: sh })));
+  return out;
+}
+function renderStats() {
+  const s = calcStats();
+  const fc = FORM_OPTIONS.map(f => {
+    const c = s.formCount[f] || 0;
+    const pct = s.n ? Math.round(c / s.n * 100) : 0;
+    const color = f === "raw" ? "var(--raw)" : f === "mg-pure" ? "var(--pure)" : "var(--compose)";
+    return `<div class="bar-item"><span class="tag">${f}</span>
+      <span class="bar"><i style="width:${pct}%;background:${color}"></i></span>
+      <span class="val">${c} 镜 · ${pct}%</span></div>`;
+  }).join("");
+  const mats = MAT_TYPES.map(m =>
+    `<span class="mat-chip">${m} <b>${s.matCount[m] || 0}</b></span>`).join("");
+  document.getElementById("stats").innerHTML = `
+    <div class="stats-row">
+      <div class="stat-group"><h4>分镜总览</h4>
+        <div class="stat-big">
+          <div><div class="num">${s.n}</div><div class="lbl">分镜总数</div></div>
+          <div><div class="num">${s.avg}</div><div class="lbl">平均每镜字数</div></div>
+          <div><div class="num">${s.totalChars}</div><div class="lbl">口播总字数</div></div>
+        </div></div>
+      <div class="stat-group" style="flex:1;min-width:280px"><h4>分镜类型分布</h4>${fc}</div>
+      <div class="stat-group"><h4>素材类型分布（一镜可多素材，分别计数）</h4><div class="mat-chips">${mats}</div></div>
+    </div>`;
+}
+
+/* ── 渲染 ─────────────────────────────── */
+let focusReq = null; // {si, hi, field, pos}
+
+function esc(s) { return s.replace(/&/g, "&amp;").replace(/</g, "&lt;"); }
+
+function render() {
+  const root = document.getElementById("scenes");
+  root.innerHTML = "";
+  DATA.scenes.forEach((sc, si) => {
+    const sec = document.createElement("div");
+    sec.className = "scene";
+    sec.innerHTML = `
+      <h3 class="scene-head">
+        <span class="sid">${esc(sc.scene_id)}</span>
+        <span class="stitle" contenteditable="true" data-si="${si}">${esc(sc.scene_title)}</span>
+        <span class="count">${sc.shots.length} 镜</span>
+        <span class="scene-design-toggle" data-si="${si}">检索上下文 ▸</span>
+      </h3>
+      <div class="scene-design" contenteditable="true" data-si="${si}" style="display:none">${esc(sc.scene_design || "")}</div>
+      <div class="board">
+        <div class="board-head"><div>分镜 / 类型</div><div>口播脚本</div><div>画面描述</div></div>
+        ${sc.shots.map((sh, hi) => shotRow(sh, si, hi)).join("")}
+      </div>`;
+    root.appendChild(sec);
+  });
+  bindAll();
+  renderStats();
+  if (focusReq) {
+    const sel = `textarea[data-si="${focusReq.si}"][data-hi="${focusReq.hi}"][data-field="${focusReq.field}"]`;
+    const el = document.querySelector(sel);
+    if (el) { el.focus(); el.setSelectionRange(focusReq.pos, focusReq.pos); autoGrow(el); }
+    focusReq = null;
+  }
+}
+
+function shotRow(sh, si, hi) {
+  const opts = FORM_OPTIONS.map(f =>
+    `<option value="${f}" ${f === sh.form ? "selected" : ""}>${FORM_LABEL[f]}</option>`).join("");
+  const mats = (sh.material && sh.material.length)
+    ? sh.material.map(m => `<span class="mat-tag">${m}</span>`).join("")
+    : `<span class="mat-tag none">${sh.form === "mg-pure" ? "纯 MG · 无素材" : "＋ 选择素材"}</span>`;
+  const hint = sh.form === "raw" ? `<span class="mat-hint">raw 仅单选</span>` : "";
+  return `<div class="shot-row">
+    <div class="meta">
+      <div class="shot-id">${esc(sh.shot_id)}</div>
+      <select class="form-sel f-${sh.form}" data-si="${si}" data-hi="${hi}">${opts}</select>
+      <div class="mat-area" data-si="${si}" data-hi="${hi}">${mats}${hint}</div>
+      <div class="char-count" data-cc="${si}-${hi}">${sh.script.length} 字</div>
+    </div>
+    <div class="sc"><textarea class="cell script" data-si="${si}" data-hi="${hi}" data-field="script" rows="1">${esc(sh.script)}</textarea></div>
+    <div class="vd"><textarea class="cell" data-si="${si}" data-hi="${hi}" data-field="visual_description" rows="1">${esc(sh.visual_description)}</textarea></div>
+  </div>`;
+}
+
+function autoGrow(el) { el.style.height = "auto"; el.style.height = el.scrollHeight + "px"; }
+
+/* ── 事件绑定 ─────────────────────────── */
+function bindAll() {
+  document.querySelectorAll("textarea.cell").forEach(el => {
+    autoGrow(el);
+    el.addEventListener("input", () => {
+      const si = +el.dataset.si, hi = +el.dataset.hi;
+      DATA.scenes[si].shots[hi][el.dataset.field] = el.value;
+      autoGrow(el);
+      if (el.dataset.field === "script") {
+        const cc = document.querySelector(`[data-cc="${si}-${hi}"]`);
+        if (cc) cc.textContent = el.value.length + " 字";
+        debounceStats();
+      }
+    });
+    if (el.dataset.field === "script") el.addEventListener("keydown", onScriptKey);
+  });
+  document.querySelectorAll("select.form-sel").forEach(el => {
+    el.addEventListener("change", () => {
+      const si = +el.dataset.si, hi = +el.dataset.hi;
+      const sh = DATA.scenes[si].shots[hi];
+      sh.form = el.value;
+      if (sh.form === "mg-pure") sh.material = [];
+      else if (sh.form === "raw" && sh.material.length > 1) sh.material = [sh.material[0]];
+      focusReq = { si, hi, field: "script", pos: 0 };
+      render();
+    });
+  });
+  document.querySelectorAll(".mat-area").forEach(el => {
+    el.addEventListener("click", ev => {
+      const si = +el.dataset.si, hi = +el.dataset.hi;
+      if (DATA.scenes[si].shots[hi].form === "mg-pure") { toast("mg-pure 为纯代码画面，无素材"); return; }
+      openMatPop(el, si, hi);
+      ev.stopPropagation();
+    });
+  });
+  document.querySelectorAll(".stitle").forEach(el => {
+    el.addEventListener("input", () => { DATA.scenes[+el.dataset.si].scene_title = el.innerText; });
+    el.addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); el.blur(); } });
+  });
+  document.querySelectorAll(".scene-design").forEach(el => {
+    el.addEventListener("input", () => { DATA.scenes[+el.dataset.si].scene_design = el.innerText; });
+  });
+  document.querySelectorAll(".scene-design-toggle").forEach(el => {
+    el.addEventListener("click", () => {
+      const d = document.querySelector(`.scene-design[data-si="${el.dataset.si}"]`);
+      const open = d.style.display !== "none";
+      d.style.display = open ? "none" : "block";
+      el.textContent = open ? "检索上下文 ▸" : "检索上下文 ▾";
+    });
+  });
+}
+
+let statsTimer = null;
+function debounceStats() { clearTimeout(statsTimer); statsTimer = setTimeout(renderStats, 300); }
+
+/* ── 拆分 / 合并 ──────────────────────── */
+function onScriptKey(e) {
+  const el = e.target;
+  const si = +el.dataset.si, hi = +el.dataset.hi;
+  const shots = DATA.scenes[si].shots;
+  const sh = shots[hi];
+
+  if (e.key === "Enter" && !e.shiftKey) {
+    e.preventDefault();
+    const p = el.selectionStart;
+    const before = sh.script.slice(0, p), after = sh.script.slice(p);
+    if (!after.trim()) return; // 末尾回车不拆
+    sh.script = before;
+    const nsh = {
+      shot_id: "",
+      form: sh.form,
+      material: [...(sh.material || [])],
+      script: after,
+      visual_description: sh.visual_description
+    };
+    shots.splice(hi + 1, 0, nsh);
+    renumber();
+    focusReq = { si, hi: hi + 1, field: "script", pos: 0 };
+    render();
+    toast("已拆分，新分镜继承原镜类型与素材");
+  } else if (e.key === "Backspace" && el.selectionStart === 0 && el.selectionEnd === 0) {
+    if (hi === 0) return;
+    e.preventDefault();
+    const prev = shots[hi - 1];
+    const pos = prev.script.length;
+    prev.script += sh.script; // 逐字拼接，不加字符，保持与口播稿一致
+    shots.splice(hi, 1);
+    renumber();
+    focusReq = { si, hi: hi - 1, field: "script", pos };
+    render();
+    toast("已并入上一镜（保留上镜类型与素材）");
+  } else if (e.key === "Delete" && el.selectionStart === el.value.length) {
+    if (hi >= shots.length - 1) return;
+    e.preventDefault();
+    const next = shots[hi + 1];
+    const pos = sh.script.length;
+    sh.script += next.script;
+    shots.splice(hi + 1, 1);
+    renumber();
+    focusReq = { si, hi, field: "script", pos };
+    render();
+    toast("下一镜已并入本镜（保留本镜类型与素材）");
+  }
+}
+
+function renumber() {
+  let i = 1;
+  DATA.scenes.forEach(sc => sc.shots.forEach(sh => {
+    sh.shot_id = "S" + String(i++).padStart(2, "0");
+  }));
+}
+
+/* ── 素材弹层 ─────────────────────────── */
+let pop = null;
+function closePop() { if (pop) { pop.remove(); pop = null; } }
+document.addEventListener("click", closePop);
+
+function openMatPop(anchor, si, hi) {
+  closePop();
+  const sh = DATA.scenes[si].shots[hi];
+  const single = sh.form === "raw";
+  pop = document.createElement("div");
+  pop.className = "mat-pop";
+  pop.innerHTML = `<div class="pop-title">素材类型${single ? "（raw 单选）" : "（可多选）"}</div>` +
+    MAT_TYPES.map(m => `
+      <label><input type="${single ? "radio" : "checkbox"}" name="mat" value="${m}"
+        ${(sh.material || []).includes(m) ? "checked" : ""}> ${m}</label>`).join("");
+  document.body.appendChild(pop);
+  const r = anchor.getBoundingClientRect();
+  pop.style.left = (r.left + window.scrollX) + "px";
+  pop.style.top = (r.bottom + window.scrollY + 6) + "px";
+  pop.addEventListener("click", e => e.stopPropagation());
+  pop.querySelectorAll("input").forEach(inp => {
+    inp.addEventListener("change", () => {
+      if (single) sh.material = [inp.value];
+      else {
+        const cur = new Set(sh.material || []);
+        inp.checked ? cur.add(inp.value) : cur.delete(inp.value);
+        sh.material = MAT_TYPES.filter(m => cur.has(m)); // 保持类型表顺序
+      }
+      render();
+    });
+  });
+}
+
+/* ── 导出 ─────────────────────────────── */
+function exportJSON() {
+  return JSON.stringify({
+    schema_version: DATA.schema_version,
+    available_material_types: DATA.available_material_types,
+    mg_components: DATA.mg_components,
+    plan: PLAN,
+    scenes: DATA.scenes
+  }, null, 2);
+}
+document.getElementById("btn-export").addEventListener("click", () => {
+  const blob = new Blob([exportJSON()], { type: "application/json" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "storyboard_plan.json";
+  a.click();
+  toast("已下载 storyboard_plan.json");
+});
+document.getElementById("btn-copy").addEventListener("click", async () => {
+  await navigator.clipboard.writeText(exportJSON());
+  toast("JSON 已复制到剪贴板");
+});
+
+function toast(msg) {
+  const t = document.getElementById("toast");
+  t.textContent = msg;
+  t.style.opacity = 1;
+  clearTimeout(t._timer);
+  t._timer = setTimeout(() => t.style.opacity = 0, 1800);
+}
+
+/* ── 规划书 / 画风模拟 ─────────────────── */
+function liKV(line, si, li, kind) {
+  const edit = `contenteditable="true" data-kind="${kind}" data-si="${si}" data-li="${li}"`;
+  const i = line.indexOf("：");
+  if (i > 0) return `<li ${edit}><b>${esc(line.slice(0, i + 1))}</b>${esc(line.slice(i + 1))}</li>`;
+  return `<li ${edit}>${esc(line)}</li>`;
+}
+function renderPlan() {
+  const grid = document.getElementById("plan-info");
+  grid.innerHTML = PLAN.sections.map((sec, si) => `
+    <div class="plan-card${sec.wide ? " full" : ""}">
+      <h4>${esc(sec.title)}</h4>
+      <ul>${sec.lines.map((l, li) => liKV(l, si, li, "sec")).join("")}</ul>
+    </div>`).join("");
+  document.getElementById("style-notes").innerHTML =
+    PLAN.style_notes.map((l, li) => liKV(l, 0, li, "style")).join("");
+  // 成片需求/画风文字可编辑，改动写回 PLAN
+  document.querySelectorAll('.plan-card li[contenteditable], #style-notes li[contenteditable]')
+    .forEach(el => {
+      el.addEventListener("input", () => {
+        if (el.dataset.kind === "sec") PLAN.sections[+el.dataset.si].lines[+el.dataset.li] = el.innerText;
+        else PLAN.style_notes[+el.dataset.li] = el.innerText;
+      });
+      el.addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); el.blur(); } });
+    });
+}
+
+function renderPalette() {
+  const vs = PLAN.visual_style || {};
+  const hue = (vs.color_system && vs.color_system.main_hsb_hue) || 45;
+  const gold = `hsl(${hue}, 62%, 62%)`;
+  const warn = `hsl(${hue}, 85%, 58%)`;
+  const swatches = [
+    ["墨黑", "#17181c"], ["炭灰", "#3c3d44"],
+    [`暖金 · 主色 ${hue}°`, gold], ["警示黄", warn],
+  ];
+  document.getElementById("palette").innerHTML = swatches.map(([name, c]) => `
+    <div class="swatch"><div class="chip" style="background:${c}"></div>
+    <div class="name">${esc(name)}</div><div class="hex">${c}</div></div>`).join("");
+  const t = vs.typography || {};
+  document.getElementById("typo").innerHTML = `
+    <div class="t-title">现房销售落地</div>
+    <div class="t-cap">标题 · ${esc((t.title_font || {}).font_family || "极粗黑体")} / ${esc((t.title_font || {}).font_weight || "black")}</div>
+    <div class="t-body">同一个政策，为什么央企在哭、二手房在笑？这条视频把新政拆成三个主体，一个主体一个主体讲透。</div>
+    <div class="t-cap">正文 · ${esc((t.body_font || {}).font_family || "硬朗黑体")} / ${esc((t.body_font || {}).font_weight || "regular")}</div>
+    <div class="t-num">-9% <span style="font-size:16px;color:var(--dim)">2.61%</span></div>
+    <div class="t-cap">数字 · ${esc((t.number_font || {}).font_family || "数字展示体")} / ${esc((t.number_font || {}).font_weight || "semibold")}</div>`;
+}
+
+/* MG 组件样张：按组件名匹配布局示意 */
+function mgMock(key) {
+  if (/chapter|章节/.test(key)) return `
+    <div class="mg-chap"><div class="n">01</div>
+      <div class="r"><div class="nm">买房刚需</div><div class="lb">利好</div></div></div>
+    <div class="mg-foot">母题底纹 · 期房工地冷调 / 现房楼栋暖光</div>`;
+  if (/headline|金句|大字/.test(key)) return `
+    <div class="mg-headline"><u>换游戏规则</u></div>
+    <div class="mg-foot">注脚一行 · 可选</div>`;
+  if (/big_number|单数字/.test(key)) return `
+    <div class="mg-big">-9<span style="font-size:24px">%</span></div>
+    <div class="mg-unit">招商蛇口</div>
+    <div class="mg-foot">注脚一行 · 底部</div>`;
+  if (/data_grid|多数字|并列/.test(key)) return `
+    <div class="mg-grid">
+      <div class="row warn"><span class="k">新开工面积</span><span class="v">-24%</span></div>
+      <div class="row warn"><span class="k">开发投资</span><span class="v">-19%</span></div>
+      <div class="row"><span class="k">账上现金</span><span class="v">上千亿</span></div>
+    </div>
+    <div class="mg-foot">竖屏上下堆叠 · 逐条高亮</div>`;
+  if (/quote|引用/.test(key)) return `
+    <div class="mg-quote"><div class="qm">“</div>
+      <div class="qt">新出让的土地，商品住房优先实行现房销售。</div>
+      <div class="qs">—— 来源注脚</div></div>`;
+  if (/disclaimer|免责/.test(key)) return `
+    <div class="mg-generic">画面主体区域</div>
+    <div class="mg-disc">以上仅为个人分析，不构成投资建议，股市有风险，入市需谨慎。</div>`;
+  return `<div class="mg-generic">${esc(key)}<br>布局示意待定义</div>`;
+}
+function renderMG() {
+  const comps = DATA.mg_components || {};
+  document.getElementById("mg-gallery").innerHTML = Object.entries(comps).map(([key, c]) => `
+    <div class="mg-item">
+      <div class="mg-frame">${mgMock(key)}</div>
+      <div class="mg-name-line">${esc(key)}</div>
+      <div class="mg-desc"><b style="color:var(--text)">布局</b> ${esc(c.layout || "")}</div>
+      <div class="mg-desc"><b style="color:var(--text)">动效</b> ${esc(c.motion || "")}</div>
+      <span class="mg-src">${esc(c.source || "")}</span>
+    </div>`).join("");
+}
+
+renderPlan();
+renderPalette();
+renderMG();
+render();
+</script>
+</body>
+</html>

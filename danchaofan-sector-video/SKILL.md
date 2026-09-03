@@ -32,7 +32,7 @@ DESK="$REPO/bilibili-finance-video"                    # 通用 references + 五
 **复用清单（一律走 `$DESK`，不复制、不改）**：
 
 - 脚本：`$DESK/scripts/` 的 `web_search.py`、`web_fetch.py`、`xueqiu_quote.py`、`xueqiu_hot_posts.py`、`generate_cover.py`。`.env` 里的 key（`QIANFAN_SEARCH_API_KEY`、`LLM_GATEWAY_API_KEY`）也只有那一份，本 skill 不需要自己的 `.env`。
-- 通用 reference：`$DESK/references/` 的 `script-structure.md`、`topic-selection.md`、`script-review.md`、`title-formulas.md`、`cover-prompts.md`、`banned-words.md`、`storyboard-plan.md`、`storyboard-plan-aroll.md`、`data-fetching.md`。
+- 通用 reference：`$DESK/references/` 的 `script-structure.md`、`topic-selection.md`、`script-review.md`、`title-formulas.md`、`cover-prompts.md`、`banned-words.md`、`storyboard-plan.md`、`data-fetching.md`。
 
 本 skill 自己只有一个脚本 `scripts/sector_board.py`（板块级数据，六个现有脚本都要求先知道个股代码，答不了"哪个板块在动、这个板块里谁真受益"）。用法见 [references/sector-data-fetching.md](references/sector-data-fetching.md)。
 
@@ -63,7 +63,7 @@ DESK="$REPO/bilibili-finance-video"                    # 通用 references + 五
 - **阶段一 · 选题（定角度）**：确定板块后立刻建文件夹 → 四路抓数据 → 3 个带钩子的角度 → **停**。
 - **阶段二 · 文稿与标题**：完整口播稿 + 3 个标题 → 起子 agent 走四层对抗性终审（含三条板块专属红线）→ PASS → **停**下等用户定标题。
 - **阶段三 · 封面**：以定稿标题为大字，B站 4:3 + 抖音 3:4 两版。
-- **阶段四 · 分镜规划**：派子 agent 产出 `storyboard_plan.md` 交花生 AI 成片。支持外来稿独立入口。
+- **阶段四 · 分镜规划**：派子 agent 产出 `storyboard_plan.md` 交花生 AI 成片，md 落盘后跑 `python3 <仓库根>/tools/storyboard_html.py <md 路径>` 生成同目录 `storyboard_plan.html` 可视化编辑版。支持外来稿独立入口。
 
 两个决策点是刻意设计的——角度定错后面写得再好也白费，封面在标题定稿前生成则大字会和实际标题对不上。
 
@@ -178,14 +178,14 @@ python3 "$DESK/scripts/generate_cover.py" \
 
 **板块封面追加两条硬规则：**
 
-1. **大字必须同时出现板块名 + 一个具体数字锤**（"电网设备 一夜 -12%"）。纯板块名的封面点击必崩——对照 huasheng 8.3 茅台抽象意象 4.90% 的教训，板块本身就比个股抽象一层，数字锤是唯一能救点击的东西。
+1. **大字必须同时出现板块名 + 一个具体实锤**（物证意象或一句锋利判断，如"电网设备 一夜 -12%"）。纯板块名的封面点击必崩——对照 huasheng 8.3 茅台抽象意象 4.90% 的教训，板块本身就比个股抽象一层，必须给一个具体实锤，不能只有板块名。
 2. **至少出现一个代表股名字**。观众认的是"思源电气"，不是"电网设备"。个股产线那条"两版都必须清晰显示公司中文名"在板块版落成：板块名 + 一个代表股名，位置沿用固定排布（B站版顶部、抖音版最顶部）。
 
 视觉母题从**驱动事件的物证**提炼（行政令签字页、变压器、集装箱、库存仓库、期货盘面），不要放通用 K 线。生成后把提示词与成图路径补写进 `视频基础信息.md` 封面小节。脚本需要 `LLM_GATEWAY_API_KEY`，没设就提醒用户 export，不要卡住流程。
 
 ## 阶段四：分镜规划（花生 AI，封面定稿后自动跑）
 
-完全走 `$DESK/references/storyboard-plan.md`（方案 B「素材混合 MG 动画」、全部云端素材），**派子 agent 去做**，方法论与派单指令让子 agent 自己读。铁律：分镜只能从口播稿原文「切」，**绝不能改、增、删一个字或标点**（花生逐字照念）。用户声明有真人出镜时子 agent 再附加读 `storyboard-plan-aroll.md`。
+完全走 `$DESK/references/storyboard-plan.md`（知识类视频通用框架，素材类型 × 组织形式），**派子 agent 去做**，方法论与派单指令让子 agent 自己读。铁律：分镜只能从口播稿原文「切」，**绝不能改、增、删一个字或标点**（花生逐字照念）。真人出镜（A Roll）是素材类型之一（`a-roll`），本次要露脸就把它加进可用素材类型清单。
 
 **板块版追加一条**：视觉母题从驱动事件的物证提炼（与封面同源），不要放通用 K 线；讲龙头分化那一段的画面用**公司实物/产品线**区分，不要用几个公司 logo 排排站。
 
@@ -256,6 +256,6 @@ python3 "$DESK/scripts/generate_cover.py" \
 - [references/sector-review.md](references/sector-review.md) — 板块终审增量层（三条板块红线 + 第四层追加一问）
 - [references/sector-data-fetching.md](references/sector-data-fetching.md) — `sector_board.py` 手册 + 复用脚本的板块用法 + 两个子 agent 派单
 
-引用 `$DESK` 的通用 reference（按需调阅，别一次性全读）：`topic-selection.md`、`script-structure.md`、`script-review.md`、`banned-words.md`、`title-formulas.md`、`cover-prompts.md`、`storyboard-plan.md`、`storyboard-plan-aroll.md`、`data-fetching.md`。
+引用 `$DESK` 的通用 reference（按需调阅，别一次性全读）：`topic-selection.md`、`script-structure.md`、`script-review.md`、`banned-words.md`、`title-formulas.md`、`cover-prompts.md`、`storyboard-plan.md`、`data-fetching.md`。
 
 脚本：`scripts/sector_board.py`（本 skill 唯一新脚本）+ `$DESK/scripts/` 的 web_search / web_fetch / xueqiu_quote / xueqiu_hot_posts / generate_cover。

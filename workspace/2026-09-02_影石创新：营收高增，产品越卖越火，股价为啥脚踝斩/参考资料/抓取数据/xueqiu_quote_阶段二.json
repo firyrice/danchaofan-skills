@@ -1,0 +1,41 @@
+{
+  "fetched_at": "2026-09-02 16:48:02",
+  "count": 1,
+  "quotes": [
+    {
+      "symbol": "SH688775",
+      "name": "影石创新",
+      "exchange": "SH",
+      "currency": "CNY",
+      "market_status": "已收盘",
+      "timestamp": "2026-09-02 15:00:00",
+      "current": 113.28,
+      "percent": -3.23,
+      "chg": -3.78,
+      "last_close": 117.06,
+      "open": 116.03,
+      "high": 116.79,
+      "low": 112.22,
+      "high52w": 377.03,
+      "low52w": 112.22,
+      "amplitude": 3.9,
+      "market_capital": 45425280000.0,
+      "market_capital_yi": 454.25,
+      "float_market_capital_yi": 293.8,
+      "total_shares": 401000000,
+      "float_shares": 259358231,
+      "pe_ttm": 103.35,
+      "pe_lyr": 48.9,
+      "pe_forecast": 746.95,
+      "pb": 8.63,
+      "ps": null,
+      "dividend_yield": 0.21,
+      "eps": 1.1,
+      "navps": 13.1271,
+      "volume": 3826483,
+      "amount": 435437714.0,
+      "turnover_rate": 1.48,
+      "volume_ratio": 1.19
+    }
+  ]
+}
