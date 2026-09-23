@@ -51,7 +51,7 @@ ln -s "$(pwd)" ~/.codex/skills/bilibili-finance-video
 
 - Python 3.9+，依赖见 `requirements.txt`（`openai`、`playwright`、`beautifulsoup4`、`lxml`）。
 - 雪球抓取脚本需要 Chromium 内核：`playwright install chromium`（或用 `PW_CHROMIUM=/path/to/chrome` 指定已有浏览器）。
-- 封面生成脚本需要 B 站 LLM 网关的 key：`export LLM_GATEWAY_API_KEY=你的key`。
+- 封面生成脚本需要 B 站 LLM 网关的 key：`LLM_GATEWAY_API_KEY`，已内置在 skill 目录下的 `.env`，脚本直接读，无需 export。
 - 联网搜索脚本需要 qianfan 搜索网关的 key：`export QIANFAN_SEARCH_API_KEY=你的key`（也可写进 skill 目录下的 `.env`，已内置一个可用 key）。`web_search.py` 仅用标准库，无需额外安装。
 
 ## 目录结构

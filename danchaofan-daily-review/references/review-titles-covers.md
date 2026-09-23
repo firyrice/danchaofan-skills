@@ -155,6 +155,8 @@ python3 "$DESK/scripts/generate_cover.py" --platform douyin \
 
 无主视觉可用时（纯宏观框架类），退回**纯排版封面**：墨黑底 + 巨大主锤判断 + 暖金细线，不硬塞不相关的实物照。
 
-### 没有 API key 时
+### 关于 API key
 
-`LLM_GATEWAY_API_KEY` 未配置时，**不要卡住流程**。把两版提示词和主锤判断方案写进 `视频基础信息.md` 的封面小节，提醒用户配 key 后再跑，然后继续走阶段四。
+`LLM_GATEWAY_API_KEY` 已固化在 `$DESK/.env`，`generate_cover.py` 自动读取，**直接跑，不要向用户索要 key**。
+
+万一脚本真的报「未找到 LLM_GATEWAY_API_KEY」，**不要卡住流程**：把两版提示词和主锤判断方案写进 `视频基础信息.md` 的封面小节，提醒用户配 key 后再跑，然后继续走阶段四。

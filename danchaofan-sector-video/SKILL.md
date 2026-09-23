@@ -55,17 +55,17 @@ DESK="$REPO/bilibili-finance-video"                    # 通用 references + 五
 
 ## 工作流程总览
 
-正常创作从阶段一开始，四个阶段、中间两个人工决策点，不要跳过（阶段四在封面定稿后自动跑）。**若用户没指定板块**（"这周做哪个板块""帮我挑个板块"），先加跑前置的 **阶段零 · 选板块**。
+正常创作从阶段一开始，四个阶段、中间三个人工决策点，不要跳过（阶段四不自动跑，封面产出后停下等用户确认再进）。**若用户没指定板块**（"这周做哪个板块""帮我挑个板块"），先加跑前置的 **阶段零 · 选板块**。
 
 > **选板块 vs 选题——两道相接但不同的工序**：阶段零决定**做哪个板块**（板块未定 → 全市场板块榜里挑一个）；阶段一决定**这个板块用什么角度做**（板块已定 → 出 3 个角度）。
 
 - **阶段零 · 选板块**（仅当用户没指定板块时触发；独立可触发）：派子 agent 扫板块榜 + 近一周异动 + 政策事件 → 只回传两栏清单 → 停下让用户挑一个。
 - **阶段一 · 选题（定角度）**：确定板块后立刻建文件夹 → 四路抓数据 → 3 个带钩子的角度 → **停**。
 - **阶段二 · 文稿与标题**：完整口播稿 + 3 个标题 → 起子 agent 走四层对抗性终审（含三条板块专属红线）→ PASS → **停**下等用户定标题。
-- **阶段三 · 封面**：以定稿标题为大字，B站 4:3 + 抖音 3:4 两版。
-- **阶段四 · 分镜规划**：派子 agent 产出 `storyboard_plan.md` 交花生 AI 成片，md 落盘后跑 `python3 <仓库根>/tools/storyboard_html.py <md 路径>` 生成同目录 `storyboard_plan.html` 可视化编辑版。支持外来稿独立入口。
+- **阶段三 · 封面**：以定稿标题为大字，B站 4:3 + 抖音 3:4 两版 → **做完停下，等用户明确说要做分镜/视频再进阶段四**。
+- **阶段四 · 分镜规划**（用户在封面后明确要求才跑）：派子 agent 产出 `storyboard_plan.md` 交花生 AI 成片，md 落盘后跑 `python3 <仓库根>/tools/storyboard_html.py <md 路径>` 生成同目录 `storyboard_plan.html` 可视化编辑版。支持外来稿独立入口。
 
-两个决策点是刻意设计的——角度定错后面写得再好也白费，封面在标题定稿前生成则大字会和实际标题对不上。
+三个决策点是刻意设计的——角度定错后面写得再好也白费，封面在标题定稿前生成则大字会和实际标题对不上，分镜规划体量大、确认要做才跑。
 
 ## 阶段零：选板块（仅当用户没指定板块时触发）
 
@@ -149,11 +149,11 @@ mkdir -p "$DIR/封面"
 
 ### 3. 独立终审（换一双眼睛，强制关卡）
 
-**必须走一遍 `$DESK/references/script-review.md` 的四层终审**，第一层硬门禁**追加 [references/sector-review.md](references/sector-review.md) 的三条板块专属红线**。
+**必须走一遍 `$DESK/references/script-review.md` 的三层终审**，第一层硬门禁**追加 [references/sector-review.md](references/sector-review.md) 的板块专属红线**。
 
-- **起一个独立审核子 agent**，喂给它五样输入：定稿全文（含选定标题、封面方向）+ 蛋炒饭受众画像 + 阶段一抓到的板块行情与市场情绪 + **账号 Memory `$WORKSPACE/huasheng.md` 第八节「流量认知与爆款预测」** + **本 skill 的 `references/sector-review.md`**。让它按四层清单对抗性审查。环境起不了子 agent 就做一次硬隔离复审。
+- **起一个独立审核子 agent**，喂给它四样输入：定稿全文（含选定标题、封面方向）+ 蛋炒饭受众画像 + 阶段一抓到的板块行情与市场情绪 + **本 skill 的 `references/sector-review.md`**。让它按三层清单对抗性审查。环境起不了子 agent 就做一次硬隔离复审。
 - **只认逐条核查结果，不认"已检查、合规、数据齐全"这类自评断言**——问题项必须抄原句 + 指出病灶 + 给改法。
-- **前三层不过就打回重写、改完重审，拿到 PASS 判决才继续**。PASS 判决原文写进 `视频基础信息.md` 的终审记录小节，第四层爆款预测写进「投稿前流量预测」小节。
+- **不过就打回重写、改完重审，拿到 PASS 判决才继续**。PASS 判决原文写进 `视频基础信息.md` 的终审记录小节。
 
 ### 阶段二收尾
 
@@ -181,11 +181,11 @@ python3 "$DESK/scripts/generate_cover.py" \
 1. **大字必须同时出现板块名 + 一个具体实锤**（物证意象或一句锋利判断，如"电网设备 一夜 -12%"）。纯板块名的封面点击必崩——对照 huasheng 8.3 茅台抽象意象 4.90% 的教训，板块本身就比个股抽象一层，必须给一个具体实锤，不能只有板块名。
 2. **至少出现一个代表股名字**。观众认的是"思源电气"，不是"电网设备"。个股产线那条"两版都必须清晰显示公司中文名"在板块版落成：板块名 + 一个代表股名，位置沿用固定排布（B站版顶部、抖音版最顶部）。
 
-视觉母题从**驱动事件的物证**提炼（行政令签字页、变压器、集装箱、库存仓库、期货盘面），不要放通用 K 线。生成后把提示词与成图路径补写进 `视频基础信息.md` 封面小节。脚本需要 `LLM_GATEWAY_API_KEY`，没设就提醒用户 export，不要卡住流程。
+视觉母题从**驱动事件的物证**提炼（行政令签字页、变压器、集装箱、库存仓库、期货盘面），不要放通用 K 线。生成后把提示词与成图路径补写进 `视频基础信息.md` 封面小节。`LLM_GATEWAY_API_KEY` 已固化在 `$DESK/.env`，脚本自动读取，**直接跑、不要向用户索要 key**；只有脚本真报未找到 key 时才回头问用户。
 
-## 阶段四：分镜规划（花生 AI，封面定稿后自动跑）
+## 阶段四：分镜规划（花生 AI，用户确认后才跑）
 
-完全走 `$DESK/references/storyboard-plan.md`（知识类视频通用框架，素材类型 × 组织形式），**派子 agent 去做**，方法论与派单指令让子 agent 自己读。铁律：分镜只能从口播稿原文「切」，**绝不能改、增、删一个字或标点**（花生逐字照念）。真人出镜（A Roll）是素材类型之一（`a-roll`），本次要露脸就把它加进可用素材类型清单。
+封面两版成图出来后**先停下**，等用户明确说"做分镜/做成视频"再进这一步。完全走 `$DESK/references/storyboard-plan.md`（知识类视频通用框架，素材类型 × 组织形式），**派子 agent 去做**，方法论与派单指令让子 agent 自己读。铁律：分镜只能从口播稿原文「切」，**绝不能改、增、删一个字或标点**（花生逐字照念）。真人出镜（A Roll）是素材类型之一（`a-roll`），本次要露脸就把它加进可用素材类型清单。
 
 **板块版追加一条**：视觉母题从驱动事件的物证提炼（与封面同源），不要放通用 K 线；讲龙头分化那一段的画面用**公司实物/产品线**区分，不要用几个公司 logo 排排站。
 
@@ -253,7 +253,7 @@ python3 "$DESK/scripts/generate_cover.py" \
 - [references/sector-discovery.md](references/sector-discovery.md) — 选板块方法论（阶段零；四信号模型 + 两栏输出 + 选板块子 agent 派单指令）
 - [references/sector-topic-selection.md](references/sector-topic-selection.md) — 板块选题增量层（七类板块选题池 + 板块专属准入自检）
 - [references/sector-script-structure.md](references/sector-script-structure.md) — 板块口播稿增量层（五段留存单元 + 板块话术 + 板块版估值收口）
-- [references/sector-review.md](references/sector-review.md) — 板块终审增量层（三条板块红线 + 第四层追加一问）
+- [references/sector-review.md](references/sector-review.md) — 板块终审增量层（四条板块专属红线）
 - [references/sector-data-fetching.md](references/sector-data-fetching.md) — `sector_board.py` 手册 + 复用脚本的板块用法 + 两个子 agent 派单
 
 引用 `$DESK` 的通用 reference（按需调阅，别一次性全读）：`topic-selection.md`、`script-structure.md`、`script-review.md`、`banned-words.md`、`title-formulas.md`、`cover-prompts.md`、`storyboard-plan.md`、`data-fetching.md`。
