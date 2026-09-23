@@ -1,0 +1,41 @@
+{
+  "fetched_at": "2026-09-04 12:51:51",
+  "count": 1,
+  "quotes": [
+    {
+      "symbol": "SZ300413",
+      "name": "芒果超媒",
+      "exchange": "SZ",
+      "currency": "CNY",
+      "market_status": "休盘中",
+      "timestamp": "2026-09-04 12:51:45",
+      "current": 21.7,
+      "percent": 7.69,
+      "chg": 1.55,
+      "last_close": 20.15,
+      "open": 20.33,
+      "high": 23.5,
+      "low": 20.33,
+      "high52w": 35.78,
+      "low52w": 13.81,
+      "amplitude": 15.73,
+      "market_capital": 40594641686.0,
+      "market_capital_yi": 405.95,
+      "float_market_capital_yi": 221.71,
+      "total_shares": 1870720815,
+      "float_shares": 1021699958,
+      "pe_ttm": 61.01,
+      "pe_lyr": 33.08,
+      "pe_forecast": 100.64,
+      "pb": 1.76,
+      "ps": null,
+      "dividend_yield": 1.2,
+      "eps": 0.36,
+      "navps": 12.3396,
+      "volume": 189093849,
+      "amount": 4115798862.0,
+      "turnover_rate": 18.51,
+      "volume_ratio": 2.79
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "fetched_at": "2026-09-04 12:51:18",
+  "market": "cn",
+  "sector": {
+    "symbol": "BK0013",
+    "name": "有色冶炼加工",
+    "group": "industry",
+    "current": 2497.97,
+    "percent": 0.0,
+    "amount_yi": null,
+    "market_capital_yi": 27169.97,
+    "turnover_rate": null,
+    "current_year_percent": null,
+    "amplitude": null,
+    "board_source": "xueqiu_bk_index",
+    "period_percent": -13.15,
+    "period_trading_days": 5,
+    "percent_5d": -13.15,
+    "percent_20d": -12.55,
+    "ind_code": null,
+    "ind_code_match": "申万行业列表里没有对应项",
+    "members_error": "未能把板块名映射到申万行业码(申万行业列表里没有对应项)。涨跌家数/资金流/龙头分化这几项缺失，可跑 --list-ind 看申万行业码后用 --ind-code 指定。"
+  }
+}

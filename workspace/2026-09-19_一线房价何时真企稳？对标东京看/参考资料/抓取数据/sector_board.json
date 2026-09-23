@@ -1,0 +1,298 @@
+{
+  "fetched_at": "2026-09-19 16:37:50",
+  "market": "cn",
+  "sector": {
+    "symbol": "BK0053",
+    "name": "房地产",
+    "group": "industry",
+    "current": 1703.67,
+    "percent": 2.31,
+    "amount_yi": 171.06,
+    "market_capital_yi": 8915.7,
+    "turnover_rate": 2.4,
+    "current_year_percent": -6.96,
+    "amplitude": 0.027,
+    "board_source": "xueqiu_bk_index",
+    "period_percent": 2.28,
+    "period_trading_days": 5,
+    "percent_5d": 2.28,
+    "percent_20d": 2.46,
+    "ind_code": "S4303",
+    "ind_code_match": "normalized→房地产服务",
+    "members_agg": {
+      "member_count": 10,
+      "up_count": 5,
+      "down_count": 5,
+      "flat_count": 0,
+      "limit_up_count": 0,
+      "limit_down_count": 0,
+      "percent_equal": 1.35,
+      "percent_weighted": 2.68,
+      "main_net_inflows_yi": 3.09,
+      "members_market_capital_yi": 394.68,
+      "pe_ttm_median": 38.81,
+      "leaders_by_cap": [
+        {
+          "name": "招商积余",
+          "symbol": "SZ001914",
+          "market_capital_yi": 93.89,
+          "percent": 2.06,
+          "pe_ttm": 14.33,
+          "followers": 65841,
+          "main_net_inflows_yi": -0.02
+        },
+        {
+          "name": "我爱我家",
+          "symbol": "SZ000560",
+          "market_capital_yi": 68.31,
+          "percent": 2.84,
+          "pe_ttm": null,
+          "followers": 40716,
+          "main_net_inflows_yi": 0.98
+        },
+        {
+          "name": "世联行",
+          "symbol": "SZ002285",
+          "market_capital_yi": 57.59,
+          "percent": 9.89,
+          "pe_ttm": null,
+          "followers": 110324,
+          "main_net_inflows_yi": 1.75
+        },
+        {
+          "name": "特发服务",
+          "symbol": "SZ300917",
+          "market_capital_yi": 49.99,
+          "percent": 4.27,
+          "pe_ttm": 38.81,
+          "followers": 16148,
+          "main_net_inflows_yi": 0.25
+        },
+        {
+          "name": "*ST皇庭",
+          "symbol": "SZ000056",
+          "market_capital_yi": 29.56,
+          "percent": -1.57,
+          "pe_ttm": null,
+          "followers": 24992,
+          "main_net_inflows_yi": 0.02
+        },
+        {
+          "name": "国创高新",
+          "symbol": "SZ002377",
+          "market_capital_yi": 28.59,
+          "percent": -1.27,
+          "pe_ttm": 98.95,
+          "followers": 19283,
+          "main_net_inflows_yi": 0.14
+        },
+        {
+          "name": "南都物业",
+          "symbol": "SH603506",
+          "market_capital_yi": 21.58,
+          "percent": 0.44,
+          "pe_ttm": 25.38,
+          "followers": 15278,
+          "main_net_inflows_yi": -0.0
+        },
+        {
+          "name": "新大正",
+          "symbol": "SZ002968",
+          "market_capital_yi": 20.86,
+          "percent": -0.86,
+          "pe_ttm": 21.71,
+          "followers": 8339,
+          "main_net_inflows_yi": 0.01
+        }
+      ],
+      "top_gainers": [
+        {
+          "name": "世联行",
+          "percent": 9.89
+        },
+        {
+          "name": "特发服务",
+          "percent": 4.27
+        },
+        {
+          "name": "我爱我家",
+          "percent": 2.84
+        },
+        {
+          "name": "招商积余",
+          "percent": 2.06
+        },
+        {
+          "name": "南都物业",
+          "percent": 0.44
+        }
+      ],
+      "top_losers": [
+        {
+          "name": "*ST皇庭B",
+          "percent": -1.72
+        },
+        {
+          "name": "*ST皇庭",
+          "percent": -1.57
+        },
+        {
+          "name": "国创高新",
+          "percent": -1.27
+        },
+        {
+          "name": "新大正",
+          "percent": -0.86
+        },
+        {
+          "name": "中天服务",
+          "percent": -0.56
+        }
+      ],
+      "members_source": "xueqiu_screener_ind_code",
+      "members_source_note": "成分层按申万行业 S4303 聚合(normalized→房地产服务)，与板块指数成分口径可能不完全一致；percent_equal/percent_weighted 是自算值，报板块涨跌幅请用板块层 percent"
+    },
+    "members": [
+      {
+        "symbol": "SZ002285",
+        "name": "世联行",
+        "current": 2.89,
+        "percent": 9.89,
+        "market_capital_yi": 57.59,
+        "pe_ttm": null,
+        "pb": 2.67,
+        "amount_yi": 7.11,
+        "main_net_inflows_yi": 1.75,
+        "turnover_rate": 12.89,
+        "followers": 110324,
+        "current_year_percent": 1.4
+      },
+      {
+        "symbol": "SZ300917",
+        "name": "特发服务",
+        "current": 29.58,
+        "percent": 4.27,
+        "market_capital_yi": 49.99,
+        "pe_ttm": 38.81,
+        "pb": 4.13,
+        "amount_yi": 4.13,
+        "main_net_inflows_yi": 0.25,
+        "turnover_rate": 8.42,
+        "followers": 16148,
+        "current_year_percent": -23.61
+      },
+      {
+        "symbol": "SZ000560",
+        "name": "我爱我家",
+        "current": 2.9,
+        "percent": 2.84,
+        "market_capital_yi": 68.31,
+        "pe_ttm": null,
+        "pb": 0.73,
+        "amount_yi": 12.48,
+        "main_net_inflows_yi": 0.98,
+        "turnover_rate": 18.82,
+        "followers": 40716,
+        "current_year_percent": -0.68
+      },
+      {
+        "symbol": "SZ001914",
+        "name": "招商积余",
+        "current": 8.91,
+        "percent": 2.06,
+        "market_capital_yi": 93.89,
+        "pe_ttm": 14.33,
+        "pb": 0.86,
+        "amount_yi": 0.68,
+        "main_net_inflows_yi": -0.02,
+        "turnover_rate": 0.74,
+        "followers": 65841,
+        "current_year_percent": -14.09
+      },
+      {
+        "symbol": "SH603506",
+        "name": "南都物业",
+        "current": 11.49,
+        "percent": 0.44,
+        "market_capital_yi": 21.58,
+        "pe_ttm": 25.38,
+        "pb": 1.7,
+        "amount_yi": 0.41,
+        "main_net_inflows_yi": -0.0,
+        "turnover_rate": 1.89,
+        "followers": 15278,
+        "current_year_percent": -10.22
+      },
+      {
+        "symbol": "SZ002188",
+        "name": "中天服务",
+        "current": 5.37,
+        "percent": -0.56,
+        "market_capital_yi": 17.57,
+        "pe_ttm": 62.59,
+        "pb": 4.76,
+        "amount_yi": 0.38,
+        "main_net_inflows_yi": -0.04,
+        "turnover_rate": 2.7,
+        "followers": 19190,
+        "current_year_percent": -11.68
+      },
+      {
+        "symbol": "SZ002968",
+        "name": "新大正",
+        "current": 9.22,
+        "percent": -0.86,
+        "market_capital_yi": 20.86,
+        "pe_ttm": 21.71,
+        "pb": 1.62,
+        "amount_yi": 0.31,
+        "main_net_inflows_yi": 0.01,
+        "turnover_rate": 1.55,
+        "followers": 8339,
+        "current_year_percent": -24.18
+      },
+      {
+        "symbol": "SZ002377",
+        "name": "国创高新",
+        "current": 3.12,
+        "percent": -1.27,
+        "market_capital_yi": 28.59,
+        "pe_ttm": 98.95,
+        "pb": 7.15,
+        "amount_yi": 2.49,
+        "main_net_inflows_yi": 0.14,
+        "turnover_rate": 9.08,
+        "followers": 19283,
+        "current_year_percent": 9.09
+      },
+      {
+        "symbol": "SZ000056",
+        "name": "*ST皇庭",
+        "current": 2.5,
+        "percent": -1.57,
+        "market_capital_yi": 29.56,
+        "pe_ttm": null,
+        "pb": null,
+        "amount_yi": 1.28,
+        "main_net_inflows_yi": 0.02,
+        "turnover_rate": 5.74,
+        "followers": 24992,
+        "current_year_percent": 24.38
+      },
+      {
+        "symbol": "SZ200056",
+        "name": "*ST皇庭B",
+        "current": 0.57,
+        "percent": -1.72,
+        "market_capital_yi": 6.74,
+        "pe_ttm": null,
+        "pb": null,
+        "amount_yi": 0.0,
+        "main_net_inflows_yi": 0.0,
+        "turnover_rate": 0.09,
+        "followers": 2332,
+        "current_year_percent": -25.0
+      }
+    ]
+  }
+}
