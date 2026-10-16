@@ -1,0 +1,41 @@
+{
+  "fetched_at": "2026-09-23 17:54:56",
+  "count": 1,
+  "quotes": [
+    {
+      "symbol": "SH601012",
+      "name": "隆基绿能",
+      "exchange": "SH",
+      "currency": "CNY",
+      "market_status": "已收盘",
+      "timestamp": "2026-09-23 15:00:00",
+      "current": 11.41,
+      "percent": 0.26,
+      "chg": 0.03,
+      "last_close": 11.38,
+      "open": 11.38,
+      "high": 11.56,
+      "low": 11.32,
+      "high52w": 23.57,
+      "low52w": 10.88,
+      "amplitude": 2.11,
+      "market_capital": 86465768979.0,
+      "market_capital_yi": 864.66,
+      "float_market_capital_yi": 864.66,
+      "total_shares": 7578069148,
+      "float_shares": 7578061602,
+      "pe_ttm": -11.48,
+      "pe_lyr": -13.55,
+      "pe_forecast": -11.81,
+      "pb": 1.8,
+      "ps": null,
+      "dividend_yield": null,
+      "eps": -0.99,
+      "navps": 6.3547,
+      "volume": 62738966,
+      "amount": 719901435.0,
+      "turnover_rate": 0.83,
+      "volume_ratio": 0.95
+    }
+  ]
+}

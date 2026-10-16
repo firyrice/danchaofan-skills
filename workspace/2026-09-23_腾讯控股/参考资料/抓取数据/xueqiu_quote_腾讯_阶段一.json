@@ -1,0 +1,41 @@
+{
+  "fetched_at": "2026-09-23 17:54:05",
+  "count": 1,
+  "quotes": [
+    {
+      "symbol": "HK00700",
+      "name": "腾讯控股",
+      "exchange": "HK",
+      "currency": "HKD",
+      "market_status": "已收盘",
+      "timestamp": "2026-09-23 16:08:14",
+      "current": 441.0,
+      "percent": -2.35,
+      "chg": -10.6,
+      "last_close": 451.6,
+      "open": 453.4,
+      "high": 454.4,
+      "low": 438.6,
+      "high52w": 683.0,
+      "low52w": 411.0,
+      "amplitude": 3.5,
+      "market_capital": 4010951372589.0,
+      "market_capital_yi": 40109.51,
+      "float_market_capital_yi": 40109.51,
+      "total_shares": 9095127829,
+      "float_shares": 9095127829,
+      "pe_ttm": 14.92,
+      "pe_lyr": 16.03,
+      "pe_forecast": 15.21,
+      "pb": 3.04,
+      "ps": null,
+      "dividend_yield": 1.2,
+      "eps": 29.5549,
+      "navps": 145.2548,
+      "volume": 22309793,
+      "amount": 9870438424.13,
+      "turnover_rate": 0.25,
+      "volume_ratio": 0.75
+    }
+  ]
+}

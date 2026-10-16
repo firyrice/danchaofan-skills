@@ -1,0 +1,41 @@
+{
+  "fetched_at": "2026-09-23 17:53:24",
+  "count": 1,
+  "quotes": [
+    {
+      "symbol": "SZ000002",
+      "name": "万科A",
+      "exchange": "SZ",
+      "currency": "CNY",
+      "market_status": "已收盘",
+      "timestamp": "2026-09-23 15:34:48",
+      "current": 3.92,
+      "percent": 2.89,
+      "chg": 0.11,
+      "last_close": 3.81,
+      "open": 3.81,
+      "high": 4.19,
+      "low": 3.75,
+      "high52w": 6.98,
+      "low52w": 2.88,
+      "amplitude": 11.55,
+      "market_capital": 46768381126.0,
+      "market_capital_yi": 467.68,
+      "float_market_capital_yi": 380.83,
+      "total_shares": 11930709471,
+      "float_shares": 9715113154,
+      "pe_ttm": -0.51,
+      "pe_lyr": -0.54,
+      "pe_forecast": -1.6,
+      "pb": 0.46,
+      "ps": null,
+      "dividend_yield": null,
+      "eps": -7.67,
+      "navps": 8.56,
+      "volume": 1066284665,
+      "amount": 4292102816.88,
+      "turnover_rate": 10.98,
+      "volume_ratio": 2.41
+    }
+  ]
+}
