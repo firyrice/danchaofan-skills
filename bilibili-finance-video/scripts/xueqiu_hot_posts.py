@@ -13,14 +13,17 @@
     python3 xueqiu_hot_posts.py SZ000858 --sort new --no-comments
 
 原理:
-    雪球评论区数据来自接口:
-      列表  https://xueqiu.com/query/v1/symbol/search/status.json   (sort=alpha 即「热帖」)
-      详情  https://xueqiu.com/statuses/show.json?id=<id>            (正文全文)
-      评论  https://xueqiu.com/statuses/comments.json?id=<id>        (评论区)
+    雪球评论区数据来自接口 (主站域名以页面实际 origin 为准, 目前是 www.xueqiu.com):
+      列表  <origin>/query/v1/symbol/search/status.json   (sort=alpha 即「热帖」)
+      详情  <origin>/statuses/show.json?id=<id>            (正文全文)
+      评论  <origin>/statuses/comments.json?id=<id>        (评论区)
     这些接口受阿里云 WAF 保护，纯 curl 会被 JS 挑战 / 滑块验证拦截。
     这里用 Playwright 驱动真实 Chromium 打开股票页, 自动通过 WAF 挑战并拿到
     雪球匿名 token, 待 token 就绪后在【页面上下文内】fetch 接口——请求天然带
     合法 cookie, 不触发滑块。返回的 HTML 正文再清洗为纯文本结构化数据。
+    2026-10 起 xueqiu.com 会 302 到 www.xueqiu.com, 若仍请求裸域会跨源被 CORS 拦
+    (Failed to fetch), 裸域本身也只回 WAF 挑战页。所以接口 origin 一律取自页面导航
+    后的 location.origin, 不写死域名。
 
 注意:
     - 列表接口每页硬上限 20 条, 想要更多靠翻页 (maxPage 通常 50, 共约 1000 条)。
@@ -42,9 +45,11 @@ from playwright.sync_api import sync_playwright
 UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
       "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36")
 
-LIST_API = "https://xueqiu.com/query/v1/symbol/search/status.json"
-SHOW_API = "https://xueqiu.com/statuses/show.json"
-COMMENTS_API = "https://xueqiu.com/statuses/comments.json"
+# 接口路径；origin 取页面导航后的 location.origin（见 scrape），不写死域名
+LIST_PATH = "/query/v1/symbol/search/status.json"
+SHOW_PATH = "/statuses/show.json"
+COMMENTS_PATH = "/statuses/comments.json"
+DEFAULT_ORIGIN = "https://www.xueqiu.com"
 
 PAGE_SIZE = 20  # 雪球接口单页硬上限
 
@@ -141,7 +146,7 @@ def page_fetch_json(pg, url):
 # --------------------------------------------------------------------------- #
 #  数据抓取
 # --------------------------------------------------------------------------- #
-def fetch_hot_list(pg, symbol, top, sort, days=None, max_scan_pages=15):
+def fetch_hot_list(pg, origin, symbol, top, sort, days=None, max_scan_pages=15):
     """翻页拉取热帖列表, 收集前 top 条 (去重)。
 
     days 不为空时, 只保留【最近 days 天内】发布的帖子。热帖是按热度(而非时间)
@@ -157,7 +162,7 @@ def fetch_hot_list(pg, symbol, top, sort, days=None, max_scan_pages=15):
     scanned = 0  # 已扫描(未过滤)的帖子数, 供日志观察命中率
     page = 1
     while len(items) < top and page <= max_scan_pages:
-        url = (f"{LIST_API}?symbol={sym}&count={PAGE_SIZE}&source=all"
+        url = (f"{origin}{LIST_PATH}?symbol={sym}&count={PAGE_SIZE}&source=all"
                f"&sort={sort}&page={page}&type=11&comment=0&hl=0")
         status, body, raw = page_fetch_json(pg, url)
         if status != 200 or not body:
@@ -190,20 +195,20 @@ def fetch_hot_list(pg, symbol, top, sort, days=None, max_scan_pages=15):
     return items[:top]
 
 
-def fetch_detail(pg, post_id):
+def fetch_detail(pg, origin, post_id):
     """拉取帖子正文全文 (列表里的 text 可能被截断)。"""
-    status, body, _ = page_fetch_json(pg, f"{SHOW_API}?id={post_id}")
+    status, body, _ = page_fetch_json(pg, f"{origin}{SHOW_PATH}?id={post_id}")
     if status == 200 and body:
         return body
     return None
 
 
-def fetch_comments(pg, post_id, want, scan_pages=3):
+def fetch_comments(pg, origin, post_id, want, scan_pages=3):
     """拉取评论。雪球评论接口只返回时间序、不支持按赞排序, 因此多抓几页,
     再在本地按点赞数降序取前 want 条 (拿到真正的高赞热评)。"""
     comments, seen = [], set()
     for page in range(1, scan_pages + 1):
-        url = (f"{COMMENTS_API}?id={post_id}&count={PAGE_SIZE}&page={page}"
+        url = (f"{origin}{COMMENTS_PATH}?id={post_id}&count={PAGE_SIZE}&page={page}"
                f"&reply=true&asc=false&type=status")
         status, body, _ = page_fetch_json(pg, url)
         if status != 200 or not body:
@@ -240,7 +245,7 @@ def struct_comment(c: dict) -> dict:
     }
 
 
-def struct_post(detail: dict, list_item: dict, comments: list) -> dict:
+def struct_post(detail: dict, list_item: dict, comments: list, origin: str) -> dict:
     """把详情 + 列表元信息 + 评论合并成一条精简结构化记录。"""
     src = detail or list_item
     user = src.get("user", {}) or {}
@@ -256,7 +261,7 @@ def struct_post(detail: dict, list_item: dict, comments: list) -> dict:
         "like_count": like_c,
         "view_count": src.get("view_count", 0),
         "hot_score": (reply_c or 0) + (like_c or 0),
-        "url": f"https://xueqiu.com{target}" if target else None,
+        "url": f"{origin}{target}" if target else None,
     }
     if comments is not None:
         post["top_comments"] = [struct_comment(c) for c in comments]
@@ -304,19 +309,25 @@ def scrape(symbol, top, sort, n_comments, with_comments, days=None, headless=Tru
         else:
             print("[info] token 就绪，开始拉取热帖列表", file=sys.stderr)
 
+        # 接口必须与页面同源，否则页面内 fetch 被 CORS 拦
+        origin = pg.evaluate("location.origin")
+        if not origin.startswith("http") or "xueqiu.com" not in origin:
+            origin = DEFAULT_ORIGIN
+        print(f"[info] 接口 origin: {origin}", file=sys.stderr)
+
         # 1) 列表
-        raw_list = fetch_hot_list(pg, symbol, top, sort)
+        raw_list = fetch_hot_list(pg, origin, symbol, top, sort, days=days)
         print(f"[info] 共取到 {len(raw_list)} 条热帖，逐条加载正文"
               + ("+评论" if with_comments else "") + " ...", file=sys.stderr)
 
         # 2) 逐条详情 + 评论
         for i, li in enumerate(raw_list, 1):
             pid = li.get("id")
-            detail = fetch_detail(pg, pid)
+            detail = fetch_detail(pg, origin, pid)
             comments = None
             if with_comments:
-                comments = fetch_comments(pg, pid, n_comments)
-            posts.append(struct_post(detail, li, comments))
+                comments = fetch_comments(pg, origin, pid, n_comments)
+            posts.append(struct_post(detail, li, comments, origin))
             ncmt = len(comments) if comments else 0
             print(f"[post {i}/{len(raw_list)}] {li.get('reply_count',0)}回复"
                   f" | 正文{'✓' if detail else '✗'} | 评论{ncmt}条", file=sys.stderr)

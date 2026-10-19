@@ -173,6 +173,7 @@ python3 scripts/xueqiu_quote.py SZ300750 SH600519 HK03690 BABA --out /tmp/xq_quo
 - **参数**：`--top` 抓多少条热帖（默认 5），`--comments` 每条帖加载多少条高赞评论（默认 5），`--days` 只取最近多少天内的帖子（默认 30；传 0 不限时间），`--no-comments` 只要正文不要评论，`--sort new` 换成按时间的新帖（默认 `hot` 热帖）。
 - 脚本用 Playwright 驱动本地 Chromium 绕过雪球阿里云 WAF，**首次运行较慢（要过风控挑战），属正常**。全程走 stderr 打印进度，结果 JSON 写到 `--out`。
 - 依赖：`playwright`、`beautifulsoup4`、`lxml`，以及一个 Chromium 内核。首次运行报 `ModuleNotFoundError` 先 `pip install playwright beautifulsoup4 lxml`；报找不到浏览器，脚本会自动查找 `~/Library/Caches/ms-playwright` 下已缓存的 Chromium，也可 `playwright install chromium` 下载，或设 `PW_CHROMIUM=/path/to/chrome` 指定。
+- **域名注意（2026-10-16 修复）**：雪球主站已从 `xueqiu.com` 302 到 `www.xueqiu.com`，热帖接口必须与页面同源，脚本已改为从页面 `location.origin` 取接口域名；若再报 `Failed to fetch`，先查主站是否又换了域名。`stock.xueqiu.com` 的行情/榜单接口走 `ctx.request`，不受影响。
 - 若报「未拿到 xq_a_token」或长时间卡住，隔几十秒重试；不要让它阻塞整个流程，抓不到就在选题里注明"雪球热帖未获取到"，继续用 `web_search.py` 的数据。
 
 **输出结构**（主 agent 读这份 JSON、消化成摘要）：

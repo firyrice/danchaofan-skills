@@ -139,6 +139,28 @@ def extract_article_text(page, content_selector: str = None) -> str:
         return ""
 
 
+def goto_robust(pg, url, timeout=45000, retries=1):
+    """导航并容忍 WAF 跳转。
+
+    雪球 2026-10 起 xueqiu.com → 302 → www.xueqiu.com，叠加阿里云 WAF JS 挑战，
+    页面会多次 navigate，直接 wait_until="domcontentloaded" 偶发卡满超时。
+    这里先等 commit（拿到首个响应），再宽松等 DOM 就绪；超时不算失败，失败重试一次。
+    """
+    for attempt in range(retries + 1):
+        try:
+            pg.goto(url, wait_until="commit", timeout=timeout)
+            try:
+                pg.wait_for_load_state("domcontentloaded", timeout=timeout)
+            except Exception:
+                print("[web_fetch] DOM 就绪等待超时，继续尝试提取", file=sys.stderr)
+            return
+        except Exception as e:
+            if attempt >= retries:
+                raise
+            print(f"[web_fetch] 导航失败，重试: {str(e).splitlines()[0]}", file=sys.stderr)
+            pg.wait_for_timeout(3000)
+
+
 def fetch_page(url: str, content_selector: str = None, wait_seconds: int = 5,
                referer_site: str = None, headless: bool = True) -> dict:
     """
@@ -149,7 +171,7 @@ def fetch_page(url: str, content_selector: str = None, wait_seconds: int = 5,
         content_selector: 正文容器的 CSS 选择器（可选，不指定则自动探测）
         wait_seconds: 页面加载后额外等待秒数（给 JS 渲染时间，默认 5）
         referer_site: 如果目标站需要先访问首页拿 cookie，传首页 URL
-                      （如抓雪球文章时传 "https://xueqiu.com"）
+                      （如抓雪球文章时传 "https://www.xueqiu.com"）
         headless: 是否无头模式
 
     返回:
@@ -189,8 +211,7 @@ def fetch_page(url: str, content_selector: str = None, wait_seconds: int = 5,
                 print(f"[web_fetch] 先访问 {referer_site} 获取 cookie ...",
                       file=sys.stderr)
                 try:
-                    pg.goto(referer_site, wait_until="domcontentloaded",
-                            timeout=20000)
+                    goto_robust(pg, referer_site, timeout=20000, retries=0)
                     pg.wait_for_timeout(3000)
                 except Exception as e:
                     print(f"[web_fetch] referer 页访问异常 (可忽略): {e}",
@@ -198,7 +219,7 @@ def fetch_page(url: str, content_selector: str = None, wait_seconds: int = 5,
 
             # 第 1 步：打开目标页面
             print(f"[web_fetch] 抓取 {url} ...", file=sys.stderr)
-            pg.goto(url, wait_until="domcontentloaded", timeout=30000)
+            goto_robust(pg, url)
 
             # 等待 JS 渲染
             pg.wait_for_timeout(wait_seconds * 1000)
@@ -265,7 +286,7 @@ def main():
     ap.add_argument("--wait", "-w", type=int, default=5,
                     help="页面加载后等待秒数 (默认 5)")
     ap.add_argument("--referer", "-r", default=None,
-                    help="先访问此 URL 获取 cookie（如雪球需先访问 https://xueqiu.com）")
+                    help="先访问此 URL 获取 cookie（如雪球需先访问 https://www.xueqiu.com）")
     ap.add_argument("--out", "-o", default=None,
                     help="输出 JSON 文件路径 (默认打印到 stdout)")
     ap.add_argument("--show", action="store_true",
@@ -278,7 +299,7 @@ def main():
         from urllib.parse import urlparse
         host = urlparse(args.url).netloc
         if "xueqiu.com" in host:
-            auto_referer = "https://xueqiu.com"
+            auto_referer = "https://www.xueqiu.com"  # 裸域会 302 到 www，直接访问省一跳
             print(f"[web_fetch] 自动设置 referer: {auto_referer}", file=sys.stderr)
         elif "eastmoney.com" in host:
             auto_referer = "https://www.eastmoney.com"
