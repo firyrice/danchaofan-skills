@@ -14,6 +14,7 @@
   下文示例为简洁写成 `scripts/xxx.py`，实际调用替换为 `"$SKILL_DIR/scripts/xxx.py"`；落盘到工作台的路径用 `"$WORKSPACE/..."`。
 - **归档铁律**：阶段一及以后，所有 `--out` 一律指向该视频的 `参考资料/抓取数据/xxx.json`，不写 `/tmp`（唯一例外是阶段零选股，那时还没有视频文件夹，才写 `/tmp`）。别覆盖前一轮抓取——同名文件已存在就加后缀（如 `web_search_阶段二.json`），每轮留档。
 - 脚本报错或拿不到结果时，如实告知用户无法获取该数据，**不要用记忆里的旧数据冒充**。
+- 阶段三的证据截图（`evidence_capture.py`、`cninfo_announcements.py`）不在本手册，见 [evidence-capture.md](evidence-capture.md)。它会复用这里的抓取档案：证据链接先从 `参考资料/抓取数据/web_search*.json` 里反查。注意搜索结果里大量是自媒体转载（百家号、东方财富号、搜狐号等），证据截图只收权威出处，判级规则见 evidence-capture.md。雪球热帖是写稿的情绪素材，不作证据截图。
 
 ---
 

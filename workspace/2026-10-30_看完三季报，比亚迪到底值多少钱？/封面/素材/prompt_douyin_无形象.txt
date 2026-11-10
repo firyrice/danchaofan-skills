@@ -1,0 +1,14 @@
+Two reference images are provided:
+- Image 1 (charging gun): the charging gun must match this exactly: a white, smooth, ergonomic handle with a slim curved grip, a blue-to-white gradient lightning-bolt "flash" icon on the side of the head, a round connector face with a circular port, and a thick black cable.
+- Image 2 (charging station): the charging station must match this exactly: a tall teal-cyan T-shaped flash-charging pillar, a long horizontal teal overhead beam with a small lightning icon and the Chinese text "闪充" on its front face, two black cables hanging down from both ends of the beam, a small control panel on the vertical pillar.
+No people, no human faces, no hands, no human figures anywhere in the image.
+
+A professional vertical financial-investigation thumbnail, 3:4 portrait aspect ratio, for a finance short video.
+Single visual focal point: the white flash-charging gun from Image 1, floating large in the lower-middle of the frame, angled slightly toward the viewer, its round connector face glowing with warm golden energy, small golden electric sparks and a bright lightning-bolt light streak shooting upward from the connector, its black cable curving down out of frame. The lightning icon on the gun is clearly visible.
+Background: the teal T-shaped flash-charging station from Image 2 at night, slightly out of focus behind the gun, its teal beam with "闪充" glowing softly. Darken and desaturate the surrounding scene to charcoal so the cover keeps a dark finance tone; the teal of the station stays as a cool accent. Subtle upward-rising light streaks suggest take-off.
+Very top: bold Chinese company name pinned across the top as the dominant headline, the biggest clearest text on the cover, white extra-bold text on a warm gold accent bar: "比亚迪".
+Upper-center, huge extra-bold Chinese text with thick dark outline and slight gold glow: "到底值多少？"
+Directly below it, smaller Chinese text in warm gold: "迪子真的要起飞了？"
+Color scheme: dark charcoal and black with warm gold accents, teal only from the charging station, high contrast, confident but serious tone. Add a dark gradient overlay behind all text so it stays readable.
+No car brand logos, no watermarks, no maps, no flags. All Chinese text must be crisp, correctly written and fully readable, not cropped.
+Style: mobile-first, cinematic product lighting, gritty film grain, oversized bold heavy typography, punchy, eye-catching, 4k.

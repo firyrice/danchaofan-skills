@@ -5,6 +5,8 @@
 用法:
     python3 generate_cover.py --platform bilibili --prompt "封面画面描述" --output 贵州茅台_bilibili.png
     python3 generate_cover.py --platform douyin   --prompt "..."        --output 贵州茅台_douyin.png
+    # 图生图：传参考图（如博主形象照），走 images.edit
+    python3 generate_cover.py --platform douyin --image 形象参考.png --prompt "..." --output 贵州茅台_douyin.png
 
 API key 读取顺序:
     1. 环境变量 LLM_GATEWAY_API_KEY（优先，方便临时覆盖）
@@ -68,6 +70,12 @@ def main():
         default=None,
         help="可选，手动指定尺寸如 1024x768，覆盖平台默认值",
     )
+    parser.add_argument(
+        "--image",
+        action="append",
+        default=None,
+        help="可选，参考图路径（图生图，走 images.edit）；可重复传多张，如博主形象照",
+    )
     args = parser.parse_args()
 
     api_key = _load_api_key()
@@ -89,14 +97,29 @@ def main():
     size = args.size or PLATFORM_SIZES[args.platform]
     client = openai.OpenAI(base_url=BASE_URL, api_key=api_key)
 
-    print("正在生成 " + args.platform + " 封面 (" + size + ") ...", file=sys.stderr)
+    mode = "图生图" if args.image else "文生图"
+    print("正在生成 " + args.platform + " 封面 (" + size + "，" + mode + ") ...", file=sys.stderr)
     try:
-        result = client.images.generate(
-            model=MODEL,
-            prompt=args.prompt,
-            size=size,
-            n=1,
-        )
+        if args.image:
+            files = [open(p, "rb") for p in args.image]
+            try:
+                result = client.images.edit(
+                    model=MODEL,
+                    image=files if len(files) > 1 else files[0],
+                    prompt=args.prompt,
+                    size=size,
+                    n=1,
+                )
+            finally:
+                for f in files:
+                    f.close()
+        else:
+            result = client.images.generate(
+                model=MODEL,
+                prompt=args.prompt,
+                size=size,
+                n=1,
+            )
     except Exception as e:
         print("生成失败：" + str(e), file=sys.stderr)
         return 1

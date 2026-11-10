@@ -24,7 +24,7 @@ SKILL_DIR="$HOME/.claude/skills/bilibili-finance-video"
 WORKSPACE="${DANCHAOFAN_WORKSPACE:-$(dirname "$(cd "$SKILL_DIR" && pwd -P)")/workspace}"
 ```
 
-下文示例为简洁写成 `scripts/xxx.py`，实际调用替换为 `"$SKILL_DIR/scripts/xxx.py"`；凡落盘到工作台的路径一律用 `"$WORKSPACE/..."`（`workspace/` 已是账号级共享工作台，独立于本 skill，`danchaofan-data-tracker`、`danchaofan-comment-reply` 也读写它）。**五个采集脚本（web_search / web_fetch / xueqiu_quote / xueqiu_hot_posts / xueqiu_hot_stocks）的完整用法、参数、JSON 输出结构见 [references/data-fetching.md](references/data-fetching.md)**；**视频发布【之后】的多平台数据抓取（抖音/小红书/B站/视频号 账号级+稿件级）是一条独立工作流，已拆分到 `danchaofan-data-tracker` 技能——见下方「发布后数据抓取」小节。**
+下文示例为简洁写成 `scripts/xxx.py`，实际调用替换为 `"$SKILL_DIR/scripts/xxx.py"`；凡落盘到工作台的路径一律用 `"$WORKSPACE/..."`（`workspace/` 已是账号级共享工作台，独立于本 skill，`danchaofan-data-tracker`、`danchaofan-comment-reply` 也读写它）。**五个采集脚本（web_search / web_fetch / xueqiu_quote / xueqiu_hot_posts / xueqiu_hot_stocks）的完整用法、参数、JSON 输出结构见 [references/data-fetching.md](references/data-fetching.md)**；**证据截图脚本（evidence_capture / cninfo_announcements）的用法和挑证据标准见 [references/evidence-capture.md](references/evidence-capture.md)**；**视频发布【之后】的多平台数据抓取（抖音/小红书/B站/视频号 账号级+稿件级）是一条独立工作流，已拆分到 `danchaofan-data-tracker` 技能——见下方「发布后数据抓取」小节。**
 
 ## 专业分析框架（贯穿选题与文稿）
 
@@ -51,12 +51,12 @@ WORKSPACE="${DANCHAOFAN_WORKSPACE:-$(dirname "$(cd "$SKILL_DIR" && pwd -P)")/wor
 - **阶段零 · 选股**（仅当用户没指定股票时触发；独立可触发）：派子 agent 扫全市场，只回传两栏推荐清单 → 停下让用户挑一只 → 带着这只票进阶段一。
 - **阶段一 · 选题（定角度）**（然后停下等用户选）：确定股票后立刻建文件夹 → 联网抓数据 → 产出 3 个带钩子的选题方案 → 停下让用户选一个。
 - **阶段二 · 文稿与标题**（用户采纳选题后才做，然后停下等用户确认标题）：完整口播稿 + 3 个精华标题 → 独立终审（起子 agent 对抗性三层终审，PASS 才继续）→ 停下让用户确认文稿方向并选定最终标题。
-- **阶段三 · 封面**（用户确认标题后才做，做完停下）：以选定标题为大字，生成 B站(4:3) + 抖音(3:4) 两版成图 → **停下，等用户明确说要做分镜/视频再进阶段四**。
+- **阶段三 · 封面 + 证据截图**（用户确认标题后才做，做完停下）：以选定标题为大字，生成 B站(4:3) + 抖音(3:4) 两版成图；同时给定稿里的关键事实找权威出处（财报公告、政府原文、官方媒体和证券报、券商研报），自动截图并高亮，连同原链接归档到 `参考资料/证据截图/`；只有自媒体出处的说法列进待补清单交给用户 → **停下，等用户明确说要做分镜/视频再进阶段四**。
 - **阶段四 · 分镜规划**（用户在封面后明确要求才跑；独立可触发）：派子 agent 以定稿口播稿为唯一真源，产出 `storyboard_plan.md` 交花生 AI 成片。**也支持单独进入**——用户拿一份现成口播稿（本 skill 之外写的、或别处来的文档）直接说「把这份稿做成分镜/做成视频」，就跳过阶段一~三、只用这一步；没有封面时走无封面降级（见阶段四正文）。反过来，用户「只写稿、不做视频」时，阶段二拿到终审 PASS 即停，不进阶段四。
 
 三个决策点是刻意设计的——选题定错后面写得再好也白费，封面在标题定稿前生成则大字会和实际标题对不上，分镜规划体量大、确认要做才跑。让用户在最便宜的环节做决策，回报最高。
 
-**产出归档**：阶段二的口播稿/标题/终审记录先落成 `视频基础信息.md`（见「统一输出文档」），阶段三封面在标题确认后补写进同一文档，阶段四分镜单独落成 `storyboard_plan.md`（口播稿会重复且两份易漂移，故不并进统一文档，只留一个指针小节）。
+**产出归档**：阶段二的口播稿/标题/终审记录先落成 `视频基础信息.md`（见「统一输出文档」），阶段三封面在标题确认后补写进同一文档，证据截图落在 `参考资料/证据截图/`（入口 `证据清单.md`，元信息头留指针），阶段四分镜单独落成 `storyboard_plan.md`（口播稿会重复且两份易漂移，故不并进统一文档，只留一个指针小节）。
 
 ## 阶段零：选股（仅当用户没指定股票时触发）
 
@@ -156,7 +156,7 @@ mkdir -p "$DIR/封面"                             # 封面/ 放两版封面成�
 
 **若用户改选了另一个标题、或让你改写标题，必须同步回改文稿开头 hook，让开头兑现新标题**（铁律）——标题和开头永远绑定，只改标题不动开头会让 3s/5s 完播率崩。不要在标题确认前抢跑生成封面。
 
-## 阶段三：封面（标题定稿后才做）
+## 阶段三：封面 + 证据截图（标题定稿后才做）
 
 用户确认最终标题后，**以那个标题为封面大字方向**，用 gpt-image-2（走B站LLM网关）生成两版：**B站版 4:3 横版**、**抖音版 3:4 竖版**。
 
@@ -188,11 +188,35 @@ python3 "$SKILL_DIR/scripts/generate_cover.py" \
 
 **key 已固化，直接跑**：`LLM_GATEWAY_API_KEY` 已写在 `$DESK/.env` 里，脚本自动读取（环境变量 > `.env`），**不需要 export，也不要向用户索要 key**。直接执行生成命令即可。只有当脚本真的报「未找到 LLM_GATEWAY_API_KEY」时，才回头问用户。
 
+### 证据截图（和封面同步跑，不用单独问用户）
+
+标题确认后文稿就定了，这时把稿子里"说了就得拿得出来"的事实逐条找**权威出处**截图留档：财报、公告、投资者关系记录截巨潮原文 PDF，税率政策截政府网站原文，行业事件截官方媒体、证券报、主流财经媒体的报道，机构预测截券商研报原文或权威媒体对研报的报道。每张图都高亮稿子引用的那个数，连同原链接、稿中原句、抓取时间写进 `证据清单.md`。截图既是阶段四"新闻引文 / 报告高亮"镜头的真实素材，也是事实出处的留档。**分级名单、挑证据标准、清单写法、跑完怎么检查，读 [references/evidence-capture.md](references/evidence-capture.md)。**
+
+```bash
+EVI="$DIR/参考资料/证据截图"
+# 1. 公司披露链接（A 股）：财报、业绩预告；--ir 查投资者关系活动记录表
+python3 "$SKILL_DIR/scripts/cninfo_announcements.py" <股票名> --keyword 三季度报告
+# 2. 按 evidence-capture.md 写好 "$EVI/证据清单_输入.json"
+#    url 从 参考资料/抓取数据/ 反查；只有自媒体出处的，带权威媒体名专门再搜一轮
+# 3. 查等级，再截图（条目多就后台跑，期间做封面）
+python3 "$SKILL_DIR/scripts/evidence_capture.py" --manifest "$EVI/证据清单_输入.json" --out-dir "$EVI" --check
+python3 "$SKILL_DIR/scripts/evidence_capture.py" --manifest "$EVI/证据清单_输入.json" --out-dir "$EVI"
+```
+
+几条硬规则：
+
+- **只截 A 级（官方原文）和 B 级（官方媒体、证券报、主流财经媒体、券商研报、SMM/Mysteel）**。雪球、股吧、东方财富号、百家号、网易号、搜狐号、微博、公众号的截图没有引用价值，一律不截；脚本会按域名自动拒截。自媒体转载了权威内容，去找原发。
+- **找不到权威出处的说法不截图，写进 manifest 的 `unsourced`**（稿中原句 + 目前出处 + 建议：改稿、降级成定性说法或删掉）。阶段三收尾时把这张待补清单告诉用户，由用户决定改不改稿。不要为了凑截图塞自媒体链接。
+- **highlight 填原文的字面写法**，不是稿子的念法（稿子念"7.5亿"，三季报里是"755,094,599.37"）。
+- **跑完必看主截图**，确认高亮的就是稿中那个数、没被弹窗遮住；用了备用链接的，把条目名称和来源改成实际截到的媒体。
+- 行情数字不截雪球、东财个股页。要截就截交易所官网，并核对口径；行情截图反映抓取那一刻的价格，发布前改了数要 `--force` 重跑。
+- 跑完在 `视频基础信息.md` 元信息头填上证据截图入口、成功条数和待补条数。
+
 ## 阶段四：分镜规划（花生 AI，用户确认后才跑）
 
 封面两版成图出来后**先停下**，等用户明确说"做分镜/做成视频"再把定稿口播稿翻译成花生 AI 能直接吃的分镜规划书 `storyboard_plan.md`，交花生自动成片。分镜方法论是**知识类视频通用框架**（核心模型「素材类型 × 组织形式」），本次可用素材类型在派单时指定。
 
-**这一步派子 agent 去做**（重推理、长输出，隔离在子 agent 里保护主线程）。方法论、输出模板、**派给「分镜规划子 agent」的完整任务指令**都在 [references/storyboard-plan.md](references/storyboard-plan.md)，子 agent 自己去读。铁律：分镜只能从口播稿原文「切」，绝不能改、增、删一个字或标点（花生逐字照念）。真人出镜（A Roll）是素材类型之一（`a-roll`），本次要露脸就把它加进可用素材类型清单，不再单设附加方法论。
+**这一步派子 agent 去做**（重推理、长输出，隔离在子 agent 里保护主线程）。方法论、输出模板、**派给「分镜规划子 agent」的完整任务指令**都在 [references/storyboard-plan.md](references/storyboard-plan.md)，子 agent 自己去读。**派单时把 `参考资料/证据截图/证据清单.md` 一起给它**：清单里每条截图都对应稿中一句原话，切到那句时直接用真截图做新闻引文 / 报告高亮镜头，别让花生生成假的财报图。外来稿走独立入口时，先按 evidence-capture.md 补跑一遍证据截图再派单。铁律：分镜只能从口播稿原文「切」，绝不能改、增、删一个字或标点（花生逐字照念）。真人出镜（A Roll）是素材类型之一（`a-roll`），本次要露脸就把它加进可用素材类型清单，不再单设附加方法论。
 
 **独立入口（外来稿直接做视频）**：用户不走前三阶段、直接拿一份现成口播稿（本 skill 之外写的、或从别处拿来的文档）说「把这份稿做成分镜/做成视频」时，也从这一步单独进——**唯一硬输入就是那份口播稿正文**，其余照常。此时通常没有走完阶段三的封面，走**无封面降级**：视觉母题不再「沿用封面核心意象」，改为直接从稿子主体（公司/行业/核心论点）提炼；情绪温度偏移从稿子本身的多空判断取。降级细节写在 storyboard-plan.md，子 agent 会按无封面路径处理。
 
@@ -253,6 +277,7 @@ python3 "$SKILL_DIR/scripts/generate_cover.py" \
   - 快手: 待填
   - 视频号: 待填
 - 封面文件: 见同目录 `封面/` 文件夹（<标题>_douyin.png、<标题>_bilibili.png）
+- 证据截图: 见 `参考资料/证据截图/证据清单.md`（<成功>/<总数> 条成功，待补权威信源 <N> 条；财报原文 PDF 在 `证据截图/原文/`）
 - 发布后数据: 见同目录 `数据/` 文件夹（抖音_数据.md / B站_数据.md / 小红书_数据.md / 快手_数据.md / 视频号_数据.md；稿件原始 JSON/xlsx 在 `数据/数据_raw/`）
 
 ---
@@ -282,7 +307,12 @@ workspace/
     ├── 参考资料/           # 与本视频相关的外部资料 + 脚本抓来的原始数据，写稿前先读
     │   ├── 参考资料.md      # 用户手动丢进来的精读素材
     │   ├── 雪球热帖-摘要.md  # 热帖消化后的摘要（可直接引用）
-    │   └── 抓取数据/        # 本技能脚本产出的原始 JSON，备查不精读
+    │   ├── 抓取数据/        # 本技能脚本产出的原始 JSON，备查不精读
+    │   └── 证据截图/        # 阶段三：财报公告/政府原文/权威媒体/研报的高亮截图 + 原链接
+    │       ├── 证据清单.md   # 入口：待补权威信源表 + 稿中原句 ↔ 来源 ↔ 权威等级 ↔ 原链接 ↔ 截图（.json 是机读版）
+    │       ├── 证据清单_输入.json  # 截图任务清单（evidence_capture.py 的 --manifest）
+    │       ├── NN_<名>_首屏.png / _高亮.png / _第X页.png / _高亮_pX.png
+    │       └── 原文/        # 财报等 PDF 原文留档
     ├── 数据/              # 发布后各平台稿件数据（一平台一文件，「平台_数据.md」）
     │   ├── 抖音_数据.md / B站_数据.md / 小红书_数据.md / 快手_数据.md / 视频号_数据.md
     │   └── 数据_raw/       # 该稿件原始 JSON/xlsx（旧的顶层 raw/ 已并入这里）
@@ -297,6 +327,7 @@ workspace/
 
 - **精读素材（`参考资料/` 根下）**：每篇一个 `.md`，文件名概括来源与主题（如 `雪球-川糖周掌门-茅台2026半年报.md`）；顶部标注来源 URL、作者、抓取日期，正文放清洗后纯文字。主 agent 消化出的 `雪球热帖-摘要.md` 也放这层。
 - **原始抓取数据（`参考资料/抓取数据/` 子目录）**：脚本产出的原始 JSON 一律落这里，是**备查档案、不精读**。写稿主要吃根目录下的精读素材与摘要，需要回溯某个数字出处时再翻这里。
+- **证据截图（`参考资料/证据截图/` 子目录）**：阶段三由 `scripts/evidence_capture.py` 产出，每条证据一组高亮截图 + 原链接，只收 A/B 级权威出处，入口 `证据清单.md`。这是给成片用的素材和出处留档，写稿时不用读。
 - 用户给的是受 WAF 保护的页面（雪球/东财等）就用 `scripts/web_fetch.py` 抓正文全文，整理成一篇 `.md` 写进 `参考资料/` 根下，别只存链接。
 - **写稿前先通读该视频 `参考资料/` 根下的精读素材与摘要**（不用逐条读 `抓取数据/` 里的原始 JSON）。注意：外部分析里的观点是**素材不是事实**，涉及股价/财报数字仍以核对过的当日值为准。
 
@@ -357,12 +388,15 @@ workspace/
 - [references/cover-prompts.md](references/cover-prompts.md) — 封面提示词模板与方法论（设计基因/物证原则/三级文字/主权红线）
 - [references/storyboard-plan.md](references/storyboard-plan.md) — 分镜规划方法论（阶段四；知识类视频通用框架「素材类型 × 组织形式」+ Method 五步 + 画风双层 + 分镜规划子 agent 派单指令；A Roll 已折入素材类型 `a-roll`）
 - [references/data-fetching.md](references/data-fetching.md) — 创作阶段五个采集脚本手册（web_search / web_fetch / xueqiu_quote / xueqiu_hot_posts / xueqiu_hot_stocks 用法 + JSON 结构 + 选股子 agent 派单）
+- [references/evidence-capture.md](references/evidence-capture.md) — 证据截图（阶段三；A/B/C 信源分级 + 挑哪些证据 + 待补权威信源 + 证据清单写法 + 截图脚本 + 跑完检查 + 与分镜衔接）
 
-脚本（用法详见上面对应的 data-fetching）：
+脚本（用法详见上面对应的 data-fetching / evidence-capture）：
 
 - `scripts/web_search.py` / `web_fetch.py` — 联网搜索 / 抓单个网页正文（替代自带 WebSearch/WebFetch）
 - `scripts/xueqiu_quote.py` / `xueqiu_hot_posts.py` / `xueqiu_hot_stocks.py` — 雪球基础行情 / 热帖 / 全市场热榜
 - `scripts/generate_cover.py` — 调用 gpt-image-2 生成封面
+- `scripts/evidence_capture.py` — 证据截图：按域名判权威等级（拒截自媒体），网页/PDF 打开原文、高亮关键数字、截图并自检，生成证据清单（用法见 evidence-capture.md）
+- `scripts/cninfo_announcements.py` — 巨潮资讯查 A 股公告和投资者关系记录，拿财报/业绩预告/调研纪要原文 PDF 链接
 - `workspace/huasheng.md` — 账号级 Memory，开工前先读
 - `workspace/reports/` — 分析复盘报告目录（写法见其 README.md）
 

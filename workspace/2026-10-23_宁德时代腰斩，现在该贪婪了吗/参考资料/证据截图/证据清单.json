@@ -1,0 +1,158 @@
+{
+  "project": "宁德时代腰斩，现在该贪婪了吗",
+  "items": [
+    {
+      "used_url": "http://static.cninfo.com.cn/finalpage/2026-10-21/1225613175.PDF",
+      "final_url": "http://static.cninfo.com.cn/finalpage/2026-10-21/1225613175.PDF",
+      "files": [
+        "原文/01_三季报主要会计数据.pdf",
+        "01_三季报主要会计数据_第1页.png"
+      ],
+      "hits": {},
+      "page_title": "",
+      "tier": "A",
+      "id": "01",
+      "name": "三季报主要会计数据",
+      "kind": "财报",
+      "url": "http://static.cninfo.com.cn/finalpage/2026-10-21/1225613175.PDF",
+      "source": "宁德时代2026年第三季度报告（巨潮资讯）",
+      "quote": "三季度营收1652亿，同比涨了近六成，归母净利润却只有212亿，同比只涨了14.5%……前三季度经营现金流616亿，同比少了两成多",
+      "captured_at": "2026-10-23 13:24:02",
+      "status": "ok"
+    },
+    {
+      "used_url": "http://static.cninfo.com.cn/finalpage/2026-10-21/1225613175.PDF",
+      "final_url": "http://static.cninfo.com.cn/finalpage/2026-10-21/1225613175.PDF",
+      "files": [
+        "原文/02_三季报资产负债变动说明_应收存货短期借款.pdf",
+        "02_三季报资产负债变动说明_应收存货短期借款_第2页.png"
+      ],
+      "hits": {},
+      "page_title": "",
+      "tier": "A",
+      "id": "02",
+      "name": "三季报资产负债变动说明_应收存货短期借款",
+      "kind": "财报",
+      "url": "http://static.cninfo.com.cn/finalpage/2026-10-21/1225613175.PDF",
+      "source": "宁德时代2026年第三季度报告（巨潮资讯）",
+      "quote": "应收账款从年初的764亿涨到1129亿，涨了48%；存货从945亿涨到1448亿，涨了53%；短期借款从129亿涨到399亿",
+      "captured_at": "2026-10-23 13:24:02",
+      "status": "ok"
+    },
+    {
+      "used_url": "http://static.cninfo.com.cn/finalpage/2026-10-21/1225613175.PDF",
+      "final_url": "http://static.cninfo.com.cn/finalpage/2026-10-21/1225613175.PDF",
+      "files": [
+        "原文/03_三季报应付债券与筹资现金流说明.pdf",
+        "03_三季报应付债券与筹资现金流说明_第3页.png"
+      ],
+      "hits": {},
+      "page_title": "",
+      "tier": "A",
+      "id": "03",
+      "name": "三季报应付债券与筹资现金流说明",
+      "kind": "财报",
+      "url": "http://static.cninfo.com.cn/finalpage/2026-10-21/1225613175.PDF",
+      "source": "宁德时代2026年第三季度报告（巨潮资讯）",
+      "quote": "还新发了近500亿的债券……借款和发债是和配售H股、扩产一起发生的",
+      "captured_at": "2026-10-23 13:24:04",
+      "status": "ok"
+    },
+    {
+      "used_url": "http://static.cninfo.com.cn/finalpage/2026-10-21/1225613175.PDF",
+      "final_url": "http://static.cninfo.com.cn/finalpage/2026-10-21/1225613175.PDF",
+      "files": [
+        "原文/04_三季报回购事项与货币资金.pdf",
+        "04_三季报回购事项与货币资金_第5页.png"
+      ],
+      "hits": {},
+      "page_title": "",
+      "tier": "A",
+      "id": "04",
+      "name": "三季报回购事项与货币资金",
+      "kind": "财报",
+      "url": "http://static.cninfo.com.cn/finalpage/2026-10-21/1225613175.PDF",
+      "source": "宁德时代2026年第三季度报告（巨潮资讯）",
+      "quote": "7月推出200到400亿的回购，全部注销……账上现金和理财加起来4300多亿",
+      "captured_at": "2026-10-23 13:24:04",
+      "status": "ok"
+    },
+    {
+      "used_url": "http://static.cninfo.com.cn/finalpage/2026-10-21/1225613175.PDF",
+      "final_url": "http://static.cninfo.com.cn/finalpage/2026-10-21/1225613175.PDF",
+      "files": [
+        "原文/05_三季报资产负债表_交易性金融资产应收存货.pdf",
+        "05_三季报资产负债表_交易性金融资产应收存货_第6页.png"
+      ],
+      "hits": {},
+      "page_title": "",
+      "tier": "A",
+      "id": "05",
+      "name": "三季报资产负债表_交易性金融资产应收存货",
+      "kind": "财报",
+      "url": "http://static.cninfo.com.cn/finalpage/2026-10-21/1225613175.PDF",
+      "source": "宁德时代2026年第三季度报告（巨潮资讯）",
+      "quote": "账上现金和理财加起来4300多亿……应收账款从年初的764亿涨到1129亿……存货从945亿涨到1448亿",
+      "captured_at": "2026-10-23 13:24:05",
+      "status": "ok"
+    },
+    {
+      "used_url": "http://static.cninfo.com.cn/finalpage/2026-10-21/1225613175.PDF",
+      "final_url": "http://static.cninfo.com.cn/finalpage/2026-10-21/1225613175.PDF",
+      "files": [
+        "原文/06_三季报利润表_税金及附加.pdf",
+        "06_三季报利润表_税金及附加_第9页.png"
+      ],
+      "hits": {},
+      "page_title": "",
+      "tier": "A",
+      "id": "06",
+      "name": "三季报利润表_税金及附加",
+      "kind": "财报",
+      "url": "http://static.cninfo.com.cn/finalpage/2026-10-21/1225613175.PDF",
+      "source": "宁德时代2026年第三季度报告（巨潮资讯）",
+      "quote": "三季报里，前三季度税金及附加35亿，去年同期才18亿，几乎翻倍",
+      "captured_at": "2026-10-23 13:24:08",
+      "status": "ok"
+    },
+    {
+      "used_url": "http://static.cninfo.com.cn/finalpage/2026-10-21/1225613175.PDF",
+      "final_url": "http://static.cninfo.com.cn/finalpage/2026-10-21/1225613175.PDF",
+      "files": [
+        "原文/07_三季报现金流量表_经营活动现金流.pdf",
+        "07_三季报现金流量表_经营活动现金流_第11页.png"
+      ],
+      "hits": {},
+      "page_title": "",
+      "tier": "A",
+      "id": "07",
+      "name": "三季报现金流量表_经营活动现金流",
+      "kind": "财报",
+      "url": "http://static.cninfo.com.cn/finalpage/2026-10-21/1225613175.PDF",
+      "source": "宁德时代2026年第三季度报告（巨潮资讯）",
+      "quote": "前三季度经营现金流616亿，同比少了两成多",
+      "captured_at": "2026-10-23 13:24:09",
+      "status": "ok"
+    },
+    {
+      "used_url": "http://static.cninfo.com.cn/finalpage/2026-10-21/1225613175.PDF",
+      "final_url": "http://static.cninfo.com.cn/finalpage/2026-10-21/1225613175.PDF",
+      "files": [
+        "原文/08_三季报现金流量表_发行债券收到的现金.pdf",
+        "08_三季报现金流量表_发行债券收到的现金_第12页.png"
+      ],
+      "hits": {},
+      "page_title": "",
+      "tier": "A",
+      "id": "08",
+      "name": "三季报现金流量表_发行债券收到的现金",
+      "kind": "财报",
+      "url": "http://static.cninfo.com.cn/finalpage/2026-10-21/1225613175.PDF",
+      "source": "宁德时代2026年第三季度报告（巨潮资讯）",
+      "quote": "还新发了近500亿的债券",
+      "captured_at": "2026-10-23 13:24:09",
+      "status": "ok"
+    }
+  ],
+  "unsourced": []
+}
